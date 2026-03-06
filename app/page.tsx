@@ -199,12 +199,30 @@ export default function HomePage() {
 
             {/* Right — team photo, clean and open */}
             <div className="hero-scale hero-delay-3 relative flex justify-center lg:justify-end">
-              <div className="relative z-10 w-full max-w-lg">
-                <HeroImage
-                  src="/images/michael.png"
-                  alt="The Martin Mortgage Group team — Raleigh NC"
-                  className="w-full h-auto object-contain drop-shadow-2xl"
-                />
+              {/* Decorative floating rings */}
+              <div className="absolute -top-6 -right-6 w-72 h-72 border-2 border-accent-400/20 rounded-full animate-float-slow" />
+              <div className="absolute -bottom-4 -left-4 w-48 h-48 border-2 border-primary-400/15 rounded-full animate-float" style={{ animationDelay: "1s" }} />
+
+              {/* Glow behind photo */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-80 h-80 bg-accent-400/10 rounded-full blur-2xl animate-pulse-glow" />
+              </div>
+
+              <div className="relative z-10 w-72 md:w-96">
+                {/* Photo container with border effect */}
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/30 border border-white/10">
+                  <HeroImage
+                    src="/images/michael-headshot.png"
+                    alt="Michael Martin, Branch Manager — Martin Mortgage Group Raleigh NC"
+                    className="w-full h-auto object-cover"
+                  />
+                  {/* Gradient overlay at bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-primary-900/80 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <p className="text-white font-bold text-sm">Michael Martin</p>
+                    <p className="text-accent-300 text-xs">Founder &amp; Branch Manager</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -300,14 +318,14 @@ export default function HomePage() {
                   </div>
                   <div className="relative w-28 h-28 rounded-full overflow-hidden border-4 border-primary-500 flex items-center justify-center mb-4">
                     <HeadshotImage
-                      src="/images/michael-headshot.png"
+                      src="/images/michael.png"
                       alt="Michael Martin"
                       fallback="MM"
                     />
                   </div>
                   <h3 className="text-xl font-black text-white">Michael Martin</h3>
                   <p className="text-accent-300 font-semibold text-sm mt-1">Founder &amp; Branch Manager</p>
-                  <p className="text-primary-300 text-xs mt-1">NMLS# Insert Number</p>
+                  <p className="text-primary-300 text-xs mt-1">NMLS# 131445</p>
                 </div>
                 <div className="p-8 md:p-10">
                   <p className="text-gray-600 leading-relaxed mb-3">
