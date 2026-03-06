@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | Martin Mortgage Group",
   },
   description:
-    "Martin Mortgage Group is Raleigh, NC's trusted mortgage lender. We offer competitive rates on home purchases, refinancing, FHA, VA, jumbo loans, and down payment assistance programs. Get pre-qualified today.",
+    "Martin Mortgage Group is Raleigh, NC's trusted mortgage lender. We offer personalized expert guidance on home purchases, refinancing, FHA, VA, jumbo loans, and down payment assistance programs. Get pre-qualified today.",
   keywords: [
     "mortgage lender Raleigh NC",
     "home loans Raleigh",
@@ -29,13 +29,13 @@ export const metadata: Metadata = {
     siteName: "Martin Mortgage Group",
     title: "Martin Mortgage Group | Raleigh NC Home Loans",
     description:
-      "Your trusted mortgage partner in Raleigh, NC. Competitive rates, personalized service, and expert guidance for every step of your home financing journey.",
+      "Your trusted mortgage partner in Raleigh, NC. Personalized service and expert guidance for every step of your home financing journey.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Martin Mortgage Group | Raleigh NC Home Loans",
     description:
-      "Your trusted mortgage partner in Raleigh, NC. Competitive rates and expert guidance.",
+      "Your trusted mortgage partner in Raleigh, NC. Personalized service and expert guidance every step of the way.",
   },
   robots: {
     index: true,

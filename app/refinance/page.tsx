@@ -6,7 +6,7 @@ import { refinanceSteps } from "@/lib/chat-steps";
 export const metadata: Metadata = {
   title: "Refinance Your Mortgage in Raleigh NC | Lower Your Rate",
   description:
-    "Refinance your home loan in Raleigh, NC with Martin Mortgage Group. Lower your rate, shorten your term, or access your home equity. Fast closings and competitive rates.",
+    "Refinance your home loan in Raleigh, NC with Martin Mortgage Group. Lower your rate, shorten your term, or access your home equity. Fast closings and personalized expert guidance.",
   keywords: [
     "refinance mortgage Raleigh NC",
     "home refinance North Carolina",

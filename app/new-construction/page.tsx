@@ -6,7 +6,7 @@ import { newConstructionSteps } from "@/lib/chat-steps";
 export const metadata: Metadata = {
   title: "New Construction Home Loans Raleigh NC | Build Your Dream Home",
   description:
-    "New construction financing in Raleigh, NC. Martin Mortgage Group offers construction-to-permanent loans, new build mortgages, and builder financing with competitive rates.",
+    "New construction financing in Raleigh, NC. Martin Mortgage Group offers construction-to-permanent loans, new build mortgages, and builder financing with personalized expert guidance.",
   keywords: [
     "new construction loan Raleigh NC",
     "construction to permanent loan NC",
@@ -56,7 +56,7 @@ const faqItems = [
   {
     question: "How do I choose between a builder\u2019s preferred lender and an independent mortgage broker?",
     answer:
-      "While builders often offer incentives to use their preferred lender, an independent broker like Martin Mortgage Group can shop multiple lenders to find the best overall deal. We frequently beat builder-lender rates even after incentives. Always get a comparison quote \u2014 we\u2019re happy to provide one.",
+      "While builders often offer incentives to use their preferred lender, an independent broker like Martin Mortgage Group provides truly personalized service — we take the time to understand your build and find the best overall deal for you. Always get a comparison quote \u2014 we\u2019re happy to provide one.",
   },
   {
     question: "What if my new construction takes longer than expected?",

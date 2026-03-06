@@ -37,9 +37,9 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-primary-200 text-sm leading-relaxed mb-4">
-              Your trusted mortgage partner in Raleigh, NC. Competitive rates,
-              personalized service, and a team that goes the extra mile for
-              every client.
+              Your trusted mortgage partner in Raleigh, NC. Personalized
+              service, expert guidance, and a team that goes the extra mile
+              for every client.
             </p>
             <a href="tel:9196129978" className="text-accent-300 hover:text-white transition-colors text-sm font-semibold">
               (919) 612-9978

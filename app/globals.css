@@ -66,6 +66,66 @@
 .typing-dot:nth-child(2) { animation-delay: 0.2s; }
 .typing-dot:nth-child(3) { animation-delay: 0.4s; }
 
+/* ── Hero entrance animations ── */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroFadeRight {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes heroFadeLeft {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes heroScale {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.hero-fade-up    { animation: heroFadeUp 0.8s ease-out both; }
+.hero-fade-right { animation: heroFadeRight 0.8s ease-out both; }
+.hero-fade-left  { animation: heroFadeLeft 0.8s ease-out both; }
+.hero-scale      { animation: heroScale 0.8s ease-out both; }
+.hero-delay-1    { animation-delay: 0.1s; }
+.hero-delay-2    { animation-delay: 0.25s; }
+.hero-delay-3    { animation-delay: 0.4s; }
+.hero-delay-4    { animation-delay: 0.55s; }
+.hero-delay-5    { animation-delay: 0.7s; }
+
+/* ── Floating / ambient motion ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-8px) rotate(2deg); }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50%      { opacity: 0.25; transform: scale(1.05); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-float      { animation: float 6s ease-in-out infinite; }
+.animate-float-slow { animation: floatSlow 8s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ── Stat counter grow bar ── */
+@keyframes growWidth {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+.stat-bar { animation: growWidth 1.2s ease-out both; }
+
 /* FAQ accordion */
 .accordion-content {
   display: grid;
