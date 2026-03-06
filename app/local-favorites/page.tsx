@@ -126,24 +126,24 @@ const businesses: LocalSpot[] = [
 
 function SpotCard({ spot }: { spot: LocalSpot }) {
   return (
-    <div className="bg-white rounded-xl border border-warm-200 p-6 hover:shadow-lg transition-shadow group">
+    <div className="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow group">
       <div className="flex items-start justify-between mb-3">
         <div>
-          <h3 className="font-display text-lg font-semibold text-primary-800 group-hover:text-primary-600 transition-colors">
+          <h3 className="font-sans text-lg font-black text-gray-900 group-hover:text-gray-700 transition-colors">
             {spot.name}
           </h3>
           <div className="flex items-center gap-2 mt-1">
-            <span className="text-xs font-medium text-gold-600 bg-gold-50 px-2.5 py-0.5 rounded-full">
+            <span className="text-xs font-medium text-accent-500 bg-accent-50 px-2.5 py-0.5 rounded-full">
               {spot.category}
             </span>
-            <span className="text-xs text-primary-400">{spot.neighborhood}</span>
+            <span className="text-xs text-gray-400">{spot.neighborhood}</span>
           </div>
         </div>
       </div>
-      <p className="text-primary-600 text-sm leading-relaxed mb-3">
+      <p className="text-gray-700 text-sm leading-relaxed mb-3">
         {spot.description}
       </p>
-      <div className="flex items-center gap-2 text-xs text-gold-500 font-medium">
+      <div className="flex items-center gap-2 text-xs text-accent-500 font-medium">
         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
         </svg>
@@ -160,19 +160,19 @@ export default function LocalFavoritesPage() {
       <section className="relative bg-primary-800 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700" />
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/2 w-96 h-96 bg-gold-400 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/3" />
+          <div className="absolute top-0 left-1/2 w-96 h-96 bg-accent-400 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/3" />
         </div>
         <div className="relative container-max px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-center">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-gold-400/20 rounded-full mb-6">
-            <span className="text-gold-300 text-sm font-medium">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-accent-400/20 rounded-full mb-6">
+            <span className="text-accent-500 text-sm font-medium">
               Community Picks
             </span>
           </span>
-          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 max-w-3xl mx-auto">
+          <h1 className="font-sans text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 max-w-3xl mx-auto">
             Our Favorite Local
-            <span className="text-gold-400"> Spots in Raleigh</span>
+            <span className="text-accent-500"> Spots in Raleigh</span>
           </h1>
-          <p className="text-primary-200 text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="text-primary-100 text-lg leading-relaxed max-w-2xl mx-auto">
             We don&apos;t just help you find a house &mdash; we help you find a
             home. Here are some of the places our team loves most in the
             Raleigh-Durham area.
@@ -181,16 +181,16 @@ export default function LocalFavoritesPage() {
       </section>
 
       {/* Restaurants */}
-      <section className="section-padding bg-warm-50">
+      <section className="section-padding bg-gray-50">
         <div className="container-max">
           <div className="text-center mb-12">
-            <span className="text-gold-500 font-semibold text-sm uppercase tracking-wider">
+            <span className="text-accent-500 font-semibold text-sm uppercase tracking-wider">
               Where We Eat
             </span>
-            <h2 className="font-display text-3xl md:text-4xl font-semibold text-primary-800 mt-2 mb-4">
+            <h2 className="font-sans text-3xl md:text-4xl font-black text-gray-900 mt-2 mb-4">
               Restaurants We Love
             </h2>
-            <p className="text-primary-500 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
               From legendary BBQ to award-winning fine dining, these are the
               spots our team recommends to every new homeowner in the Triangle.
             </p>
@@ -208,13 +208,13 @@ export default function LocalFavoritesPage() {
       <section className="section-padding bg-white">
         <div className="container-max">
           <div className="text-center mb-12">
-            <span className="text-gold-500 font-semibold text-sm uppercase tracking-wider">
+            <span className="text-accent-500 font-semibold text-sm uppercase tracking-wider">
               Where We Shop
             </span>
-            <h2 className="font-display text-3xl md:text-4xl font-semibold text-primary-800 mt-2 mb-4">
+            <h2 className="font-sans text-3xl md:text-4xl font-black text-gray-900 mt-2 mb-4">
               Local Businesses We Support
             </h2>
-            <p className="text-primary-500 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
               These are the local gems that make Raleigh such a special place to
               live. We&apos;re proud to be part of this community.
             </p>
@@ -232,10 +232,10 @@ export default function LocalFavoritesPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-800 via-primary-900 to-primary-800" />
         <div className="relative container-max px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="font-sans text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Call Raleigh Home?
           </h2>
-          <p className="text-primary-200 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-primary-100 text-lg mb-8 max-w-2xl mx-auto">
             Let the Martin Mortgage Group help you put down roots in one of
             the best cities in the Southeast. Get pre-qualified today and start
             exploring your new neighborhood.

@@ -72,21 +72,21 @@ export default function PurchasePage() {
       <section className="relative bg-primary-800 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700" />
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-gold-400 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-accent-400 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
         </div>
         <div className="relative container-max px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-gold-400/20 rounded-full mb-6">
-                <span className="text-gold-300 text-sm font-medium">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-accent-400/20 rounded-full mb-6">
+                <span className="text-accent-200 text-sm font-medium">
                   Home Purchase Loans
                 </span>
               </span>
-              <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+              <h1 className="font-sans text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
                 Find the Perfect Loan for Your
-                <span className="text-gold-400"> Dream Home</span>
+                <span className="text-accent-300"> Dream Home</span>
               </h1>
-              <p className="text-primary-200 text-lg leading-relaxed mb-8">
+              <p className="text-primary-100 text-lg leading-relaxed mb-8">
                 Whether you&apos;re a first-time buyer or upgrading to your
                 forever home, Martin Mortgage Group will guide you through every
                 step with competitive rates and personalized service.
@@ -95,12 +95,12 @@ export default function PurchasePage() {
               <div className="grid grid-cols-2 gap-4">
                 {benefits.map((b) => (
                   <div key={b.title} className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-gold-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-accent-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <div>
                       <div className="text-white font-medium text-sm">{b.title}</div>
-                      <div className="text-primary-300 text-xs mt-0.5">{b.description}</div>
+                      <div className="text-primary-200 text-xs mt-0.5">{b.description}</div>
                     </div>
                   </div>
                 ))}
@@ -123,10 +123,10 @@ export default function PurchasePage() {
       <section className="section-padding bg-white">
         <div className="container-max">
           <div className="text-center mb-14">
-            <span className="text-gold-500 font-semibold text-sm uppercase tracking-wider">
+            <span className="text-accent-500 font-semibold text-sm uppercase tracking-wider">
               How It Works
             </span>
-            <h2 className="font-display text-3xl md:text-4xl font-semibold text-primary-800 mt-2 mb-4">
+            <h2 className="font-sans text-3xl md:text-4xl font-black text-gray-900 mt-2 mb-4">
               Your Path to Homeownership
             </h2>
           </div>
@@ -138,11 +138,11 @@ export default function PurchasePage() {
               { step: "04", title: "Close & Move In", desc: "We handle the paperwork. Average close time: 21 days. Welcome home!" },
             ].map((item) => (
               <div key={item.step} className="text-center">
-                <div className="w-14 h-14 bg-gold-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-gold-600 font-display font-bold text-lg">{item.step}</span>
+                <div className="w-14 h-14 bg-accent-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-accent-600 font-sans font-bold text-lg">{item.step}</span>
                 </div>
-                <h3 className="font-display text-lg font-semibold text-primary-800 mb-2">{item.title}</h3>
-                <p className="text-primary-500 text-sm">{item.desc}</p>
+                <h3 className="font-sans text-lg font-black text-gray-900 mb-2">{item.title}</h3>
+                <p className="text-gray-500 text-sm">{item.desc}</p>
               </div>
             ))}
           </div>

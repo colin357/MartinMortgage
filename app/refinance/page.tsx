@@ -69,19 +69,19 @@ export default function RefinancePage() {
       <section className="relative bg-primary-800 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700" />
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold-400 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-400 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3" />
         </div>
         <div className="relative container-max px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-gold-400/20 rounded-full mb-6">
-                <span className="text-gold-300 text-sm font-medium">Refinance Loans</span>
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-accent-400/20 rounded-full mb-6">
+                <span className="text-accent-200 text-sm font-medium">Refinance Loans</span>
               </span>
-              <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+              <h1 className="font-sans text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
                 Refinance & Save on Your
-                <span className="text-gold-400"> Monthly Payment</span>
+                <span className="text-accent-300"> Monthly Payment</span>
               </h1>
-              <p className="text-primary-200 text-lg leading-relaxed mb-8">
+              <p className="text-primary-100 text-lg leading-relaxed mb-8">
                 Whether you want to lower your rate, shorten your term, or access
                 your equity, Martin Mortgage Group makes refinancing simple and
                 stress-free.
@@ -90,12 +90,12 @@ export default function RefinancePage() {
               <div className="space-y-4">
                 {refinanceTypes.map((rt) => (
                   <div key={rt.title} className="flex items-start gap-4 bg-white/5 rounded-xl p-4">
-                    <div className="w-10 h-10 bg-gold-400/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <span className="text-gold-400 font-bold text-lg">{rt.icon}</span>
+                    <div className="w-10 h-10 bg-accent-400/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-accent-300 font-bold text-lg">{rt.icon}</span>
                     </div>
                     <div>
                       <h3 className="text-white font-semibold text-sm">{rt.title}</h3>
-                      <p className="text-primary-300 text-xs mt-0.5">{rt.description}</p>
+                      <p className="text-primary-200 text-xs mt-0.5">{rt.description}</p>
                     </div>
                   </div>
                 ))}

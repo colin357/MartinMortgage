@@ -71,19 +71,19 @@ export default function NewConstructionPage() {
       <section className="relative bg-primary-800 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700" />
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gold-400 rounded-full blur-3xl translate-y-1/3" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-400 rounded-full blur-3xl translate-y-1/3" />
         </div>
         <div className="relative container-max px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-gold-400/20 rounded-full mb-6">
-                <span className="text-gold-300 text-sm font-medium">New Construction</span>
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-accent-400/20 rounded-full mb-6">
+                <span className="text-accent-200 text-sm font-medium">New Construction</span>
               </span>
-              <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+              <h1 className="font-sans text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
                 Build Your Dream Home with
-                <span className="text-gold-400"> Confidence</span>
+                <span className="text-accent-300"> Confidence</span>
               </h1>
-              <p className="text-primary-200 text-lg leading-relaxed mb-8">
+              <p className="text-primary-100 text-lg leading-relaxed mb-8">
                 From new communities in the Triangle to custom builds on your own
                 lot, we offer construction financing that keeps your project on
                 budget and on schedule.
@@ -93,7 +93,7 @@ export default function NewConstructionPage() {
                 {features.map((f) => (
                   <div key={f.title} className="bg-white/5 rounded-xl p-4">
                     <h3 className="text-white font-semibold text-sm mb-1">{f.title}</h3>
-                    <p className="text-primary-300 text-xs">{f.description}</p>
+                    <p className="text-primary-200 text-xs">{f.description}</p>
                   </div>
                 ))}
               </div>

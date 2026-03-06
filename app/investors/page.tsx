@@ -71,19 +71,19 @@ export default function InvestorsPage() {
       <section className="relative bg-primary-800 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700" />
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/3 w-96 h-96 bg-gold-400 rounded-full blur-3xl" />
+          <div className="absolute top-0 left-1/3 w-96 h-96 bg-accent-400 rounded-full blur-3xl" />
         </div>
         <div className="relative container-max px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-gold-400/20 rounded-full mb-6">
-                <span className="text-gold-300 text-sm font-medium">Investor Loans</span>
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-accent-400/20 rounded-full mb-6">
+                <span className="text-accent-200 text-sm font-medium">Investor Loans</span>
               </span>
-              <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+              <h1 className="font-sans text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
                 Financing Built for
-                <span className="text-gold-400"> Real Estate Investors</span>
+                <span className="text-accent-300"> Real Estate Investors</span>
               </h1>
-              <p className="text-primary-200 text-lg leading-relaxed mb-8">
+              <p className="text-primary-100 text-lg leading-relaxed mb-8">
                 From your first rental property to a full portfolio, Martin
                 Mortgage Group offers investor-focused financing with fast
                 closings and flexible qualification.
@@ -93,7 +93,7 @@ export default function InvestorsPage() {
                 {loanTypes.map((lt) => (
                   <div key={lt.title} className="bg-white/5 rounded-xl p-4">
                     <h3 className="text-white font-semibold text-sm mb-1">{lt.title}</h3>
-                    <p className="text-primary-300 text-xs">{lt.description}</p>
+                    <p className="text-primary-200 text-xs">{lt.description}</p>
                   </div>
                 ))}
               </div>
