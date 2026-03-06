@@ -2,6 +2,7 @@ import Link from "next/link";
 import FAQ from "@/components/FAQ";
 import { HeroImage, HeadshotImage } from "@/components/HeroImage";
 import AnimateIn from "@/components/AnimateIn";
+import TestimonialSlider from "@/components/TestimonialSlider";
 
 const services = [
   {
@@ -43,19 +44,32 @@ const services = [
 
 const testimonials = [
   {
-    name: "Sarah & James P.",
-    text: "Michael and his team made our first home purchase so smooth. They walked us through every step and found us an incredible rate. We couldn't be happier!",
-    location: "Cary, NC",
+    name: "Amanda Viele",
+    text: "Nicole Blakeman and the Michael Martin Mortgage Group are an outstanding team to work with. They are organized, communicative, and thorough—always going the extra mile to get the job done. Their processes are smooth, and they make every transaction feel seamless and well-coordinated. Nicole is incredibly professional, proactive, and dedicated to her clients' success. I highly recommend Nicole and the entire MMG team!",
   },
   {
-    name: "David T.",
-    text: "I've refinanced twice with Martin Mortgage Group. Their process is fast, transparent, and they always find ways to save me money. Highly recommend.",
-    location: "Raleigh, NC",
+    name: "Christian Holcomb",
+    text: "As first-time homebuyers, working with Martin Mortgage Group was an incredible experience for us. The entire process was smooth, transparent, and stress-free from start to finish. The team was knowledgeable, patient, and always available to answer our questions. They made homeownership a reality for us with their professionalism, expertise, and genuine care.",
   },
   {
-    name: "Amanda R.",
-    text: "As a first-time buyer, I was overwhelmed. The Martin Mortgage team made it easy, explained everything clearly, and got me into my dream home with down payment assistance!",
-    location: "Durham, NC",
+    name: "Kayla Beckman",
+    text: "I had such a great experience working with Martin Mortgage Group! From start to finish, the process was incredibly smooth and stress-free. The team was professional, responsive, and always willing to take the time to explain everything clearly. They kept me updated every step of the way and truly cared about helping me find the best loan for my situation.",
+  },
+  {
+    name: "Mollie Ward",
+    text: "Martin Mortgage group was instrumental in helping our family purchase our first home and close within 3 weeks. We were buying in an extremely competitive market, and the team went above and beyond. Almost 3 years later, they are still regularly checking in with us. Lots of companies say you're like family, but Martin Mortgage group really does make good on their promise.",
+  },
+  {
+    name: "Jennifer Batten",
+    text: "I just had another smooth closing with Martin Mortgage Group. My husband and I just purchased a home and the process couldn't have gone any smoother. From application to closing, the communication and customer service was phenomenal. We were ready to close days before our appointment at the closing table! This team has earned a customer for life!",
+  },
+  {
+    name: "Anthony Tramondo",
+    text: "Martin Mortgage Group and Fairway Home Mortgage were great to work with. I was selling my home in Long Island and moving to North Carolina and needed a mortgage. Michael Martin, Nicole Blackman and their team worked very closely with us and made it easy. They were very attentive to our requests, answering all our questions. I would highly recommend Martin Mortgage Group.",
+  },
+  {
+    name: "Tyler Hollett",
+    text: "Michael, Nicole and Jodie are absolutely fantastic to work with. Simply put, this has been the easiest house closing I have ever gone through. The team is organized, communicative, and very easy to work with. It feels weird to say, but purchasing a home should not be this stress free!",
   },
 ];
 
@@ -398,26 +412,9 @@ export default function HomePage() {
               <h2 className="text-3xl md:text-4xl font-black text-gray-900 mt-2 mb-4">What Our Clients Say</h2>
             </div>
           </AnimateIn>
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((t, i) => (
-              <AnimateIn key={t.name} animation="fade-up" delay={i * 150}>
-                <div className="bg-white rounded-xl p-8 border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, j) => (
-                      <svg key={j} className="w-5 h-5 text-accent-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-6 italic">&ldquo;{t.text}&rdquo;</p>
-                  <div>
-                    <div className="font-bold text-gray-800 text-sm">{t.name}</div>
-                    <div className="text-gray-400 text-xs">{t.location}</div>
-                  </div>
-                </div>
-              </AnimateIn>
-            ))}
-          </div>
+          <AnimateIn animation="fade-up" delay={150}>
+            <TestimonialSlider testimonials={testimonials} />
+          </AnimateIn>
         </div>
       </section>
 
