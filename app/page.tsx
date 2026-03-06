@@ -197,7 +197,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right — Michael photo with floating frame */}
+            {/* Right — team photo, clean and open */}
             <div className="hero-scale hero-delay-3 relative flex justify-center lg:justify-end">
               {/* Decorative floating rings */}
               <div className="absolute -top-6 -right-6 w-72 h-72 border-2 border-accent-400/20 rounded-full animate-float-slow" />
