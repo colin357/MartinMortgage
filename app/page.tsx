@@ -94,7 +94,7 @@ const homeFAQ = [
   {
     question: "What are current mortgage rates in Raleigh, NC?",
     answer:
-      "Mortgage rates change daily based on market conditions. At Martin Mortgage Group, we shop multiple lenders to ensure you get the most competitive rate available. Contact us today for a free, personalized rate quote with no obligation. We'll show you exactly what you qualify for.",
+      "Mortgage rates change daily based on market conditions. At Martin Mortgage Group, we take the time to understand your unique situation and find the right loan for you. Contact us today for a free, personalized consultation with no obligation. We'll walk you through your options and make sure you feel confident every step of the way.",
   },
 ];
 
@@ -183,8 +183,8 @@ export default function HomePage() {
               <p className="text-gray-600 leading-relaxed mb-5">
                 Led by Michael Martin, the Martin Mortgage Group has been helping families across
                 the Triangle achieve their homeownership dreams for over 15 years. We believe every
-                borrower deserves transparent, honest guidance and access to the most competitive
-                rates in the market.
+                borrower deserves personalized attention and an expert who will be by your
+                side through every step of the process.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
                 Whether you&apos;re buying your first home in Raleigh, refinancing in Durham, or
@@ -193,7 +193,7 @@ export default function HomePage() {
               </p>
               <div className="grid grid-cols-2 gap-6">
                 {[
-                  { title: "Competitive Rates", sub: "We shop multiple lenders for you" },
+                  { title: "Personal Service", sub: "An expert by your side every step" },
                   { title: "Fast Closings",     sub: "21-day average close time" },
                   { title: "All Loan Types",    sub: "FHA, VA, Conventional & more" },
                   { title: "Local Expertise",   sub: "Rooted in the Raleigh-Durham area" },

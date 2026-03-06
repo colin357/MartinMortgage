@@ -6,7 +6,7 @@ import { purchaseSteps } from "@/lib/chat-steps";
 export const metadata: Metadata = {
   title: "Home Purchase Loans in Raleigh NC | Get Pre-Qualified",
   description:
-    "Buy your dream home in Raleigh, Durham, or anywhere in North Carolina. Martin Mortgage Group offers FHA, VA, conventional, and jumbo purchase loans with competitive rates. Get pre-qualified in minutes.",
+    "Buy your dream home in Raleigh, Durham, or anywhere in North Carolina. Martin Mortgage Group offers FHA, VA, conventional, and jumbo purchase loans with personalized expert guidance. Get pre-qualified in minutes.",
   keywords: [
     "home purchase loan Raleigh NC",
     "buy a home Raleigh",
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
 
 const benefits = [
   {
-    title: "Competitive Rates",
-    description: "We shop dozens of lenders to find you the lowest rate available for your profile.",
+    title: "Dedicated to You",
+    description: "You get a personal mortgage expert who genuinely cares about getting this right for you.",
   },
   {
     title: "Fast Pre-Approval",
@@ -89,7 +89,7 @@ export default function PurchasePage() {
               <p className="text-primary-100 text-lg leading-relaxed mb-8">
                 Whether you&apos;re a first-time buyer or upgrading to your
                 forever home, Martin Mortgage Group will guide you through every
-                step with competitive rates and personalized service.
+                step with personalized service and the attention you deserve.
               </p>
 
               <div className="grid grid-cols-2 gap-4">

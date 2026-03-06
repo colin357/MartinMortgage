@@ -29,7 +29,7 @@ const loanTypes = [
   },
   {
     title: "Rental Property Mortgages",
-    description: "Long-term financing for buy-and-hold investors with competitive rates.",
+    description: "Long-term financing for buy-and-hold investors with hands-on guidance throughout.",
   },
   {
     title: "Multi-Family Financing",
@@ -51,7 +51,7 @@ const faqItems = [
   {
     question: "How much down payment do I need for an investment property in NC?",
     answer:
-      "Investment property loans typically require 15\u201325% down depending on the loan type and number of units. DSCR loans generally require 20\u201325% down. We offer competitive options and can help structure your financing to minimize cash out of pocket.",
+      "Investment property loans typically require 15\u201325% down depending on the loan type and number of units. DSCR loans generally require 20\u201325% down. We'll work closely with you to structure your financing and minimize cash out of pocket.",
   },
   {
     question: "Can I finance multiple investment properties?",
