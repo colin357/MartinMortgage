@@ -101,35 +101,41 @@ const homeFAQ = [
 export default function HomePage() {
   return (
     <>
-      {/* ── Hero ── white background, matches original site layout */}
+      {/* ── Hero ── warm, personal, inviting */}
       <section className="bg-white overflow-hidden">
         <div className="container-max px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left copy */}
             <div>
-              <p className="text-gray-500 text-base mb-2 font-semibold">Hi, I&apos;m Michael Martin…</p>
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-accent-50 rounded-full mb-6">
+                <span className="w-2 h-2 bg-accent-400 rounded-full" />
+                <span className="text-accent-700 text-sm font-semibold">Proudly serving the Raleigh-Durham Triangle</span>
+              </span>
               <h1 className="text-4xl md:text-5xl font-black text-gray-900 leading-tight mb-6">
-                Your Local Producing{" "}
-                <span className="text-primary-700">Branch Manager.</span>
+                Buying a Home Is Personal.{" "}
+                <span className="text-primary-700">Your Lender Should Be Too.</span>
               </h1>
-              <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-lg">
-                Use my website to guide you on your way to getting the best
-                mortgage experience ever. Click below to get started!
+              <p className="text-gray-600 text-lg leading-relaxed mb-4 max-w-lg">
+                I&apos;m Michael Martin, and I&apos;ve spent 15+ years helping families
+                right here in the Triangle navigate one of the biggest decisions of
+                their lives. You deserve a mortgage expert who actually picks up the
+                phone, explains every detail, and makes the whole process feel easy.
+              </p>
+              <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-lg">
+                That&apos;s exactly what we do. Let&apos;s get started.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/purchase" className="btn-primary text-base uppercase tracking-wide">
-                  Apply Now
+                  Get Pre-Qualified
                 </Link>
                 <a href="tel:9196129978" className="btn-outline text-base">
-                  (919) 612-9978
+                  Call Me: (919) 612-9978
                 </a>
               </div>
             </div>
 
-            {/* Right — Michael's photo
-                Drop /public/images/michael.png to display his photo here */}
+            {/* Right — Michael's photo */}
             <div className="relative flex justify-center lg:justify-end">
-              {/* Decorative background house icon */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <svg viewBox="0 0 400 360" className="w-full max-w-md opacity-10" fill="none">
                   <path d="M200 20 L380 160 L380 340 L20 340 L20 160 Z" fill="#1B5E20" />
@@ -174,60 +180,80 @@ export default function HomePage() {
       {/* ── About ── */}
       <section id="about" className="section-padding bg-gray-50">
         <div className="container-max">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <span className="text-accent-600 font-bold text-xs uppercase tracking-widest">About Us</span>
-              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mt-2 mb-6">
-                A Mortgage Experience Built Around You
-              </h2>
-              <p className="text-gray-600 leading-relaxed mb-5">
-                Led by Michael Martin, the Martin Mortgage Group has been helping families across
-                the Triangle achieve their homeownership dreams for over 15 years. We believe every
-                borrower deserves personalized attention and an expert who will be by your
-                side through every step of the process.
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-8">
-                Whether you&apos;re buying your first home in Raleigh, refinancing in Durham, or
-                investing in property across North Carolina, our team provides the expertise and
-                personal touch that makes all the difference.
-              </p>
-              <div className="grid grid-cols-2 gap-6">
-                {[
-                  { title: "Personal Service", sub: "An expert by your side every step" },
-                  { title: "Fast Closings",     sub: "21-day average close time" },
-                  { title: "All Loan Types",    sub: "FHA, VA, Conventional & more" },
-                  { title: "Local Expertise",   sub: "Rooted in the Raleigh-Durham area" },
-                ].map((item) => (
-                  <div key={item.title} className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-accent-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-4 h-4 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <div className="font-bold text-gray-800 text-sm">{item.title}</div>
-                      <div className="text-gray-500 text-xs mt-0.5">{item.sub}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+          {/* Header */}
+          <div className="text-center mb-14">
+            <span className="text-accent-600 font-bold text-xs uppercase tracking-widest">Why Martin Mortgage Group</span>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mt-2 mb-4">
+              One of Life&apos;s Biggest Decisions Deserves a True Expert
+            </h2>
+            <p className="text-gray-500 text-lg max-w-3xl mx-auto">
+              When you&apos;re making the biggest purchase of your life, you shouldn&apos;t feel
+              like just another file on someone&apos;s desk. At Martin Mortgage Group, you
+              get a team that truly wants to help &mdash; and the time and attention to prove it.
+            </p>
+          </div>
 
-            <div className="bg-white rounded-2xl shadow-lg p-8 text-center border border-gray-100">
-              {/* Drop /public/images/michael-headshot.png for a circular headshot */}
-              <div className="w-28 h-28 bg-primary-700 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden">
-                <HeadshotImage
-                  src="/images/michael-headshot.png"
-                  alt="Michael Martin"
-                  fallback="MM"
-                />
+          {/* Three-pillar layout */}
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+                title: "You Work with Real People",
+                body: "No call centers, no runaround. When you call us, you talk to your dedicated mortgage expert who knows your name, your situation, and your goals.",
+              },
+              {
+                icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+                title: "We Make Time for You",
+                body: "Have questions at 7 PM? Need something explained one more time? We\u2019re here. Your timeline is our timeline, and we never rush you through the process.",
+              },
+              {
+                icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+                title: "A Smooth, Stress-Free Close",
+                body: "We handle the heavy lifting so you can focus on the exciting part \u2014 your new home. Our 21-day average close speaks for itself.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm text-center">
+                <div className="w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center mx-auto mb-5">
+                  <svg className="w-7 h-7 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={item.icon} />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-black text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{item.body}</p>
               </div>
-              <h3 className="text-xl font-black text-gray-900">Michael Martin</h3>
-              <p className="text-accent-600 font-semibold text-sm mt-1">Founder &amp; Branch Manager</p>
-              <p className="text-gray-400 text-xs mt-2">NMLS# Insert Number</p>
-              <a href="tel:9196129978" className="btn-primary mt-6 w-full text-sm">
-                Call Michael Directly
-              </a>
+            ))}
+          </div>
+
+          {/* Michael card — horizontal, warmer feel */}
+          <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+            <div className="grid md:grid-cols-[auto_1fr] items-center">
+              <div className="flex flex-col items-center justify-center p-8 md:p-10 bg-primary-700">
+                <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-primary-500 flex items-center justify-center mb-4">
+                  <HeadshotImage
+                    src="/images/michael-headshot.png"
+                    alt="Michael Martin"
+                    fallback="MM"
+                  />
+                </div>
+                <h3 className="text-xl font-black text-white">Michael Martin</h3>
+                <p className="text-accent-300 font-semibold text-sm mt-1">Founder &amp; Branch Manager</p>
+                <p className="text-primary-300 text-xs mt-1">NMLS# Insert Number</p>
+              </div>
+              <div className="p-8 md:p-10">
+                <p className="text-gray-600 leading-relaxed mb-3">
+                  &ldquo;I started Martin Mortgage Group because I believe getting a home loan
+                  should feel personal, not transactional. When you work with us, you&apos;re not
+                  a number &mdash; you&apos;re family. I&apos;ll be with you from your first question
+                  all the way to closing day, and I&apos;ll make sure you understand every step
+                  along the way.&rdquo;
+                </p>
+                <p className="text-gray-500 text-sm mb-6">
+                  15+ years helping families across the Triangle achieve their homeownership dreams.
+                </p>
+                <a href="tel:9196129978" className="btn-primary text-sm">
+                  Call Michael Directly
+                </a>
+              </div>
             </div>
           </div>
         </div>
