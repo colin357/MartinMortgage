@@ -198,7 +198,7 @@ export default function HomePage() {
                 {/* Photo container with border effect */}
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/30 border border-white/10">
                   <HeroImage
-                    src="/images/michael.png"
+                    src="/images/michael-headshot.png"
                     alt="Michael Martin, Branch Manager — Martin Mortgage Group Raleigh NC"
                     className="w-full h-auto object-cover"
                   />
@@ -304,14 +304,14 @@ export default function HomePage() {
                   </div>
                   <div className="relative w-28 h-28 rounded-full overflow-hidden border-4 border-primary-500 flex items-center justify-center mb-4">
                     <HeadshotImage
-                      src="/images/michael-headshot.png"
+                      src="/images/michael.png"
                       alt="Michael Martin"
                       fallback="MM"
                     />
                   </div>
                   <h3 className="text-xl font-black text-white">Michael Martin</h3>
                   <p className="text-accent-300 font-semibold text-sm mt-1">Founder &amp; Branch Manager</p>
-                  <p className="text-primary-300 text-xs mt-1">NMLS# Insert Number</p>
+                  <p className="text-primary-300 text-xs mt-1">NMLS# 131445</p>
                 </div>
                 <div className="p-8 md:p-10">
                   <p className="text-gray-600 leading-relaxed mb-3">
