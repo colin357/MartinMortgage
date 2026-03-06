@@ -8,40 +8,42 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Dark forest green — primary brand (buttons, headers, footer)
         primary: {
-          50: "#f0f5f7",
-          100: "#dae6eb",
-          200: "#b5cdd7",
-          300: "#8ab1c0",
-          400: "#5f95a9",
-          500: "#2D5F6B",
-          600: "#264f59",
-          700: "#1B3A4B",
-          800: "#142c38",
-          900: "#0d1e26",
+          50:  "#f0f7f1",
+          100: "#d9edda",
+          200: "#b3dbb5",
+          300: "#7ec282",
+          400: "#4ba352",
+          500: "#2E8135",
+          600: "#236827",
+          700: "#1B5E20",  // main dark green
+          800: "#144718",
+          900: "#0d2f10",
         },
-        gold: {
-          50: "#faf6ef",
-          100: "#f2e8d4",
-          200: "#e5d1a9",
-          300: "#d4b77d",
-          400: "#C9A96E",
-          500: "#b8944f",
-          600: "#9a7a3e",
-          700: "#7b612f",
-          800: "#5c4923",
-          900: "#3d3017",
+        // Bright / lime green — accent (top bar, highlights, badges)
+        accent: {
+          50:  "#f3fae8",
+          100: "#e2f4c4",
+          200: "#c5e98a",
+          300: "#a3d855",
+          400: "#82C341",  // bright lime green (matches logo/site)
+          500: "#6aaa2c",
+          600: "#548a20",
+          700: "#406a18",
+          800: "#2d4d11",
+          900: "#1a2e09",
         },
         warm: {
-          50: "#FDFCFA",
+          50:  "#FDFCFA",
           100: "#F8F6F3",
           200: "#F0EDE8",
           300: "#E5E0D8",
         },
       },
       fontFamily: {
-        sans: ['"Inter"', "system-ui", "sans-serif"],
-        display: ['"Playfair Display"', "Georgia", "serif"],
+        sans:    ['"Montserrat"', '"Inter"', "system-ui", "sans-serif"],
+        display: ['"Montserrat"', '"Inter"', "system-ui", "sans-serif"],
       },
     },
   },

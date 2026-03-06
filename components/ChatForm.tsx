@@ -43,27 +43,19 @@ export default function ChatForm({
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages, isTyping]);
+  useEffect(() => { scrollToBottom(); }, [messages, isTyping]);
 
-  // Show first question on mount
   useEffect(() => {
     const timer = setTimeout(() => {
-      setMessages([
-        {
-          role: "bot",
-          text: `Hi there! I\u2019m here to help you get started with your ${loanType} journey. Let\u2019s get a few details from you.`,
-        },
-      ]);
+      setMessages([{
+        role: "bot",
+        text: `Hi there! I\u2019m here to help you get started with your ${loanType} journey. Let\u2019s get a few details from you.`,
+      }]);
       setTimeout(() => {
         setIsTyping(true);
         setTimeout(() => {
           setIsTyping(false);
-          setMessages((prev) => [
-            ...prev,
-            { role: "bot", text: steps[0].question },
-          ]);
+          setMessages((prev) => [...prev, { role: "bot", text: steps[0].question }]);
         }, 800);
       }, 500);
     }, 300);
@@ -83,14 +75,10 @@ export default function ChatForm({
         setIsTyping(false);
         const nextStep = currentStep + 1;
         setCurrentStep(nextStep);
-        setMessages((prev) => [
-          ...prev,
-          { role: "bot", text: steps[nextStep].question },
-        ]);
+        setMessages((prev) => [...prev, { role: "bot", text: steps[nextStep].question }]);
         inputRef.current?.focus();
       }, 900);
     } else {
-      // Submit
       setIsTyping(true);
       setIsSubmitting(true);
       fetch("/api/lead", {
@@ -104,10 +92,7 @@ export default function ChatForm({
           setIsComplete(true);
           setMessages((prev) => [
             ...prev,
-            {
-              role: "bot",
-              text: "Thank you! A member of our team will reach out to you shortly. We look forward to helping you with your home financing goals!",
-            },
+            { role: "bot", text: "Thank you! A member of our team will reach out to you shortly. We look forward to helping you with your home financing goals!" },
           ]);
         })
         .catch(() => {
@@ -115,10 +100,7 @@ export default function ChatForm({
           setIsSubmitting(false);
           setMessages((prev) => [
             ...prev,
-            {
-              role: "bot",
-              text: "Something went wrong. Please try again or call us directly at (919) 238-4934.",
-            },
+            { role: "bot", text: "Something went wrong. Please try again or call us directly at (919) 612-9978." },
           ]);
         });
     }
@@ -135,33 +117,29 @@ export default function ChatForm({
   return (
     <div className="w-full max-w-lg mx-auto">
       <div className="text-center mb-6">
-        <h2 className="font-display text-2xl md:text-3xl font-semibold text-primary-800 mb-2">
+        <h2 className="text-2xl md:text-3xl font-black text-white mb-2">
           {headline}
         </h2>
-        <p className="text-primary-500 text-sm">{subheadline}</p>
+        <p className="text-primary-200 text-sm">{subheadline}</p>
       </div>
 
-      <div className="bg-white rounded-2xl shadow-xl border border-warm-200 overflow-hidden">
-        {/* Chat Header */}
+      <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
+        {/* Chat header — dark green */}
         <div className="bg-primary-700 px-5 py-4 flex items-center gap-3">
-          <div className="w-9 h-9 bg-gold-400 rounded-full flex items-center justify-center">
-            <span className="text-primary-900 font-display font-bold text-sm">
-              M
-            </span>
+          <div className="w-9 h-9 bg-accent-400 rounded-full flex items-center justify-center">
+            <span className="text-white font-black text-sm">M</span>
           </div>
           <div>
-            <div className="text-white font-medium text-sm">
-              Martin Mortgage Group
-            </div>
+            <div className="text-white font-bold text-sm">Martin Mortgage Group</div>
             <div className="text-primary-200 text-xs flex items-center gap-1">
-              <span className="w-2 h-2 bg-green-400 rounded-full inline-block" />
+              <span className="w-2 h-2 bg-accent-400 rounded-full inline-block" />
               Online now
             </div>
           </div>
         </div>
 
         {/* Messages */}
-        <div className="h-80 overflow-y-auto px-5 py-4 space-y-3 bg-warm-50">
+        <div className="h-80 overflow-y-auto px-5 py-4 space-y-3 bg-gray-50">
           {messages.map((msg, i) => (
             <div
               key={i}
@@ -171,7 +149,7 @@ export default function ChatForm({
                 className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
                   msg.role === "user"
                     ? "bg-primary-700 text-white rounded-br-md"
-                    : "bg-white text-primary-800 shadow-sm border border-warm-200 rounded-bl-md"
+                    : "bg-white text-gray-800 shadow-sm border border-gray-200 rounded-bl-md"
                 }`}
               >
                 {msg.text}
@@ -181,10 +159,10 @@ export default function ChatForm({
 
           {isTyping && (
             <div className="flex justify-start chat-bubble-animate">
-              <div className="bg-white text-primary-800 shadow-sm border border-warm-200 rounded-2xl rounded-bl-md px-4 py-3 flex gap-1.5">
-                <span className="typing-dot w-2 h-2 bg-primary-400 rounded-full" />
-                <span className="typing-dot w-2 h-2 bg-primary-400 rounded-full" />
-                <span className="typing-dot w-2 h-2 bg-primary-400 rounded-full" />
+              <div className="bg-white shadow-sm border border-gray-200 rounded-2xl rounded-bl-md px-4 py-3 flex gap-1.5">
+                <span className="typing-dot w-2 h-2 bg-gray-400 rounded-full" />
+                <span className="typing-dot w-2 h-2 bg-gray-400 rounded-full" />
+                <span className="typing-dot w-2 h-2 bg-gray-400 rounded-full" />
               </div>
             </div>
           )}
@@ -192,9 +170,9 @@ export default function ChatForm({
           <div ref={messagesEndRef} />
         </div>
 
-        {/* Input */}
+        {/* Input area */}
         {!isComplete && (
-          <div className="border-t border-warm-200 p-4 bg-white">
+          <div className="border-t border-gray-200 p-4 bg-white">
             {step?.type === "select" && step.options ? (
               <div className="flex flex-wrap gap-2">
                 {step.options.map((opt) => (
@@ -202,7 +180,7 @@ export default function ChatForm({
                     key={opt}
                     onClick={() => advanceStep(opt)}
                     disabled={isTyping || isSubmitting}
-                    className="px-4 py-2 bg-warm-100 hover:bg-primary-700 hover:text-white text-primary-700 rounded-full text-sm font-medium transition-colors border border-warm-300 disabled:opacity-50"
+                    className="px-4 py-2 bg-gray-100 hover:bg-primary-700 hover:text-white text-gray-700 rounded-full text-sm font-semibold transition-colors border border-gray-200 disabled:opacity-50"
                   >
                     {opt}
                   </button>
@@ -217,25 +195,15 @@ export default function ChatForm({
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder={step?.placeholder || "Type your answer..."}
                   disabled={isTyping || isSubmitting}
-                  className="flex-1 px-4 py-2.5 border border-warm-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent disabled:opacity-50 bg-warm-50"
+                  className="flex-1 px-4 py-2.5 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent disabled:opacity-50 bg-gray-50"
                 />
                 <button
                   type="submit"
                   disabled={isTyping || !inputValue.trim() || isSubmitting}
-                  className="w-10 h-10 bg-primary-700 hover:bg-primary-600 text-white rounded-full flex items-center justify-center transition-colors disabled:opacity-50"
+                  className="w-10 h-10 bg-primary-700 hover:bg-primary-800 text-white rounded-full flex items-center justify-center transition-colors disabled:opacity-50"
                 >
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                    />
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                   </svg>
                 </button>
               </form>
@@ -244,9 +212,8 @@ export default function ChatForm({
         )}
       </div>
 
-      <p className="text-center text-xs text-primary-400 mt-4">
-        Your information is secure and will only be used to help you with your
-        mortgage needs.
+      <p className="text-center text-xs text-primary-200 mt-4">
+        Your information is secure and will only be used to help you with your mortgage needs.
       </p>
     </div>
   );
