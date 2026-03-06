@@ -197,32 +197,14 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right — Michael photo with floating frame */}
+            {/* Right — team photo, clean and open */}
             <div className="hero-scale hero-delay-3 relative flex justify-center lg:justify-end">
-              {/* Decorative floating rings */}
-              <div className="absolute -top-6 -right-6 w-72 h-72 border-2 border-accent-400/20 rounded-full animate-float-slow" />
-              <div className="absolute -bottom-4 -left-4 w-48 h-48 border-2 border-primary-400/15 rounded-full animate-float" style={{ animationDelay: "1s" }} />
-
-              {/* Glow behind photo */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-80 h-80 bg-accent-400/10 rounded-full blur-2xl animate-pulse-glow" />
-              </div>
-
-              <div className="relative z-10 w-72 md:w-96">
-                {/* Photo container with border effect */}
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/30 border border-white/10">
-                  <HeroImage
-                    src="/images/michael.png"
-                    alt="Michael Martin, Branch Manager — Martin Mortgage Group Raleigh NC"
-                    className="w-full h-auto object-cover"
-                  />
-                  {/* Gradient overlay at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-primary-900/80 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <p className="text-white font-bold text-sm">Michael Martin</p>
-                    <p className="text-accent-300 text-xs">Founder &amp; Branch Manager</p>
-                  </div>
-                </div>
+              <div className="relative z-10 w-full max-w-lg">
+                <HeroImage
+                  src="/images/michael.png"
+                  alt="The Martin Mortgage Group team — Raleigh NC"
+                  className="w-full h-auto object-contain drop-shadow-2xl"
+                />
               </div>
             </div>
           </div>
