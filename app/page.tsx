@@ -74,10 +74,10 @@ const testimonials = [
 ];
 
 const stats = [
-  { value: "15+",    label: "Years of Experience" },
+  { value: "25+",    label: "Years of Experience" },
   { value: "2,500+", label: "Families Served" },
   { value: "4.9★",   label: "Client Rating" },
-  { value: "21",     label: "Day Avg. Close" },
+  { value: "80%",    label: "Clear to Close 5+ Days Early" },
 ];
 
 const homeFAQ = [
@@ -87,9 +87,9 @@ const homeFAQ = [
       "Martin Mortgage Group offers a comprehensive range of mortgage products including conventional loans, FHA loans, VA loans, USDA loans, jumbo loans, new construction financing, investment property loans, and down payment assistance programs. We serve all of North Carolina with a focus on the Raleigh-Durham Triangle area.",
   },
   {
-    question: "How do I get pre-qualified for a mortgage in North Carolina?",
+    question: "How do I get preapproved for a mortgage in North Carolina?",
     answer:
-      "Getting pre-qualified with Martin Mortgage Group is quick and easy. You can start right on our website by answering a few simple questions about your financial situation, or give us a call at (919) 612-9978. Pre-qualification typically takes just a few minutes and helps you understand how much home you can afford.",
+      "Getting preapproved with Martin Mortgage Group is quick and easy. You can start right on our website by answering a few simple questions about your financial situation, or give us a call at (919) 612-9978. Preapproval typically takes just a few minutes and helps you understand how much home you can afford.",
   },
   {
     question: "What credit score do I need to buy a home in Raleigh?",
@@ -143,7 +143,7 @@ export default function HomePage() {
             <div>
               <span className="hero-fade-up hero-delay-1 inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full mb-6 border border-white/10">
                 <span className="w-2 h-2 bg-accent-400 rounded-full animate-pulse" />
-                <span className="text-accent-200 text-sm font-semibold">Proudly serving the Raleigh-Durham Triangle</span>
+                <span className="text-accent-200 text-sm font-semibold">Proudly serving NC, SC, VA</span>
               </span>
               <h1 className="hero-fade-up hero-delay-2 text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-6">
                 Buying a Home Is Personal.{" "}
@@ -152,9 +152,8 @@ export default function HomePage() {
                 </span>
               </h1>
               <p className="hero-fade-up hero-delay-3 text-primary-100 text-lg md:text-xl leading-relaxed mb-4 max-w-xl">
-                I&apos;m Michael Martin, and I&apos;ve spent 15+ years helping families
-                right here in the Triangle navigate one of the biggest decisions of
-                their lives.
+                I&apos;m Michael Martin, and I&apos;ve spent 25+ years helping families
+                navigate one of the biggest decisions of their lives.
               </p>
               <p className="hero-fade-up hero-delay-3 text-primary-200 text-base leading-relaxed mb-10 max-w-xl">
                 You deserve a mortgage expert who actually picks up the phone, explains
@@ -166,7 +165,7 @@ export default function HomePage() {
                   href="/purchase"
                   className="inline-flex items-center justify-center px-8 py-4 bg-accent-400 text-white font-bold rounded-lg hover:bg-accent-500 transition-all duration-300 shadow-lg shadow-accent-400/25 hover:shadow-xl hover:shadow-accent-400/30 hover:-translate-y-0.5 text-base uppercase tracking-wide"
                 >
-                  Get Pre-Qualified
+                  Get Preapproved
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
@@ -193,7 +192,7 @@ export default function HomePage() {
                 <div className="w-px h-4 bg-primary-500 hidden sm:block" />
                 <span>2,500+ Families Served</span>
                 <div className="w-px h-4 bg-primary-500 hidden sm:block" />
-                <span>21-Day Avg. Close</span>
+                <span>80% Clear to Close 5+ Days Early</span>
               </div>
             </div>
 
@@ -421,7 +420,7 @@ export default function HomePage() {
           </AnimateIn>
           <AnimateIn animation="fade-up" delay={100}>
             <p className="text-primary-200 text-lg mb-10 max-w-2xl mx-auto">
-              Get pre-qualified in minutes. Our team is standing by to help you find the right mortgage.
+              Get preapproved in minutes. Our team is standing by to help you find the right mortgage.
             </p>
           </AnimateIn>
           <AnimateIn animation="fade-up" delay={200}>
@@ -430,7 +429,7 @@ export default function HomePage() {
                 href="/purchase"
                 className="inline-flex items-center justify-center px-8 py-4 bg-accent-400 text-white font-bold rounded-lg hover:bg-accent-500 transition-all duration-300 shadow-lg shadow-accent-400/25 hover:shadow-xl hover:-translate-y-0.5 text-base"
               >
-                Get Pre-Qualified Now
+                Get Preapproved Now
               </Link>
               <a
                 href="tel:9196129978"

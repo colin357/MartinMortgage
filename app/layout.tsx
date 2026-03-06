@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | Martin Mortgage Group",
   },
   description:
-    "Martin Mortgage Group is Raleigh, NC's trusted mortgage lender. We offer personalized expert guidance on home purchases, refinancing, FHA, VA, jumbo loans, and down payment assistance programs. Get pre-qualified today.",
+    "Martin Mortgage Group is Raleigh, NC's trusted mortgage lender. We offer personalized expert guidance on home purchases, refinancing, FHA, VA, jumbo loans, and down payment assistance programs. Get preapproved today.",
   keywords: [
     "mortgage lender Raleigh NC",
     "home loans Raleigh",

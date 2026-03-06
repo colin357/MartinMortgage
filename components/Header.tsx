@@ -15,6 +15,7 @@ const navigation = [
       { name: "Down Payment Assistance",    href: "/down-payment-assistance" },
       { name: "Investors",                  href: "/investors" },
       { name: "New Construction",           href: "/new-construction" },
+      { name: "Adams Homes",               href: "/adams-homes" },
     ],
   },
   { name: "Local Favorites", href: "/local-favorites" },
@@ -140,7 +141,7 @@ export default function Header() {
                 )
               )}
               <Link href="/purchase" className="btn-primary text-sm px-6 py-2.5">
-                Get Pre-Qualified
+                Get Preapproved
               </Link>
             </div>
 
@@ -199,7 +200,7 @@ export default function Header() {
                   className="btn-primary w-full text-sm text-center"
                   onClick={() => setMobileOpen(false)}
                 >
-                  Get Pre-Qualified
+                  Get Preapproved
                 </Link>
               </div>
             </div>

@@ -4,16 +4,16 @@ import FAQ from "@/components/FAQ";
 import { purchaseSteps } from "@/lib/chat-steps";
 
 export const metadata: Metadata = {
-  title: "Home Purchase Loans in Raleigh NC | Get Pre-Qualified",
+  title: "Home Purchase Loans in Raleigh NC | Get Preapproved",
   description:
-    "Buy your dream home in Raleigh, Durham, or anywhere in North Carolina. Martin Mortgage Group offers FHA, VA, conventional, and jumbo purchase loans with personalized expert guidance. Get pre-qualified in minutes.",
+    "Buy your dream home in Raleigh, Durham, or anywhere in North Carolina. Martin Mortgage Group offers FHA, VA, conventional, and jumbo purchase loans with personalized expert guidance. Get preapproved in minutes.",
   keywords: [
     "home purchase loan Raleigh NC",
     "buy a home Raleigh",
     "first time home buyer NC",
     "FHA loan Raleigh",
     "VA loan North Carolina",
-    "mortgage pre-qualification Raleigh",
+    "mortgage preapproval Raleigh",
     "home buyer Cary Durham",
   ],
 };
@@ -112,7 +112,7 @@ export default function PurchasePage() {
                 steps={purchaseSteps}
                 loanType="home purchase"
                 headline="Start Your Home Purchase"
-                subheadline="Answer a few quick questions to get pre-qualified."
+                subheadline="Answer a few quick questions to get preapproved."
               />
             </div>
           </div>
@@ -132,7 +132,7 @@ export default function PurchasePage() {
           </div>
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { step: "01", title: "Get Pre-Qualified", desc: "Share your info and goals. We\u2019ll run the numbers and show you what you qualify for." },
+              { step: "01", title: "Get Preapproved", desc: "Share your info and goals. We\u2019ll run the numbers and show you what you qualify for." },
               { step: "02", title: "Find Your Home", desc: "Shop with confidence knowing your budget. We work with top Raleigh-area agents." },
               { step: "03", title: "Lock Your Rate", desc: "We\u2019ll secure the best available rate and finalize your loan terms." },
               { step: "04", title: "Close & Move In", desc: "We handle the paperwork. Average close time: 21 days. Welcome home!" },

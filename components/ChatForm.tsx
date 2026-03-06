@@ -26,7 +26,7 @@ interface Message {
 export default function ChatForm({
   steps,
   loanType,
-  headline = "Let\u2019s Get You Pre-Qualified",
+  headline = "Let\u2019s Get You Preapproved",
   subheadline = "Answer a few quick questions and we\u2019ll reach out shortly.",
 }: ChatFormProps) {
   const [currentStep, setCurrentStep] = useState(0);

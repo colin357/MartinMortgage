@@ -237,11 +237,11 @@ export default function LocalFavoritesPage() {
           </h2>
           <p className="text-primary-100 text-lg mb-8 max-w-2xl mx-auto">
             Let the Martin Mortgage Group help you put down roots in one of
-            the best cities in the Southeast. Get pre-qualified today and start
+            the best cities in the Southeast. Get preapproved today and start
             exploring your new neighborhood.
           </p>
           <a href="/purchase" className="btn-gold text-base">
-            Get Pre-Qualified
+            Get Preapproved
           </a>
         </div>
       </section>

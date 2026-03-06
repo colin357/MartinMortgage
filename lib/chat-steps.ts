@@ -316,3 +316,66 @@ export const newConstructionSteps = [
     field: "goalPayment",
   },
 ];
+
+export const adamsHomesSteps = [
+  {
+    id: "firstName",
+    question: "What\u2019s your first name?",
+    type: "text" as const,
+    placeholder: "Enter your first name",
+    field: "firstName",
+  },
+  {
+    id: "lastName",
+    question: "And your last name?",
+    type: "text" as const,
+    placeholder: "Enter your last name",
+    field: "lastName",
+  },
+  {
+    id: "email",
+    question: "What\u2019s your email address?",
+    type: "email" as const,
+    placeholder: "you@email.com",
+    field: "email",
+  },
+  {
+    id: "phone",
+    question: "What\u2019s the best number to reach you?",
+    type: "phone" as const,
+    placeholder: "(919) 555-1234",
+    field: "phone",
+  },
+  {
+    id: "community",
+    question: "Which Adams Homes community are you interested in?",
+    type: "text" as const,
+    placeholder: "Community name or city",
+    field: "community",
+  },
+  {
+    id: "floorPlan",
+    question: "Have you selected a floor plan yet?",
+    type: "select" as const,
+    options: [
+      "Yes, I\u2019ve picked one",
+      "Still deciding",
+      "Haven\u2019t started looking yet",
+    ],
+    field: "floorPlan",
+  },
+  {
+    id: "budget",
+    question: "What\u2019s your target purchase price?",
+    type: "currency" as const,
+    placeholder: "e.g. $350,000",
+    field: "budget",
+  },
+  {
+    id: "goalPayment",
+    question: "What monthly payment would work best for you?",
+    type: "currency" as const,
+    placeholder: "e.g. $2,200",
+    field: "goalPayment",
+  },
+];
