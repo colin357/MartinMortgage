@@ -34,6 +34,19 @@ export default {
           800: "#2d4d11",
           900: "#1a2e09",
         },
+        // Navy blue — alternate brand (used in /navy landing page variant)
+        navy: {
+          50:  "#edf4fb",
+          100: "#d4e6f5",
+          200: "#a8cadf",
+          300: "#7aadcf",
+          400: "#4d90bf",
+          500: "#2674ae",
+          600: "#1e5a8a",
+          700: "#1a3a6b",  // main navy blue
+          800: "#112b54",
+          900: "#0b1e3c",
+        },
         warm: {
           50:  "#FDFCFA",
           100: "#F8F6F3",
