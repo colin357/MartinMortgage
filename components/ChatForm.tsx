@@ -36,11 +36,13 @@ export default function ChatForm({
   const [isTyping, setIsTyping] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+    }
   };
 
   useEffect(() => { scrollToBottom(); }, [messages, isTyping]);
@@ -76,7 +78,7 @@ export default function ChatForm({
         const nextStep = currentStep + 1;
         setCurrentStep(nextStep);
         setMessages((prev) => [...prev, { role: "bot", text: steps[nextStep].question }]);
-        inputRef.current?.focus();
+        inputRef.current?.focus({ preventScroll: true });
       }, 900);
     } else {
       setIsTyping(true);
@@ -139,7 +141,7 @@ export default function ChatForm({
         </div>
 
         {/* Messages */}
-        <div className="h-80 overflow-y-auto px-5 py-4 space-y-3 bg-gray-50">
+        <div ref={messagesContainerRef} className="h-80 overflow-y-auto px-5 py-4 space-y-3 bg-gray-50">
           {messages.map((msg, i) => (
             <div
               key={i}
@@ -167,7 +169,6 @@ export default function ChatForm({
             </div>
           )}
 
-          <div ref={messagesEndRef} />
         </div>
 
         {/* Input area */}
