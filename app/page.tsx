@@ -117,13 +117,13 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ── full-impact, dark background, animated entrance ── */}
-      <section className="relative bg-primary-800 overflow-hidden min-h-[90vh] flex items-center">
+      <section className="relative bg-navy-800 overflow-hidden min-h-[90vh] flex items-center">
         {/* Gradient base */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700" />
+        <div className="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-700" />
 
         {/* Animated decorative blobs */}
         <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-accent-400/10 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-[-15%] left-[-10%] w-[600px] h-[600px] bg-primary-500/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: "2s" }} />
+        <div className="absolute bottom-[-15%] left-[-10%] w-[600px] h-[600px] bg-navy-500/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: "2s" }} />
 
         {/* Subtle grid overlay */}
         <div
@@ -151,12 +151,12 @@ export default function HomePage() {
                   Your Lender Should Be Too.
                 </span>
               </h1>
-              <p className="hero-fade-up hero-delay-3 text-primary-100 text-lg md:text-xl leading-relaxed mb-4 max-w-xl">
+              <p className="hero-fade-up hero-delay-3 text-navy-100 text-lg md:text-xl leading-relaxed mb-4 max-w-xl">
                 I&apos;m Michael Martin, and I&apos;ve spent 15+ years helping families
                 right here in the Triangle navigate one of the biggest decisions of
                 their lives.
               </p>
-              <p className="hero-fade-up hero-delay-3 text-primary-200 text-base leading-relaxed mb-10 max-w-xl">
+              <p className="hero-fade-up hero-delay-3 text-navy-200 text-base leading-relaxed mb-10 max-w-xl">
                 You deserve a mortgage expert who actually picks up the phone, explains
                 every detail, and makes the whole process feel easy. That&apos;s exactly
                 what we do.
@@ -183,28 +183,47 @@ export default function HomePage() {
               </div>
 
               {/* Trust badges */}
-              <div className="hero-fade-up hero-delay-5 mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-primary-300 text-sm">
+              <div className="hero-fade-up hero-delay-5 mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-navy-300 text-sm">
                 <div className="flex items-center gap-2">
                   <svg className="w-5 h-5 text-accent-400" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                   4.9 Rating
                 </div>
-                <div className="w-px h-4 bg-primary-500 hidden sm:block" />
+                <div className="w-px h-4 bg-navy-500 hidden sm:block" />
                 <span>2,500+ Families Served</span>
-                <div className="w-px h-4 bg-primary-500 hidden sm:block" />
+                <div className="w-px h-4 bg-navy-500 hidden sm:block" />
                 <span>21-Day Avg. Close</span>
               </div>
             </div>
 
-            {/* Right — team photo, clean and open */}
+            {/* Right — team photo */}
             <div className="hero-scale hero-delay-3 relative flex justify-center lg:justify-end">
               <div className="relative z-10 w-full max-w-lg">
-                <HeroImage
-                  src="/images/michael-headshot.png"
-                  alt="The Martin Mortgage Group team — Raleigh NC"
-                  className="w-full h-auto object-contain"
-                />
+                {/* Accent backdrop offset block */}
+                <div className="absolute -bottom-3 -right-3 w-full h-full rounded-2xl bg-accent-400/20 border border-accent-400/30" />
+
+                {/* Image frame */}
+                <div className="relative rounded-2xl overflow-hidden ring-2 ring-accent-400/50 shadow-[0_8px_40px_rgba(0,0,0,0.45)]">
+                  <HeroImage
+                    src="/images/michael-headshot.png"
+                    alt="The Martin Mortgage Group team — Raleigh NC"
+                    className="w-full h-auto object-contain block"
+                  />
+                  {/* Subtle inner vignette at bottom */}
+                  <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-primary-900/40 to-transparent pointer-events-none" />
+                </div>
+
+                {/* Floating badge */}
+                <div className="absolute -bottom-5 -left-4 flex items-center gap-2 bg-white rounded-xl px-4 py-2.5 shadow-lg border border-gray-100">
+                  <svg className="w-5 h-5 text-accent-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  <div>
+                    <div className="text-xs font-bold text-gray-800 leading-tight">4.9 Rating</div>
+                    <div className="text-[10px] text-gray-400 leading-tight">2,500+ families</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -225,7 +244,7 @@ export default function HomePage() {
             {stats.map((stat, i) => (
               <AnimateIn key={stat.label} animation="fade-up" delay={i * 100}>
                 <div className="text-center group">
-                  <div className="text-3xl md:text-4xl font-black text-primary-700 mb-1 transition-transform duration-300 group-hover:scale-110">
+                  <div className="text-3xl md:text-4xl font-black text-navy-700 mb-1 transition-transform duration-300 group-hover:scale-110">
                     {stat.value}
                   </div>
                   <div className="text-sm text-gray-500 font-semibold">{stat.label}</div>
@@ -276,8 +295,8 @@ export default function HomePage() {
             ].map((item, i) => (
               <AnimateIn key={item.title} animation="fade-up" delay={i * 150}>
                 <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm text-center group hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                  <div className="w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center mx-auto mb-5 group-hover:bg-primary-100 group-hover:scale-110 transition-all duration-300">
-                    <svg className="w-7 h-7 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-14 h-14 bg-navy-50 rounded-xl flex items-center justify-center mx-auto mb-5 group-hover:bg-navy-100 group-hover:scale-110 transition-all duration-300">
+                    <svg className="w-7 h-7 text-navy-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={item.icon} />
                     </svg>
                   </div>
@@ -292,13 +311,13 @@ export default function HomePage() {
           <AnimateIn animation="fade-up" delay={100}>
             <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-500">
               <div className="grid md:grid-cols-[auto_1fr] items-center">
-                <div className="flex flex-col items-center justify-center p-8 md:p-10 bg-primary-700 relative overflow-hidden">
+                <div className="flex flex-col items-center justify-center p-8 md:p-10 bg-navy-700 relative overflow-hidden">
                   {/* Subtle pattern */}
                   <div className="absolute inset-0 opacity-5">
                     <div className="absolute top-4 right-4 w-20 h-20 border border-white rounded-full" />
                     <div className="absolute bottom-4 left-4 w-16 h-16 border border-white rounded-full" />
                   </div>
-                  <div className="relative w-28 h-28 rounded-full overflow-hidden border-4 border-primary-500 flex items-center justify-center mb-4">
+                  <div className="relative w-28 h-28 rounded-full overflow-hidden border-4 border-navy-500 flex items-center justify-center mb-4">
                     <HeadshotImage
                       src="/images/michael.png"
                       alt="Michael Martin"
@@ -307,7 +326,7 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-xl font-black text-white">Michael Martin</h3>
                   <p className="text-accent-300 font-semibold text-sm mt-1">Founder &amp; Branch Manager</p>
-                  <p className="text-primary-300 text-xs mt-1">NMLS# 131445</p>
+                  <p className="text-navy-300 text-xs mt-1">NMLS# 131445</p>
                 </div>
                 <div className="p-8 md:p-10">
                   <p className="text-gray-600 leading-relaxed mb-3">
@@ -349,16 +368,16 @@ export default function HomePage() {
               <AnimateIn key={service.title} animation="fade-up" delay={i * 100}>
                 <Link
                   href={service.href as any}
-                  className="group bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl hover:border-primary-300 hover:-translate-y-1 transition-all duration-300 block"
+                  className="group bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl hover:border-navy-300 hover:-translate-y-1 transition-all duration-300 block"
                 >
-                  <div className="w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 mb-5 group-hover:bg-primary-100 group-hover:scale-110 transition-all duration-300">
+                  <div className="w-14 h-14 bg-navy-50 rounded-xl flex items-center justify-center text-navy-600 mb-5 group-hover:bg-navy-100 group-hover:scale-110 transition-all duration-300">
                     <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={service.iconPath} />
                     </svg>
                   </div>
                   <h3 className="text-xl font-black text-gray-900 mb-3">{service.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-4">{service.description}</p>
-                  <span className="text-primary-700 font-bold text-sm group-hover:text-primary-600 flex items-center gap-1">
+                  <span className="text-navy-700 font-bold text-sm group-hover:text-navy-600 flex items-center gap-1">
                     Learn more
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -368,12 +387,12 @@ export default function HomePage() {
               </AnimateIn>
             ))}
             <AnimateIn animation="fade-up" delay={500}>
-              <div className="bg-primary-700 rounded-xl p-8 flex flex-col justify-center text-center h-full relative overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-navy-700 rounded-xl p-8 flex flex-col justify-center text-center h-full relative overflow-hidden group hover:shadow-xl transition-shadow duration-300">
                 {/* Decorative circles */}
-                <div className="absolute top-4 right-4 w-24 h-24 border border-primary-500/20 rounded-full group-hover:scale-125 transition-transform duration-700" />
-                <div className="absolute -bottom-4 -left-4 w-32 h-32 border border-primary-500/10 rounded-full group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute top-4 right-4 w-24 h-24 border border-navy-500/20 rounded-full group-hover:scale-125 transition-transform duration-700" />
+                <div className="absolute -bottom-4 -left-4 w-32 h-32 border border-navy-500/10 rounded-full group-hover:scale-110 transition-transform duration-700" />
                 <h3 className="text-xl font-black text-white mb-3 relative">Not Sure Which Loan Is Right?</h3>
-                <p className="text-primary-200 text-sm mb-6 relative">
+                <p className="text-navy-200 text-sm mb-6 relative">
                   Our team will analyze your situation and recommend the best program for your goals.
                 </p>
                 <a href="tel:9196129978" className="btn-accent mx-auto text-sm relative">
@@ -408,10 +427,10 @@ export default function HomePage() {
       />
 
       {/* ── CTA ── */}
-      <section id="contact" className="relative bg-primary-700 overflow-hidden">
+      <section id="contact" className="relative bg-navy-700 overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent-400/5 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: "2s" }} />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-navy-500/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: "2s" }} />
 
         <div className="relative container-max px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-center">
           <AnimateIn animation="fade-up">
@@ -420,7 +439,7 @@ export default function HomePage() {
             </h2>
           </AnimateIn>
           <AnimateIn animation="fade-up" delay={100}>
-            <p className="text-primary-200 text-lg mb-10 max-w-2xl mx-auto">
+            <p className="text-navy-200 text-lg mb-10 max-w-2xl mx-auto">
               Get pre-qualified in minutes. Our team is standing by to help you find the right mortgage.
             </p>
           </AnimateIn>
@@ -434,7 +453,7 @@ export default function HomePage() {
               </Link>
               <a
                 href="tel:9196129978"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary-700 transition-all duration-300 text-base"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-navy-700 transition-all duration-300 text-base"
               >
                 Call (919) 612-9978
               </a>
