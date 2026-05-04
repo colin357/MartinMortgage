@@ -17,7 +17,7 @@ const company = [
 
 export default function Footer() {
   return (
-    <footer className="bg-primary-800 text-white">
+    <footer className="bg-navy-800 text-white">
       <div className="container-max section-padding pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
 
@@ -36,7 +36,7 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            <p className="text-primary-200 text-sm leading-relaxed mb-4">
+            <p className="text-navy-200 text-sm leading-relaxed mb-4">
               Your trusted mortgage partner in Raleigh, NC. Personalized
               service, expert guidance, and a team that goes the extra mile
               for every client.
@@ -56,7 +56,7 @@ export default function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href as any}
-                    className="text-primary-200 hover:text-white transition-colors text-sm"
+                    className="text-navy-200 hover:text-white transition-colors text-sm"
                   >
                     {item.name}
                   </Link>
@@ -75,7 +75,7 @@ export default function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href as any}
-                    className="text-primary-200 hover:text-white transition-colors text-sm"
+                    className="text-navy-200 hover:text-white transition-colors text-sm"
                   >
                     {item.name}
                   </Link>
@@ -89,7 +89,7 @@ export default function Footer() {
             <h3 className="text-accent-400 font-bold text-xs uppercase tracking-widest mb-4">
               Areas We Serve
             </h3>
-            <ul className="space-y-3 text-sm text-primary-200">
+            <ul className="space-y-3 text-sm text-navy-200">
               <li>Raleigh, NC</li>
               <li>Durham, NC</li>
               <li>Cary, NC</li>
@@ -100,13 +100,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-primary-700 pt-8">
+        <div className="border-t border-navy-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-primary-300 text-xs">
+            <p className="text-navy-300 text-xs">
               &copy; {new Date().getFullYear()} Martin Mortgage Group. All rights reserved.
-              NMLS# <span className="text-primary-200">Insert NMLS#</span>. Equal Housing Lender.
+              NMLS# <span className="text-navy-200">Insert NMLS#</span>. Equal Housing Lender.
             </p>
-            <p className="text-primary-400 text-xs">Raleigh, North Carolina</p>
+            <p className="text-navy-400 text-xs">Raleigh, North Carolina</p>
           </div>
         </div>
       </div>

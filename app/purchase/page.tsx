@@ -69,8 +69,8 @@ export default function PurchasePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-primary-800 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700" />
+      <section className="relative bg-navy-800 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-700" />
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-accent-400 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
         </div>
@@ -86,7 +86,7 @@ export default function PurchasePage() {
                 Find the Perfect Loan for Your
                 <span className="text-accent-300"> Dream Home</span>
               </h1>
-              <p className="text-primary-100 text-lg leading-relaxed mb-8">
+              <p className="text-navy-100 text-lg leading-relaxed mb-8">
                 Whether you&apos;re a first-time buyer or upgrading to your
                 forever home, Martin Mortgage Group will guide you through every
                 step with personalized service and the attention you deserve.
@@ -100,7 +100,7 @@ export default function PurchasePage() {
                     </svg>
                     <div>
                       <div className="text-white font-medium text-sm">{b.title}</div>
-                      <div className="text-primary-200 text-xs mt-0.5">{b.description}</div>
+                      <div className="text-navy-200 text-xs mt-0.5">{b.description}</div>
                     </div>
                   </div>
                 ))}

@@ -103,18 +103,18 @@ export default function TestimonialSlider({ testimonials }: TestimonialSliderPro
         <button
           onClick={prev}
           aria-label="Previous testimonial"
-          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-primary-50 hover:border-primary-300 transition-all duration-200 group"
+          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-navy-50 hover:border-navy-300 transition-all duration-200 group"
         >
-          <svg className="w-5 h-5 text-gray-600 group-hover:text-primary-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-gray-600 group-hover:text-navy-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
         <button
           onClick={next}
           aria-label="Next testimonial"
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-primary-50 hover:border-primary-300 transition-all duration-200 group"
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center hover:bg-navy-50 hover:border-navy-300 transition-all duration-200 group"
         >
-          <svg className="w-5 h-5 text-gray-600 group-hover:text-primary-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-gray-600 group-hover:text-navy-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </button>
@@ -143,7 +143,7 @@ export default function TestimonialSlider({ testimonials }: TestimonialSliderPro
               <div
                 className={`bg-white rounded-xl p-6 border shadow-sm transition-all duration-300 mx-2 ${
                   i === current
-                    ? "border-primary-200 shadow-md scale-100 opacity-100"
+                    ? "border-navy-200 shadow-md scale-100 opacity-100"
                     : "border-gray-100 scale-[0.97] opacity-60"
                 }`}
               >
@@ -175,7 +175,7 @@ export default function TestimonialSlider({ testimonials }: TestimonialSliderPro
             aria-label={`Go to testimonial ${i + 1}`}
             className={`h-2 rounded-full transition-all duration-300 ${
               i === current
-                ? "w-8 bg-primary-700"
+                ? "w-8 bg-navy-700"
                 : "w-2 bg-gray-300 hover:bg-gray-400"
             }`}
           />

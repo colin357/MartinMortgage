@@ -66,8 +66,8 @@ const faqItems = [
 export default function RefinancePage() {
   return (
     <>
-      <section className="relative bg-primary-800 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700" />
+      <section className="relative bg-navy-800 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-700" />
         <div className="absolute inset-0 opacity-10">
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-400 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3" />
         </div>
@@ -81,7 +81,7 @@ export default function RefinancePage() {
                 Refinance & Save on Your
                 <span className="text-accent-300"> Monthly Payment</span>
               </h1>
-              <p className="text-primary-100 text-lg leading-relaxed mb-8">
+              <p className="text-navy-100 text-lg leading-relaxed mb-8">
                 Whether you want to lower your rate, shorten your term, or access
                 your equity, Martin Mortgage Group makes refinancing simple and
                 stress-free.
@@ -95,7 +95,7 @@ export default function RefinancePage() {
                     </div>
                     <div>
                       <h3 className="text-white font-semibold text-sm">{rt.title}</h3>
-                      <p className="text-primary-200 text-xs mt-0.5">{rt.description}</p>
+                      <p className="text-navy-200 text-xs mt-0.5">{rt.description}</p>
                     </div>
                   </div>
                 ))}

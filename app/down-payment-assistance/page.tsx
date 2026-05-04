@@ -72,8 +72,8 @@ const faqItems = [
 export default function DPAPage() {
   return (
     <>
-      <section className="relative bg-primary-800 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700" />
+      <section className="relative bg-navy-800 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-700" />
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-1/2 right-0 w-96 h-96 bg-accent-400 rounded-full blur-3xl translate-x-1/3" />
         </div>
@@ -87,7 +87,7 @@ export default function DPAPage() {
                 Buy Your Home with
                 <span className="text-accent-300"> Less Out of Pocket</span>
               </h1>
-              <p className="text-primary-100 text-lg leading-relaxed mb-8">
+              <p className="text-navy-100 text-lg leading-relaxed mb-8">
                 North Carolina offers excellent down payment assistance programs
                 for qualifying buyers. We&apos;ll help you navigate the options and
                 maximize your savings.
@@ -97,7 +97,7 @@ export default function DPAPage() {
                 {programs.map((p) => (
                   <div key={p.name} className="bg-white/5 rounded-xl p-4">
                     <h3 className="text-white font-semibold text-sm mb-1">{p.name}</h3>
-                    <p className="text-primary-200 text-xs">{p.description}</p>
+                    <p className="text-navy-200 text-xs">{p.description}</p>
                   </div>
                 ))}
               </div>
