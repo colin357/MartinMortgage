@@ -41,11 +41,11 @@ function LogoImage() {
   // Text fallback when no logo image is present
   return (
     <div className="flex items-center gap-2">
-      <div className="w-10 h-10 bg-primary-700 rounded-full flex items-center justify-center flex-shrink-0">
+      <div className="w-10 h-10 bg-navy-700 rounded-full flex items-center justify-center flex-shrink-0">
         <span className="text-white font-black text-base">M</span>
       </div>
       <div className="flex flex-col leading-tight">
-        <span className="font-black text-lg text-primary-800 tracking-tight uppercase">
+        <span className="font-black text-lg text-navy-800 tracking-tight uppercase">
           Martin Mortgage
         </span>
         <span className="text-xs text-accent-500 font-bold tracking-widest uppercase">
@@ -106,7 +106,7 @@ export default function Header() {
                     onMouseEnter={() => setDropdownOpen(true)}
                     onMouseLeave={() => setDropdownOpen(false)}
                   >
-                    <button className="text-gray-700 hover:text-primary-700 font-semibold transition-colors flex items-center gap-1 text-sm uppercase tracking-wide">
+                    <button className="text-gray-700 hover:text-navy-700 font-semibold transition-colors flex items-center gap-1 text-sm uppercase tracking-wide">
                       {item.name}
                       <svg
                         className={`w-4 h-4 transition-transform ${dropdownOpen ? "rotate-180" : ""}`}
@@ -121,7 +121,7 @@ export default function Header() {
                           <Link
                             key={child.name}
                             href={child.href as any}
-                            className="block px-5 py-3 text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors font-medium text-sm"
+                            className="block px-5 py-3 text-gray-700 hover:bg-navy-50 hover:text-navy-700 transition-colors font-medium text-sm"
                           >
                             {child.name}
                           </Link>
@@ -133,7 +133,7 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href as any}
-                    className="text-gray-700 hover:text-primary-700 font-semibold transition-colors text-sm uppercase tracking-wide"
+                    className="text-gray-700 hover:text-navy-700 font-semibold transition-colors text-sm uppercase tracking-wide"
                   >
                     {item.name}
                   </Link>
@@ -175,7 +175,7 @@ export default function Header() {
                       <Link
                         key={child.name}
                         href={child.href as any}
-                        className="block pl-6 pr-3 py-2 text-gray-700 hover:text-primary-700 font-medium text-sm"
+                        className="block pl-6 pr-3 py-2 text-gray-700 hover:text-navy-700 font-medium text-sm"
                         onClick={() => setMobileOpen(false)}
                       >
                         {child.name}
@@ -186,7 +186,7 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href as any}
-                    className="block px-3 py-2 text-gray-700 hover:text-primary-700 font-semibold text-sm"
+                    className="block px-3 py-2 text-gray-700 hover:text-navy-700 font-semibold text-sm"
                     onClick={() => setMobileOpen(false)}
                   >
                     {item.name}

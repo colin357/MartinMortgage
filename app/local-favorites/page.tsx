@@ -157,8 +157,8 @@ export default function LocalFavoritesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-primary-800 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700" />
+      <section className="relative bg-navy-800 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-700" />
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-1/2 w-96 h-96 bg-accent-400 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/3" />
         </div>
@@ -172,7 +172,7 @@ export default function LocalFavoritesPage() {
             Our Favorite Local
             <span className="text-accent-500"> Spots in Raleigh</span>
           </h1>
-          <p className="text-primary-100 text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="text-navy-100 text-lg leading-relaxed max-w-2xl mx-auto">
             We don&apos;t just help you find a house &mdash; we help you find a
             home. Here are some of the places our team loves most in the
             Raleigh-Durham area.
@@ -230,12 +230,12 @@ export default function LocalFavoritesPage() {
 
       {/* Community CTA */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-800 via-primary-900 to-primary-800" />
+        <div className="absolute inset-0 bg-gradient-to-br from-navy-800 via-navy-900 to-navy-800" />
         <div className="relative container-max px-4 sm:px-6 lg:px-8 py-20 text-center">
           <h2 className="font-sans text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Call Raleigh Home?
           </h2>
-          <p className="text-primary-100 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-navy-100 text-lg mb-8 max-w-2xl mx-auto">
             Let the Martin Mortgage Group help you put down roots in one of
             the best cities in the Southeast. Get pre-qualified today and start
             exploring your new neighborhood.

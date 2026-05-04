@@ -122,18 +122,18 @@ export default function ChatForm({
         <h2 className="text-2xl md:text-3xl font-black text-white mb-2">
           {headline}
         </h2>
-        <p className="text-primary-200 text-sm">{subheadline}</p>
+        <p className="text-navy-200 text-sm">{subheadline}</p>
       </div>
 
       <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
         {/* Chat header — dark green */}
-        <div className="bg-primary-700 px-5 py-4 flex items-center gap-3">
+        <div className="bg-navy-700 px-5 py-4 flex items-center gap-3">
           <div className="w-9 h-9 bg-accent-400 rounded-full flex items-center justify-center">
             <span className="text-white font-black text-sm">M</span>
           </div>
           <div>
             <div className="text-white font-bold text-sm">Martin Mortgage Group</div>
-            <div className="text-primary-200 text-xs flex items-center gap-1">
+            <div className="text-navy-200 text-xs flex items-center gap-1">
               <span className="w-2 h-2 bg-accent-400 rounded-full inline-block" />
               Online now
             </div>
@@ -150,7 +150,7 @@ export default function ChatForm({
               <div
                 className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
                   msg.role === "user"
-                    ? "bg-primary-700 text-white rounded-br-md"
+                    ? "bg-navy-700 text-white rounded-br-md"
                     : "bg-white text-gray-800 shadow-sm border border-gray-200 rounded-bl-md"
                 }`}
               >
@@ -181,7 +181,7 @@ export default function ChatForm({
                     key={opt}
                     onClick={() => advanceStep(opt)}
                     disabled={isTyping || isSubmitting}
-                    className="px-4 py-2 bg-gray-100 hover:bg-primary-700 hover:text-white text-gray-700 rounded-full text-sm font-semibold transition-colors border border-gray-200 disabled:opacity-50"
+                    className="px-4 py-2 bg-gray-100 hover:bg-navy-700 hover:text-white text-gray-700 rounded-full text-sm font-semibold transition-colors border border-gray-200 disabled:opacity-50"
                   >
                     {opt}
                   </button>
@@ -196,12 +196,12 @@ export default function ChatForm({
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder={step?.placeholder || "Type your answer..."}
                   disabled={isTyping || isSubmitting}
-                  className="flex-1 px-4 py-2.5 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent disabled:opacity-50 bg-gray-50"
+                  className="flex-1 px-4 py-2.5 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-navy-500 focus:border-transparent disabled:opacity-50 bg-gray-50"
                 />
                 <button
                   type="submit"
                   disabled={isTyping || !inputValue.trim() || isSubmitting}
-                  className="w-10 h-10 bg-primary-700 hover:bg-primary-800 text-white rounded-full flex items-center justify-center transition-colors disabled:opacity-50"
+                  className="w-10 h-10 bg-navy-700 hover:bg-navy-800 text-white rounded-full flex items-center justify-center transition-colors disabled:opacity-50"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -213,7 +213,7 @@ export default function ChatForm({
         )}
       </div>
 
-      <p className="text-center text-xs text-primary-200 mt-4">
+      <p className="text-center text-xs text-navy-200 mt-4">
         Your information is secure and will only be used to help you with your mortgage needs.
       </p>
     </div>

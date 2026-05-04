@@ -68,8 +68,8 @@ const faqItems = [
 export default function NewConstructionPage() {
   return (
     <>
-      <section className="relative bg-primary-800 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700" />
+      <section className="relative bg-navy-800 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-700" />
         <div className="absolute inset-0 opacity-10">
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-400 rounded-full blur-3xl translate-y-1/3" />
         </div>
@@ -83,7 +83,7 @@ export default function NewConstructionPage() {
                 Build Your Dream Home with
                 <span className="text-accent-300"> Confidence</span>
               </h1>
-              <p className="text-primary-100 text-lg leading-relaxed mb-8">
+              <p className="text-navy-100 text-lg leading-relaxed mb-8">
                 From new communities in the Triangle to custom builds on your own
                 lot, we offer construction financing that keeps your project on
                 budget and on schedule.
@@ -93,7 +93,7 @@ export default function NewConstructionPage() {
                 {features.map((f) => (
                   <div key={f.title} className="bg-white/5 rounded-xl p-4">
                     <h3 className="text-white font-semibold text-sm mb-1">{f.title}</h3>
-                    <p className="text-primary-200 text-xs">{f.description}</p>
+                    <p className="text-navy-200 text-xs">{f.description}</p>
                   </div>
                 ))}
               </div>

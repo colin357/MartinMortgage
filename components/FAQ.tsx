@@ -49,7 +49,7 @@ export default function FAQ({
                   {item.question}
                 </span>
                 <svg
-                  className={`w-5 h-5 text-primary-600 flex-shrink-0 transition-transform duration-300 ${
+                  className={`w-5 h-5 text-navy-600 flex-shrink-0 transition-transform duration-300 ${
                     openIndex === index ? "rotate-180" : ""
                   }`}
                   fill="none"
