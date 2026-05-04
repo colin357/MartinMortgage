@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
 
 const loanPrograms = [
   { name: "Home Purchase",           href: "/purchase" },
@@ -15,6 +19,39 @@ const company = [
   { name: "Contact",        href: "/#contact" },
 ];
 
+function FooterLogo() {
+  const [imgError, setImgError] = useState(false);
+
+  if (!imgError) {
+    return (
+      <Image
+        src="/images/logo.png"
+        alt="Martin Mortgage Group"
+        width={200}
+        height={54}
+        className="h-12 w-auto object-contain brightness-0 invert"
+        onError={() => setImgError(true)}
+      />
+    );
+  }
+
+  return (
+    <div className="flex items-center gap-3">
+      <div className="w-10 h-10 bg-accent-400 rounded-full flex items-center justify-center flex-shrink-0">
+        <span className="text-white font-black text-base">M</span>
+      </div>
+      <div>
+        <div className="font-black text-lg leading-tight uppercase tracking-tight">
+          Martin Mortgage
+        </div>
+        <div className="text-xs text-accent-400 font-bold tracking-widest uppercase">
+          Group
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Footer() {
   return (
     <footer className="bg-navy-800 text-white">
@@ -23,18 +60,8 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-accent-400 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-white font-black text-base">M</span>
-              </div>
-              <div>
-                <div className="font-black text-lg leading-tight uppercase tracking-tight">
-                  Martin Mortgage
-                </div>
-                <div className="text-xs text-accent-400 font-bold tracking-widest uppercase">
-                  Group
-                </div>
-              </div>
+            <div className="mb-5">
+              <FooterLogo />
             </div>
             <p className="text-navy-200 text-sm leading-relaxed mb-4">
               Your trusted mortgage partner in Raleigh, NC. Personalized
