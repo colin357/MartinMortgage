@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function ReviewPage() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4 py-16">
-      <div className="max-w-lg w-full bg-white rounded-2xl shadow-lg p-10 text-center">
+    <main className="min-h-screen flex flex-col items-center bg-gray-50 px-4 pt-24 pb-16">
+      <div className="max-w-xl w-full bg-white rounded-2xl shadow-lg p-14 text-center">
         <h1 className="text-3xl font-bold text-gray-900 mb-3">
           Leave Michael a Review
         </h1>
