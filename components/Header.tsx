@@ -75,12 +75,14 @@ export default function Header() {
       <div className="bg-accent-400">
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-10 text-white text-sm font-semibold">
-            <Link
-              href="/purchase"
+            <a
+              href="https://mobile.fairwaynow.com/homehub/signup/michael.martin@fairwaymc.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:underline tracking-wide uppercase text-xs"
             >
               Apply Now
-            </Link>
+            </a>
             <a
               href="tel:9196129978"
               className="flex items-center gap-2 bg-white text-accent-600 rounded-full px-4 py-1 font-bold text-xs hover:bg-white/90 transition-colors shadow-sm"
