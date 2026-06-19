@@ -162,22 +162,22 @@ export default function HomePage() {
                 what we do.
               </p>
               <div className="hero-fade-up hero-delay-4 flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/purchase"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-accent-400 text-white font-bold rounded-lg hover:bg-accent-500 transition-all duration-300 shadow-lg shadow-accent-400/25 hover:shadow-xl hover:shadow-accent-400/30 hover:-translate-y-0.5 text-base uppercase tracking-wide"
-                >
-                  Get Pre-Qualified
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </Link>
                 <a
                   href="https://mobile.fairwaynow.com/homehub/signup/michael.martin@fairwaymc.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 hover:border-white/50 transition-all duration-300 text-base backdrop-blur-sm"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-accent-400 text-white font-bold rounded-lg hover:bg-accent-500 transition-all duration-300 shadow-lg shadow-accent-400/25 hover:shadow-xl hover:shadow-accent-400/30 hover:-translate-y-0.5 text-base uppercase tracking-wide"
                 >
                   Apply Now
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
+                <a
+                  href="/#contact"
+                  className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 hover:border-white/50 transition-all duration-300 text-base backdrop-blur-sm"
+                >
+                  Get In Touch
                 </a>
               </div>
 
@@ -414,6 +414,21 @@ export default function HomePage() {
           </AnimateIn>
           <AnimateIn animation="fade-up" delay={150}>
             <TestimonialSlider testimonials={testimonials} />
+          </AnimateIn>
+          <AnimateIn animation="fade-up" delay={250}>
+            <div className="mt-10 text-center">
+              <a
+                href="https://share.google/fpKBI5f031gvpmByk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-accent-400 text-accent-600 font-bold rounded-lg hover:bg-accent-400 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                Leave Us a Review
+              </a>
+            </div>
           </AnimateIn>
         </div>
       </section>
