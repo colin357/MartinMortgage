@@ -174,7 +174,9 @@ export default function HomePage() {
                   </svg>
                 </a>
                 <a
-                  href="/#contact"
+                  href="https://www.yournclender.com/purchase"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 hover:border-white/50 transition-all duration-300 text-base backdrop-blur-sm"
                 >
                   Get In Touch
