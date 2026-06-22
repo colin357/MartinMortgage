@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Leave a Review | Michael Martin - Martin Mortgage Group",
   description:
-    "Share your experience working with Michael Martin. Leave a review on Google or Experience.com.",
+    "Share your experience working with Michael Martin. Leave a review on Google or Zillow.",
 };
 
 export default function ReviewPage() {
@@ -51,7 +51,7 @@ export default function ReviewPage() {
           </a>
 
           <a
-            href="https://www.experience.com/reviews/michael-martin-42136"
+            href="https://www.zillow.com/lender-profile/martinmortgagegroup/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-3 px-6 py-4 rounded-xl border-2 border-gray-200 hover:border-blue-400 hover:shadow-md transition-all font-semibold text-gray-800 bg-white"
@@ -61,20 +61,20 @@ export default function ReviewPage() {
               viewBox="0 0 48 48"
               className="w-7 h-7 shrink-0"
             >
-              <rect width="48" height="48" rx="8" fill="#1A3C6E" />
+              <rect width="48" height="48" rx="8" fill="#1277E1" />
               <text
                 x="24"
-                y="33"
+                y="34"
                 textAnchor="middle"
                 fill="white"
                 fontSize="26"
                 fontWeight="bold"
                 fontFamily="Arial, sans-serif"
               >
-                X
+                Z
               </text>
             </svg>
-            Review on Experience.com
+            Review on Zillow
           </a>
         </div>
 
