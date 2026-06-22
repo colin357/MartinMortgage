@@ -82,7 +82,7 @@ export default function ReviewPage() {
           What Our Clients Say
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((t) => (
+          {testimonials.slice(0, 6).map((t) => (
             <div
               key={t.name}
               className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col gap-4"
