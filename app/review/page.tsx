@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Leave a Review | Michael Martin - Martin Mortgage Group",
@@ -56,25 +57,14 @@ export default function ReviewPage() {
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-3 px-6 py-4 rounded-xl border-2 border-gray-200 hover:border-blue-400 hover:shadow-md transition-all font-semibold text-gray-800 bg-white"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 48 48"
-              className="w-7 h-7 shrink-0"
-            >
-              <rect width="48" height="48" rx="8" fill="#1277E1" />
-              <text
-                x="24"
-                y="34"
-                textAnchor="middle"
-                fill="white"
-                fontSize="26"
-                fontWeight="bold"
-                fontFamily="Arial, sans-serif"
-              >
-                Z
-              </text>
-            </svg>
-            Review on Zillow
+            <Image
+              src="/images/zillow-logo.svg"
+              alt="Zillow"
+              width={80}
+              height={18}
+              className="shrink-0"
+            />
+            Leave a Review
           </a>
         </div>
 
