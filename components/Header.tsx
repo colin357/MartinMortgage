@@ -158,7 +158,7 @@ export default function Header() {
                 )
               )}
               <Link href="/purchase" className="btn-primary text-sm px-6 py-2.5">
-                Get Pre-Qualified
+                Contact Us
               </Link>
             </div>
 
@@ -217,7 +217,7 @@ export default function Header() {
                   className="btn-primary w-full text-sm text-center"
                   onClick={() => setMobileOpen(false)}
                 >
-                  Get Pre-Qualified
+                  Contact Us
                 </Link>
               </div>
             </div>
