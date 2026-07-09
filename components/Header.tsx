@@ -76,7 +76,7 @@ export default function Header() {
         <div className="container-max px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-10 text-white text-sm font-semibold">
             <a
-              href="https://fairway.tidalwave.ai/guest?type=&clientID=d49qo96evn7u9io9q3c0"
+              href="https://fairway.tidalwave.ai/signup/d1lbzp"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline tracking-wide uppercase text-xs"
