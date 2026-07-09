@@ -134,7 +134,7 @@ export default function HomePage() {
               </p>
               <div className="hero-fade-up hero-delay-4 flex flex-col sm:flex-row gap-4">
                 <a
-                  href="https://fairway.tidalwave.ai/guest?type=&clientID=d49qo96evn7u9io9q3c0"
+                  href="https://fairway.tidalwave.ai/signup/d1lbzp"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-8 py-4 bg-accent-400 text-white font-bold rounded-lg hover:bg-accent-500 transition-all duration-300 shadow-lg shadow-accent-400/25 hover:shadow-xl hover:shadow-accent-400/30 hover:-translate-y-0.5 text-base uppercase tracking-wide"
