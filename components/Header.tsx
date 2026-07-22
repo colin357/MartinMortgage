@@ -15,6 +15,7 @@ const navigation = [
       { name: "Down Payment Assistance",    href: "/down-payment-assistance" },
       { name: "Investors",                  href: "/investors" },
       { name: "New Construction",           href: "/new-construction" },
+      { name: "Bridge Loans",               href: "/bridge" },
     ],
   },
   { name: "Local Favorites", href: "/local-favorites" },

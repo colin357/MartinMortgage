@@ -254,6 +254,77 @@ export const investorSteps = [
   },
 ];
 
+export const bridgeSteps = [
+  {
+    id: "firstName",
+    question: "What’s your first name?",
+    type: "text" as const,
+    placeholder: "Enter your first name",
+    field: "firstName",
+  },
+  {
+    id: "lastName",
+    question: "And your last name?",
+    type: "text" as const,
+    placeholder: "Enter your last name",
+    field: "lastName",
+  },
+  {
+    id: "email",
+    question: "What’s your email address?",
+    type: "email" as const,
+    placeholder: "you@email.com",
+    field: "email",
+  },
+  {
+    id: "phone",
+    question: "What’s the best number to reach you?",
+    type: "phone" as const,
+    placeholder: "(919) 555-1234",
+    field: "phone",
+  },
+  {
+    id: "departureState",
+    question: "What state is your current home located in?",
+    type: "text" as const,
+    placeholder: "e.g. North Carolina",
+    field: "departureState",
+  },
+  {
+    id: "homeValue",
+    question: "What’s your current home’s approximate value?",
+    type: "currency" as const,
+    placeholder: "e.g. $450,000",
+    field: "homeValue",
+  },
+  {
+    id: "purchasePrice",
+    question: "What’s the price of the new home you’re hoping to buy?",
+    type: "currency" as const,
+    placeholder: "e.g. $550,000",
+    field: "purchasePrice",
+  },
+  {
+    id: "creditScore",
+    question: "Any idea of your credit score range?",
+    type: "select" as const,
+    options: ["740+", "700–739", "680–699", "Below 680", "Not sure"],
+    field: "creditRange",
+  },
+  {
+    id: "timeline",
+    question: "When do you need to close on your new home?",
+    type: "select" as const,
+    options: [
+      "Within 30 days",
+      "1–3 months",
+      "3–6 months",
+      "Just exploring",
+    ],
+    field: "timeline",
+  },
+];
+
 export const newConstructionSteps = [
   {
     id: "firstName",
