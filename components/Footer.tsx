@@ -131,7 +131,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-navy-300 text-xs">
               &copy; {new Date().getFullYear()} Martin Mortgage Group. All rights reserved.
-              NMLS# <span className="text-navy-200">Insert NMLS#</span>. Equal Housing Lender.
+              NMLS# 131445 | Fairway Independent Mortgage Corporation NMLS# 2289. Equal Housing Lender.
             </p>
             <p className="text-navy-400 text-xs">Raleigh, North Carolina</p>
           </div>
