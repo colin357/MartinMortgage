@@ -24,19 +24,22 @@ const panelists = [
     name: "Jenny Hensley",
     role: "Panelist",
     company: "Luxe Residential",
-    initials: "JH",
+    image: "/images/jenny-hensley.jpg",
+    imageClass: "object-top scale-100",
   },
   {
     name: "April Stephens",
     role: "Panelist",
     company: "The April Stephens Team",
-    initials: "AS",
+    image: "/images/april-stephens.png",
+    imageClass: "object-top scale-[1.45]",
   },
   {
     name: "Amir Hunter",
     role: "Panelist",
     company: "eXp Realty",
-    initials: "AH",
+    image: "/images/amir-hunter.jpeg",
+    imageClass: "object-top scale-[1.6]",
   },
 ];
 
@@ -178,8 +181,14 @@ export default function RrarPanelPage() {
                 key={p.name}
                 className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 text-center"
               >
-                <div className="w-20 h-20 rounded-full bg-navy-700 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-black text-xl">{p.initials}</span>
+                <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 relative bg-gray-100 ring-2 ring-gray-100">
+                  <Image
+                    src={p.image}
+                    alt={`${p.name}, ${p.company}`}
+                    fill
+                    sizes="96px"
+                    className={`object-cover origin-top ${p.imageClass}`}
+                  />
                 </div>
                 <div className="font-bold text-gray-900">{p.name}</div>
                 <div className="text-accent-500 text-xs font-semibold uppercase tracking-wider mt-1">
@@ -190,13 +199,13 @@ export default function RrarPanelPage() {
             ))}
 
             <div className="bg-white rounded-xl border-2 border-accent-200 shadow-sm p-6 text-center">
-              <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4 relative bg-navy-700">
+              <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 relative bg-gray-100 ring-2 ring-accent-100">
                 <Image
-                  src="/images/michael-headshot.png"
+                  src="/images/michael.png"
                   alt="Michael Martin, Martin Mortgage Group"
                   fill
-                  sizes="80px"
-                  className="object-cover"
+                  sizes="96px"
+                  className="object-cover object-top"
                 />
               </div>
               <div className="font-bold text-gray-900">Michael Martin</div>
