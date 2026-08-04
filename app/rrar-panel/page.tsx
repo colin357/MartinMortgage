@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title:
     "RRAR Agent Power Panel | How to Compete Like a Top Agent | Register Free",
   description:
-    "Register for the RRAR Agent Power Panel — “How to Compete Like a Top Agent,” Monday August 18, 10:00–11:30 AM. Jenny Hensley, April Stephens and Amir Hunter, moderated by Michael Martin of Martin Mortgage Group.",
+    "Register for the RRAR Agent Power Panel — “How to Compete Like a Top Agent,” Tuesday August 18, 10:00–11:30 AM. Jenny Hensley, April Stephens and Amir Hunter, moderated by Michael Martin of Martin Mortgage Group.",
   keywords: [
     "RRAR Agent Power Panel",
     "Raleigh realtor event",
@@ -67,7 +67,7 @@ const takeaways = [
 ];
 
 const details = [
-  { label: "Date", value: "Monday, August 18" },
+  { label: "Date", value: "Tuesday, August 18" },
   { label: "Time", value: "10:00 – 11:30 AM" },
   { label: "Cost", value: "Free to attend" },
   { label: "Who It's For", value: "Licensed agents at any level" },
@@ -120,7 +120,7 @@ export default function RrarPanelPage() {
             <div>
               <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-accent-400/20 rounded-full mb-6">
                 <span className="text-accent-200 text-sm font-medium uppercase tracking-widest">
-                  RRAR Agent Power Panel · Mon Aug 18
+                  RRAR Agent Power Panel · Tue Aug 18
                 </span>
               </span>
               <p className="text-accent-300 font-semibold uppercase tracking-widest text-sm mb-3">
@@ -252,7 +252,7 @@ export default function RrarPanelPage() {
       <section className="bg-navy-800 py-16">
         <div className="container-max px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-sans text-2xl md:text-3xl font-black text-white mb-4">
-            Monday, August 18 · 10:00 – 11:30 AM
+            Tuesday, August 18 · 10:00 – 11:30 AM
           </h2>
           <p className="text-navy-100 mb-8 max-w-xl mx-auto">
             Seats are limited. Register now and we&apos;ll send you the location
@@ -275,7 +275,7 @@ export default function RrarPanelPage() {
       <FAQ
         items={faqItems}
         title="Panel FAQ"
-        subtitle="Everything you need to know before Monday, August 18"
+        subtitle="Everything you need to know before Tuesday, August 18"
       />
     </>
   );
