@@ -387,3 +387,61 @@ export const newConstructionSteps = [
     field: "goalPayment",
   },
 ];
+
+export const rrarPanelSteps = [
+  {
+    id: "firstName",
+    question: "What’s your first name?",
+    type: "text" as const,
+    placeholder: "Enter your first name",
+    field: "firstName",
+  },
+  {
+    id: "lastName",
+    question: "And your last name?",
+    type: "text" as const,
+    placeholder: "Enter your last name",
+    field: "lastName",
+  },
+  {
+    id: "email",
+    question: "What’s the best email for your confirmation and reminder?",
+    type: "email" as const,
+    placeholder: "you@email.com",
+    field: "email",
+  },
+  {
+    id: "phone",
+    question: "And a mobile number so we can text you the details?",
+    type: "phone" as const,
+    placeholder: "(919) 555-1234",
+    field: "phone",
+  },
+  {
+    id: "brokerage",
+    question: "What brokerage are you with?",
+    type: "text" as const,
+    placeholder: "e.g. eXp Realty",
+    field: "brokerage",
+  },
+  {
+    id: "experience",
+    question: "How long have you been in real estate?",
+    type: "select" as const,
+    options: [
+      "Less than 1 year",
+      "1–3 years",
+      "3–10 years",
+      "10+ years",
+    ],
+    field: "experience",
+  },
+  {
+    id: "panelQuestion",
+    question:
+      "Last one — what’s the one question you’d want the panel to answer? (Type “skip” if you’d rather not.)",
+    type: "text" as const,
+    placeholder: "Your question for the panel",
+    field: "panelQuestion",
+  },
+];
