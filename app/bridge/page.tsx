@@ -131,6 +131,31 @@ export default function BridgePage() {
         </div>
       </section>
 
+      {/* Video */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-max max-w-4xl">
+          <div className="text-center mb-10">
+            <span className="text-accent-500 font-semibold text-sm uppercase tracking-wider">
+              Watch
+            </span>
+            <h2 className="font-sans text-3xl md:text-4xl font-black text-gray-900 mt-2">
+              How a Bridge Loan Works
+            </h2>
+          </div>
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg border border-gray-200 bg-gray-900">
+            <iframe
+              className="absolute inset-0 w-full h-full"
+              src="https://www.youtube-nocookie.com/embed/dPU0UaJzhmA"
+              title="How a Bridge Loan Works"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Who it's for */}
       <section className="section-padding bg-white">
         <div className="container-max max-w-4xl">
