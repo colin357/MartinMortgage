@@ -16,9 +16,6 @@ interface ChatFormProps {
   loanType: string;
   headline?: string;
   subheadline?: string;
-  introMessage?: string;
-  completionMessage?: string;
-  footnote?: string;
 }
 
 interface Message {
@@ -31,9 +28,6 @@ export default function ChatForm({
   loanType,
   headline = "Let\u2019s Get You Pre-Qualified",
   subheadline = "Answer a few quick questions and we\u2019ll reach out shortly.",
-  introMessage,
-  completionMessage = "Thank you! A member of our team will reach out to you shortly. We look forward to helping you with your home financing goals!",
-  footnote = "Your information is secure and will only be used to help you with your mortgage needs.",
 }: ChatFormProps) {
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -57,9 +51,7 @@ export default function ChatForm({
     const timer = setTimeout(() => {
       setMessages([{
         role: "bot",
-        text:
-          introMessage ??
-          `Hi there! I\u2019m here to help you get started with your ${loanType} journey. Let\u2019s get a few details from you.`,
+        text: `Hi there! I\u2019m here to help you get started with your ${loanType} journey. Let\u2019s get a few details from you.`,
       }]);
       setTimeout(() => {
         setIsTyping(true);
@@ -70,7 +62,7 @@ export default function ChatForm({
       }, 500);
     }, 300);
     return () => clearTimeout(timer);
-  }, [loanType, steps, introMessage]);
+  }, [loanType, steps]);
 
   const advanceStep = (answer: string) => {
     const step = steps[currentStep];
@@ -102,7 +94,7 @@ export default function ChatForm({
           setIsComplete(true);
           setMessages((prev) => [
             ...prev,
-            { role: "bot", text: completionMessage },
+            { role: "bot", text: "Thank you! A member of our team will reach out to you shortly. We look forward to helping you with your home financing goals!" },
           ]);
         })
         .catch(() => {
@@ -221,7 +213,9 @@ export default function ChatForm({
         )}
       </div>
 
-      <p className="text-center text-xs text-navy-200 mt-4">{footnote}</p>
+      <p className="text-center text-xs text-navy-200 mt-4">
+        Your information is secure and will only be used to help you with your mortgage needs.
+      </p>
     </div>
   );
 }

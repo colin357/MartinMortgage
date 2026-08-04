@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import ChatForm from "@/components/ChatForm";
+import RegistrationForm from "@/components/RegistrationForm";
 import FAQ from "@/components/FAQ";
-import { rrarPanelSteps } from "@/lib/chat-steps";
 
 export const metadata: Metadata = {
   title:
@@ -151,15 +150,7 @@ export default function RrarPanelPage() {
             </div>
 
             <div id="register" className="scroll-mt-28">
-              <ChatForm
-                steps={rrarPanelSteps}
-                loanType="RRAR Agent Power Panel — Aug 18 Registration"
-                headline="Save Your Seat"
-                subheadline="Free for agents. Takes about 30 seconds."
-                introMessage="Hi! Let’s get you registered for the RRAR Agent Power Panel on Monday, August 18. Just a few quick details."
-                completionMessage="You’re registered! We’ll email you a confirmation with the location details and send a reminder before the panel. See you Monday, August 18 at 10:00 AM."
-                footnote="We’ll only use your info to send event details and a reminder."
-              />
+              <RegistrationForm />
             </div>
           </div>
         </div>
