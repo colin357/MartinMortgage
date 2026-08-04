@@ -71,7 +71,7 @@ export default function RegistrationForm() {
             </h3>
             <p className="text-gray-600 text-sm leading-relaxed max-w-sm mx-auto">
               We&apos;ll send you a confirmation with the location details and a
-              reminder before the panel. See you Monday, August 18 at 10:00 AM.
+              reminder before the panel. See you Tuesday, August 18 at 10:00 AM.
             </p>
           </div>
         ) : (

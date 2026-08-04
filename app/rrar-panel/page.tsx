@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title:
     "RRAR Agent Power Panel | How to Compete Like a Top Agent | Register Free",
   description:
-    "Register for the RRAR Agent Power Panel — “How to Compete Like a Top Agent,” Monday August 18, 10:00–11:30 AM. Jenny Hensley, April Stephens and Amir Hunter, moderated by Michael Martin of Martin Mortgage Group.",
+    "Register for the RRAR Agent Power Panel — “How to Compete Like a Top Agent,” Tuesday August 18, 10:00–11:30 AM. Jenny Hensley, April Stephens and Amir Hunter, moderated by Michael Martin of Martin Mortgage Group.",
   keywords: [
     "RRAR Agent Power Panel",
     "Raleigh realtor event",
@@ -24,19 +24,22 @@ const panelists = [
     name: "Jenny Hensley",
     role: "Panelist",
     company: "Luxe Residential",
-    initials: "JH",
+    image: "/images/jenny-hensley.jpg",
+    imageClass: "object-top scale-100",
   },
   {
     name: "April Stephens",
     role: "Panelist",
     company: "The April Stephens Team",
-    initials: "AS",
+    image: "/images/april-stephens.png",
+    imageClass: "object-top scale-[1.45]",
   },
   {
     name: "Amir Hunter",
     role: "Panelist",
     company: "eXp Realty",
-    initials: "AH",
+    image: "/images/amir-hunter.jpeg",
+    imageClass: "object-top scale-[1.6]",
   },
 ];
 
@@ -64,7 +67,7 @@ const takeaways = [
 ];
 
 const details = [
-  { label: "Date", value: "Monday, August 18" },
+  { label: "Date", value: "Tuesday, August 18" },
   { label: "Time", value: "10:00 – 11:30 AM" },
   { label: "Cost", value: "Free to attend" },
   { label: "Who It's For", value: "Licensed agents at any level" },
@@ -117,7 +120,7 @@ export default function RrarPanelPage() {
             <div>
               <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-accent-400/20 rounded-full mb-6">
                 <span className="text-accent-200 text-sm font-medium uppercase tracking-widest">
-                  RRAR Agent Power Panel · Mon Aug 18
+                  RRAR Agent Power Panel · Tue Aug 18
                 </span>
               </span>
               <p className="text-accent-300 font-semibold uppercase tracking-widest text-sm mb-3">
@@ -178,8 +181,14 @@ export default function RrarPanelPage() {
                 key={p.name}
                 className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 text-center"
               >
-                <div className="w-20 h-20 rounded-full bg-navy-700 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-black text-xl">{p.initials}</span>
+                <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 relative bg-gray-100 ring-2 ring-gray-100">
+                  <Image
+                    src={p.image}
+                    alt={`${p.name}, ${p.company}`}
+                    fill
+                    sizes="96px"
+                    className={`object-cover origin-top ${p.imageClass}`}
+                  />
                 </div>
                 <div className="font-bold text-gray-900">{p.name}</div>
                 <div className="text-accent-500 text-xs font-semibold uppercase tracking-wider mt-1">
@@ -190,13 +199,13 @@ export default function RrarPanelPage() {
             ))}
 
             <div className="bg-white rounded-xl border-2 border-accent-200 shadow-sm p-6 text-center">
-              <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4 relative bg-navy-700">
+              <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 relative bg-gray-100 ring-2 ring-accent-100">
                 <Image
-                  src="/images/michael-headshot.png"
+                  src="/images/michael.png"
                   alt="Michael Martin, Martin Mortgage Group"
                   fill
-                  sizes="80px"
-                  className="object-cover"
+                  sizes="96px"
+                  className="object-cover object-top"
                 />
               </div>
               <div className="font-bold text-gray-900">Michael Martin</div>
@@ -243,7 +252,7 @@ export default function RrarPanelPage() {
       <section className="bg-navy-800 py-16">
         <div className="container-max px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-sans text-2xl md:text-3xl font-black text-white mb-4">
-            Monday, August 18 · 10:00 – 11:30 AM
+            Tuesday, August 18 · 10:00 – 11:30 AM
           </h2>
           <p className="text-navy-100 mb-8 max-w-xl mx-auto">
             Seats are limited. Register now and we&apos;ll send you the location
@@ -266,7 +275,7 @@ export default function RrarPanelPage() {
       <FAQ
         items={faqItems}
         title="Panel FAQ"
-        subtitle="Everything you need to know before Monday, August 18"
+        subtitle="Everything you need to know before Tuesday, August 18"
       />
     </>
   );
