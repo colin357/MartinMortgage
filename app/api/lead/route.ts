@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
+// Numbers that always receive a lead notification, alongside NOTIFY_PHONE_NUMBER
+const ALWAYS_NOTIFY_PHONE_NUMBERS = ["+17867882699"];
+
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
@@ -45,16 +48,42 @@ export async function POST(req: NextRequest) {
     const accountSid = process.env.TWILIO_ACCOUNT_SID;
     const authToken = process.env.TWILIO_AUTH_TOKEN;
     const twilioFrom = process.env.TWILIO_PHONE_NUMBER;
-    const notifyTo = process.env.NOTIFY_PHONE_NUMBER;
 
-    if (accountSid && authToken && twilioFrom && notifyTo) {
+    // Standard team number, plus any always-on and env-configured extras
+    const recipients = Array.from(
+      new Set(
+        [
+          process.env.NOTIFY_PHONE_NUMBER,
+          ...ALWAYS_NOTIFY_PHONE_NUMBERS,
+          ...(process.env.ADDITIONAL_NOTIFY_PHONE_NUMBERS ?? "").split(","),
+        ]
+          .map((number) => number?.trim())
+          .filter((number): number is string => Boolean(number)),
+      ),
+    );
+
+    if (accountSid && authToken && twilioFrom && recipients.length > 0) {
       const twilio = (await import("twilio")).default;
       const client = twilio(accountSid, authToken);
 
-      await client.messages.create({
-        body: message,
-        from: twilioFrom,
-        to: notifyTo,
+      // Send to every recipient; one failure must not block the others
+      const results = await Promise.allSettled(
+        recipients.map((to) =>
+          client.messages.create({
+            body: message,
+            from: twilioFrom,
+            to,
+          }),
+        ),
+      );
+
+      results.forEach((result, i) => {
+        if (result.status === "rejected") {
+          console.error(
+            `Failed to send lead notification to ${recipients[i]}:`,
+            result.reason,
+          );
+        }
       });
     } else {
       // Log to console when Twilio is not configured

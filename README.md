@@ -35,9 +35,15 @@ Create a `.env.local` file:
 ```bash
 TWILIO_ACCOUNT_SID=...
 TWILIO_AUTH_TOKEN=...
-TWILIO_FROM_NUMBER=+1...
-TWILIO_TO_NUMBER=+1...  # Team notification destination
+TWILIO_PHONE_NUMBER=+1...  # Twilio number the text is sent from
+NOTIFY_PHONE_NUMBER=+1...  # Standard team notification destination
+ADDITIONAL_NOTIFY_PHONE_NUMBERS=+1...,+1...  # Optional, comma-separated extras
 ```
+
+Every form submission texts `NOTIFY_PHONE_NUMBER`, any numbers in
+`ADDITIONAL_NOTIFY_PHONE_NUMBERS`, and the always-on numbers listed in
+`ALWAYS_NOTIFY_PHONE_NUMBERS` in `app/api/lead/route.ts`. Duplicates are
+removed, and a failure to one number does not stop the others.
 
 ## Deploy to Vercel
 
