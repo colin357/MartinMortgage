@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AiLabApplicationForm from "@/components/AiLabApplicationForm";
+import AiLabHeroBackground from "@/components/AiLabHeroBackground";
 import FAQ from "@/components/FAQ";
 
 export const metadata: Metadata = {
@@ -169,11 +170,7 @@ export default function AiAgentLabPage() {
 
       {/* Hero */}
       <section className="relative bg-gray-950 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-950 to-gray-900" />
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-accent-400 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 animate-pulse-glow" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary-500 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3" />
-        </div>
+        <AiLabHeroBackground />
 
         <div className="relative container-max px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
