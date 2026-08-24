@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 
+const WEBINAR_NAME = "Retire In Peace Webinar";
+const WEBINAR_DATE = "Aug 25";
+
 export default function WebinarForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
@@ -18,15 +21,31 @@ export default function WebinarForm() {
     const payload = Object.fromEntries(formData.entries());
 
     try {
-      const res = await fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...payload,
-          loanType: "Retire In Peace Webinar — Aug 25 Registration",
+      const [leadResult] = await Promise.allSettled([
+        fetch("/api/lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...payload,
+            loanType: `${WEBINAR_NAME} — ${WEBINAR_DATE} Registration`,
+          }),
         }),
-      });
-      if (!res.ok) throw new Error("Request failed");
+        // Also record the registration in the Google Sheet. A failure here
+        // must not cost us the lead, so it is settled independently.
+        fetch("/api/webinar-registration", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...payload,
+            loanType: WEBINAR_NAME,
+            registrationDate: WEBINAR_DATE,
+          }),
+        }),
+      ]);
+
+      if (leadResult.status === "rejected" || !leadResult.value.ok) {
+        throw new Error("Request failed");
+      }
       setIsComplete(true);
     } catch {
       setIsSubmitting(false);
