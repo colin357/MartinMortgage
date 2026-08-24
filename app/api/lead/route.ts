@@ -3,6 +3,17 @@ import { NextRequest, NextResponse } from "next/server";
 // Numbers that always receive a lead notification, alongside NOTIFY_PHONE_NUMBER
 const ALWAYS_NOTIFY_PHONE_NUMBERS = ["+17867882699"];
 
+// Friendly SMS labels for fields that don't read well when auto-formatted
+const FIELD_LABELS: Record<string, string> = {
+  brokerage: "Brokerage",
+  yearsSellingRealEstate: "Years Selling Real Estate",
+  transactionsLast12Months: "Transactions (Last 12 Mo)",
+  buyerSideTransactions: "Buyer Side Transactions",
+  ytdClosedSalesVolume2026: "2026 YTD Sales Volume",
+  businessDescription: "Business Description",
+  aiComfortLevel: "AI Comfort Level",
+};
+
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
@@ -37,7 +48,9 @@ export async function POST(req: NextRequest) {
     // Include any extra fields
     for (const [key, value] of Object.entries(rest)) {
       if (value) {
-        const label = key.replace(/([A-Z])/g, " $1").replace(/^./, (s) => s.toUpperCase());
+        const label =
+          FIELD_LABELS[key] ??
+          key.replace(/([A-Z])/g, " $1").replace(/^./, (s) => s.toUpperCase());
         lines.push(`${label}: ${value}`);
       }
     }
