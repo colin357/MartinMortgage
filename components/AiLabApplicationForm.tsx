@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const yearsSellingOptions = [
   "Less than 1 year",
@@ -64,27 +64,109 @@ const aiComfortOptions = [
   },
 ];
 
+const steps = [
+  { title: "About you", subtitle: "So we know who we're saving a seat for." },
+  {
+    title: "Your production",
+    subtitle: "This helps us group the room and pitch the session right.",
+  },
+  {
+    title: "Your business",
+    subtitle: "Where things stand and where you're headed.",
+  },
+  {
+    title: "Your AI experience",
+    subtitle: "Every level is welcome — we just want to meet you there.",
+  },
+];
+
+const initialValues = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  brokerage: "",
+  yearsSellingRealEstate: "",
+  transactionsLast12Months: "",
+  buyerSideTransactions: "",
+  ytdClosedSalesVolume2026: "",
+  businessDescription: "",
+  aiComfortLevel: "",
+};
+
+type Values = typeof initialValues;
+type Errors = Partial<Record<keyof Values, string>>;
+
+function validateStep(step: number, values: Values): Errors {
+  const errors: Errors = {};
+
+  if (step === 0) {
+    if (!values.firstName.trim()) errors.firstName = "Enter your first name.";
+    if (!values.lastName.trim()) errors.lastName = "Enter your last name.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim()))
+      errors.email = "Enter a valid email address.";
+    if (values.phone.replace(/\D/g, "").length < 10)
+      errors.phone = "Enter a valid cell phone number.";
+    if (!values.brokerage.trim())
+      errors.brokerage = "Enter your brokerage or real estate company.";
+  }
+
+  if (step === 1) {
+    if (!values.yearsSellingRealEstate)
+      errors.yearsSellingRealEstate = "Pick one.";
+    if (!values.transactionsLast12Months)
+      errors.transactionsLast12Months = "Pick one.";
+    if (!values.buyerSideTransactions)
+      errors.buyerSideTransactions = "Pick one.";
+  }
+
+  if (step === 2) {
+    if (!values.ytdClosedSalesVolume2026)
+      errors.ytdClosedSalesVolume2026 = "Pick one.";
+    if (!values.businessDescription) errors.businessDescription = "Pick one.";
+  }
+
+  if (step === 3) {
+    if (!values.aiComfortLevel) errors.aiComfortLevel = "Pick one.";
+  }
+
+  return errors;
+}
+
 export default function AiLabApplicationForm() {
+  const [step, setStep] = useState(0);
+  const [values, setValues] = useState<Values>(initialValues);
+  const [errors, setErrors] = useState<Errors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const hasMoved = useRef(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (isSubmitting) return;
+  // Keep the top of the card in view when the step changes
+  useEffect(() => {
+    if (!hasMoved.current) {
+      hasMoved.current = true;
+      return;
+    }
+    cardRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [step, isComplete]);
 
+  const setValue = (name: keyof Values, value: string) => {
+    setValues((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: undefined }));
+  };
+
+  const submit = async (finalValues: Values) => {
     setIsSubmitting(true);
-    setError(null);
-
-    const formData = new FormData(e.currentTarget);
-    const payload = Object.fromEntries(formData.entries());
+    setSubmitError(null);
 
     try {
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...payload,
+          ...finalValues,
           loanType: "AI Agent Lab 101 — Sept 8 Application",
         }),
       });
@@ -92,17 +174,101 @@ export default function AiLabApplicationForm() {
       setIsComplete(true);
     } catch {
       setIsSubmitting(false);
-      setError(
+      setSubmitError(
         "Something went wrong. Please try again or call us at (919) 612-9978.",
       );
     }
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+
+    const stepErrors = validateStep(step, values);
+    if (Object.keys(stepErrors).length > 0) {
+      setErrors(stepErrors);
+      return;
+    }
+
+    if (step < steps.length - 1) {
+      setStep((prev) => prev + 1);
+      return;
+    }
+
+    void submit(values);
+  };
+
+  const goBack = () => {
+    if (isSubmitting || step === 0) return;
+    setErrors({});
+    setStep((prev) => prev - 1);
+  };
+
   const inputClass =
     "w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:border-transparent disabled:opacity-50";
+  const errorInputClass =
+    "w-full px-4 py-2.5 border border-red-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 bg-red-50/40 focus:outline-none focus:ring-2 focus:ring-red-300 focus:border-transparent disabled:opacity-50";
   const labelClass = "block text-xs font-semibold text-gray-700 mb-1.5";
-  const legendClass =
-    "block text-sm font-bold text-gray-900 mb-3";
+  const questionClass = "block text-sm font-bold text-gray-900 mb-3";
+
+  const fieldError = (name: keyof Values) =>
+    errors[name] ? (
+      <p className="text-xs text-red-600 mt-1.5">{errors[name]}</p>
+    ) : null;
+
+  const textField = (
+    name: keyof Values,
+    label: string,
+    props: React.InputHTMLAttributes<HTMLInputElement> = {},
+  ) => (
+    <div>
+      <label htmlFor={name} className={labelClass}>
+        {label}
+      </label>
+      <input
+        id={name}
+        name={name}
+        value={values[name]}
+        onChange={(e) => setValue(name, e.target.value)}
+        disabled={isSubmitting}
+        className={errors[name] ? errorInputClass : inputClass}
+        {...props}
+      />
+      {fieldError(name)}
+    </div>
+  );
+
+  const radioGroup = (
+    name: keyof Values,
+    question: string,
+    options: string[],
+    columns: string,
+  ) => (
+    <fieldset disabled={isSubmitting}>
+      <legend className={questionClass}>{question}</legend>
+      <div className={`grid ${columns} gap-x-4 gap-y-2`}>
+        {options.map((opt) => (
+          <label
+            key={opt}
+            className="flex items-start gap-3 text-sm text-gray-700 cursor-pointer"
+          >
+            <input
+              type="radio"
+              name={name}
+              value={opt}
+              checked={values[name] === opt}
+              onChange={() => setValue(name, opt)}
+              className="mt-0.5 h-4 w-4 shrink-0 border-gray-300 text-accent-500 focus:ring-accent-400"
+            />
+            <span>{opt}</span>
+          </label>
+        ))}
+      </div>
+      {fieldError(name)}
+    </fieldset>
+  );
+
+  const progress = Math.round(((step + 1) / steps.length) * 100);
 
   return (
     <div className="w-full max-w-2xl mx-auto">
@@ -111,11 +277,14 @@ export default function AiLabApplicationForm() {
           Apply For A Spot
         </h2>
         <p className="text-gray-300 text-sm">
-          Limited to 16 active real estate professionals. Takes about 2 minutes.
+          Limited to 16 active real estate professionals. Four quick steps.
         </p>
       </div>
 
-      <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
+      <div
+        ref={cardRef}
+        className="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden scroll-mt-32"
+      >
         {isComplete ? (
           <div className="px-6 py-12 text-center">
             <div className="w-14 h-14 bg-accent-50 rounded-full flex items-center justify-center mx-auto mb-5">
@@ -143,262 +312,193 @@ export default function AiLabApplicationForm() {
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="p-6 space-y-6">
-            {/* Contact */}
-            <div className="space-y-4">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="firstName" className={labelClass}>
-                    First name
-                  </label>
-                  <input
-                    id="firstName"
-                    name="firstName"
-                    type="text"
-                    required
-                    autoComplete="given-name"
-                    placeholder="Jordan"
-                    disabled={isSubmitting}
-                    className={inputClass}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="lastName" className={labelClass}>
-                    Last name
-                  </label>
-                  <input
-                    id="lastName"
-                    name="lastName"
-                    type="text"
-                    required
-                    autoComplete="family-name"
-                    placeholder="Reyes"
-                    disabled={isSubmitting}
-                    className={inputClass}
-                  />
-                </div>
+          <>
+            {/* Progress */}
+            <div className="px-6 pt-6">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-bold uppercase tracking-widest text-accent-600">
+                  Step {step + 1} of {steps.length}
+                </span>
+                <span className="text-xs font-medium text-gray-400">
+                  {progress}% complete
+                </span>
               </div>
-
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="email" className={labelClass}>
-                    Email address
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    autoComplete="email"
-                    placeholder="you@email.com"
-                    disabled={isSubmitting}
-                    className={inputClass}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="phone" className={labelClass}>
-                    Cell phone
-                  </label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    required
-                    autoComplete="tel"
-                    placeholder="(919) 555-1234"
-                    disabled={isSubmitting}
-                    className={inputClass}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="brokerage" className={labelClass}>
-                  Brokerage / Real estate company
-                </label>
-                <input
-                  id="brokerage"
-                  name="brokerage"
-                  type="text"
-                  required
-                  placeholder="e.g. eXp Realty"
-                  disabled={isSubmitting}
-                  className={inputClass}
+              <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-accent-400 rounded-full transition-all duration-300"
+                  style={{ width: `${progress}%` }}
                 />
               </div>
             </div>
 
-            <hr className="border-gray-100" />
-
-            {/* Years selling */}
-            <fieldset disabled={isSubmitting}>
-              <legend className={legendClass}>
-                How many years have you been actively selling real estate?
-              </legend>
-              <div className="grid sm:grid-cols-2 gap-x-4 gap-y-2">
-                {yearsSellingOptions.map((opt) => (
-                  <label
-                    key={opt}
-                    className="flex items-center gap-3 text-sm text-gray-700 cursor-pointer"
-                  >
-                    <input
-                      type="radio"
-                      name="yearsSellingRealEstate"
-                      value={opt}
-                      required
-                      className="h-4 w-4 border-gray-300 text-accent-500 focus:ring-accent-400"
-                    />
-                    {opt}
-                  </label>
-                ))}
+            <form onSubmit={handleSubmit} className="p-6 space-y-6">
+              <div>
+                <h3 className="text-lg font-black text-gray-900">
+                  {steps[step].title}
+                </h3>
+                <p className="text-gray-500 text-sm mt-1">
+                  {steps[step].subtitle}
+                </p>
               </div>
-            </fieldset>
 
-            {/* Transactions closed */}
-            <fieldset disabled={isSubmitting}>
-              <legend className={legendClass}>
-                Approximately how many transactions have you personally closed
-                in the last 12 months?
-              </legend>
-              <div className="grid sm:grid-cols-3 gap-x-4 gap-y-2">
-                {transactionsOptions.map((opt) => (
-                  <label
-                    key={opt}
-                    className="flex items-center gap-3 text-sm text-gray-700 cursor-pointer"
+              {/* Step 1 — contact */}
+              {step === 0 && (
+                <div className="space-y-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {textField("firstName", "First name", {
+                      type: "text",
+                      autoComplete: "given-name",
+                      placeholder: "Jordan",
+                    })}
+                    {textField("lastName", "Last name", {
+                      type: "text",
+                      autoComplete: "family-name",
+                      placeholder: "Reyes",
+                    })}
+                  </div>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {textField("email", "Email address", {
+                      type: "email",
+                      autoComplete: "email",
+                      placeholder: "you@email.com",
+                    })}
+                    {textField("phone", "Cell phone", {
+                      type: "tel",
+                      autoComplete: "tel",
+                      placeholder: "(919) 555-1234",
+                    })}
+                  </div>
+                  {textField("brokerage", "Brokerage / Real estate company", {
+                    type: "text",
+                    placeholder: "e.g. eXp Realty",
+                  })}
+                </div>
+              )}
+
+              {/* Step 2 — production */}
+              {step === 1 && (
+                <div className="space-y-6">
+                  {radioGroup(
+                    "yearsSellingRealEstate",
+                    "How many years have you been actively selling real estate?",
+                    yearsSellingOptions,
+                    "sm:grid-cols-2",
+                  )}
+                  {radioGroup(
+                    "transactionsLast12Months",
+                    "Approximately how many transactions have you personally closed in the last 12 months?",
+                    transactionsOptions,
+                    "grid-cols-2 sm:grid-cols-3",
+                  )}
+                  {radioGroup(
+                    "buyerSideTransactions",
+                    "Approximately how many of those transactions were buyer side?",
+                    buyerSideOptions,
+                    "grid-cols-2 sm:grid-cols-3",
+                  )}
+                </div>
+              )}
+
+              {/* Step 3 — business */}
+              {step === 2 && (
+                <div className="space-y-6">
+                  {radioGroup(
+                    "ytdClosedSalesVolume2026",
+                    "Approximately what is your 2026 YTD closed sales volume?",
+                    volumeOptions,
+                    "sm:grid-cols-2",
+                  )}
+                  {radioGroup(
+                    "businessDescription",
+                    "How would you describe your current real estate business?",
+                    businessOptions,
+                    "grid-cols-1",
+                  )}
+                </div>
+              )}
+
+              {/* Step 4 — AI comfort */}
+              {step === 3 && (
+                <fieldset disabled={isSubmitting}>
+                  <legend className={questionClass}>
+                    How would you rate your current comfort level using AI?
+                  </legend>
+                  <div className="space-y-3">
+                    {aiComfortOptions.map((opt) => (
+                      <label
+                        key={opt.value}
+                        className="flex items-start gap-3 text-sm text-gray-700 cursor-pointer"
+                      >
+                        <input
+                          type="radio"
+                          name="aiComfortLevel"
+                          value={opt.value}
+                          checked={values.aiComfortLevel === opt.value}
+                          onChange={() => setValue("aiComfortLevel", opt.value)}
+                          className="mt-0.5 h-4 w-4 shrink-0 border-gray-300 text-accent-500 focus:ring-accent-400"
+                        />
+                        <span>
+                          <span className="font-semibold text-gray-900">
+                            {opt.label}
+                          </span>{" "}
+                          &mdash; {opt.description}
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                  {fieldError("aiComfortLevel")}
+                </fieldset>
+              )}
+
+              {submitError && (
+                <p className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-lg px-4 py-3">
+                  {submitError}
+                </p>
+              )}
+
+              <div className="flex items-center gap-3 pt-2">
+                {step > 0 && (
+                  <button
+                    type="button"
+                    onClick={goBack}
+                    disabled={isSubmitting}
+                    className="inline-flex items-center justify-center gap-1.5 px-5 py-3 rounded-md border-2 border-gray-200 text-gray-600 font-semibold text-sm hover:bg-gray-50 transition-colors disabled:opacity-60"
                   >
-                    <input
-                      type="radio"
-                      name="transactionsLast12Months"
-                      value={opt}
-                      required
-                      className="h-4 w-4 border-gray-300 text-accent-500 focus:ring-accent-400"
-                    />
-                    {opt}
-                  </label>
-                ))}
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 19l-7-7 7-7"
+                      />
+                    </svg>
+                    Back
+                  </button>
+                )}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn-accent flex-1 text-sm py-3 disabled:opacity-60"
+                >
+                  {step < steps.length - 1
+                    ? "Continue"
+                    : isSubmitting
+                      ? "Submitting..."
+                      : "Apply For A Spot"}
+                </button>
               </div>
-            </fieldset>
 
-            {/* Buyer side */}
-            <fieldset disabled={isSubmitting}>
-              <legend className={legendClass}>
-                Approximately how many of those transactions were buyer side?
-              </legend>
-              <div className="grid sm:grid-cols-3 gap-x-4 gap-y-2">
-                {buyerSideOptions.map((opt) => (
-                  <label
-                    key={opt}
-                    className="flex items-center gap-3 text-sm text-gray-700 cursor-pointer"
-                  >
-                    <input
-                      type="radio"
-                      name="buyerSideTransactions"
-                      value={opt}
-                      required
-                      className="h-4 w-4 border-gray-300 text-accent-500 focus:ring-accent-400"
-                    />
-                    {opt}
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-
-            {/* Volume */}
-            <fieldset disabled={isSubmitting}>
-              <legend className={legendClass}>
-                Approximately what is your 2026 YTD closed sales volume?
-              </legend>
-              <div className="grid sm:grid-cols-2 gap-x-4 gap-y-2">
-                {volumeOptions.map((opt) => (
-                  <label
-                    key={opt}
-                    className="flex items-center gap-3 text-sm text-gray-700 cursor-pointer"
-                  >
-                    <input
-                      type="radio"
-                      name="ytdClosedSalesVolume2026"
-                      value={opt}
-                      required
-                      className="h-4 w-4 border-gray-300 text-accent-500 focus:ring-accent-400"
-                    />
-                    {opt}
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-
-            {/* Business description */}
-            <fieldset disabled={isSubmitting}>
-              <legend className={legendClass}>
-                How would you describe your current real estate business?
-              </legend>
-              <div className="space-y-2">
-                {businessOptions.map((opt) => (
-                  <label
-                    key={opt}
-                    className="flex items-start gap-3 text-sm text-gray-700 cursor-pointer"
-                  >
-                    <input
-                      type="radio"
-                      name="businessDescription"
-                      value={opt}
-                      required
-                      className="mt-0.5 h-4 w-4 shrink-0 border-gray-300 text-accent-500 focus:ring-accent-400"
-                    />
-                    <span>{opt}</span>
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-
-            {/* AI comfort */}
-            <fieldset disabled={isSubmitting}>
-              <legend className={legendClass}>
-                How would you rate your current comfort level using AI?
-              </legend>
-              <div className="space-y-3">
-                {aiComfortOptions.map((opt) => (
-                  <label
-                    key={opt.value}
-                    className="flex items-start gap-3 text-sm text-gray-700 cursor-pointer"
-                  >
-                    <input
-                      type="radio"
-                      name="aiComfortLevel"
-                      value={opt.value}
-                      required
-                      className="mt-0.5 h-4 w-4 shrink-0 border-gray-300 text-accent-500 focus:ring-accent-400"
-                    />
-                    <span>
-                      <span className="font-semibold text-gray-900">
-                        {opt.label}
-                      </span>{" "}
-                      &mdash; {opt.description}
-                    </span>
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-
-            {error && (
-              <p className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-lg px-4 py-3">
-                {error}
+              <p className="text-center text-xs text-gray-400">
+                Applying does not guarantee a seat. We&apos;ll confirm by phone
+                or email.
               </p>
-            )}
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="btn-accent w-full text-sm py-3 disabled:opacity-60"
-            >
-              {isSubmitting ? "Submitting..." : "Apply For A Spot"}
-            </button>
-
-            <p className="text-center text-xs text-gray-400">
-              Applying does not guarantee a seat. We&apos;ll confirm by phone or
-              email.
-            </p>
-          </form>
+            </form>
+          </>
         )}
       </div>
 
