@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { deliverLead } from "@/lib/lead-delivery";
 
 // Numbers that always receive a lead notification, alongside NOTIFY_PHONE_NUMBER
 const ALWAYS_NOTIFY_PHONE_NUMBERS = ["+17867882699"];
@@ -12,6 +13,16 @@ const FIELD_LABELS: Record<string, string> = {
   ytdClosedSalesVolume2026: "2026 YTD Sales Volume",
   businessDescription: "Business Description",
   aiComfortLevel: "AI Comfort Level",
+  biggestQuestion: "Biggest Question",
+  leadSource: "Lead Source",
+  pageUrl: "Page",
+  utmSource: "UTM Source",
+  utmMedium: "UTM Medium",
+  utmCampaign: "UTM Campaign",
+  utmTerm: "UTM Term",
+  utmContent: "UTM Content",
+  gclid: "Google Click ID",
+  referrer: "Referrer",
 };
 
 export async function POST(req: NextRequest) {
@@ -30,20 +41,19 @@ export async function POST(req: NextRequest) {
       ...rest
     } = data;
 
-    // Build notification message
-    const lines = [
-      `New Lead from Martin Mortgage Website`,
-      ``,
-      `Name: ${firstName} ${lastName}`,
-      `Email: ${email}`,
-      `Phone: ${phone}`,
-      `Loan Type: ${loanType}`,
+    // Build the field list once — used for the SMS body, the email copy,
+    // and (as the raw payload) the CRM webhook.
+    const rows: [string, string][] = [
+      ["Name", `${firstName ?? ""} ${lastName ?? ""}`.trim()],
+      ["Email", email],
+      ["Phone", phone],
+      ["Loan Type", loanType],
     ];
 
-    if (goalPayment) lines.push(`Goal Payment: ${goalPayment}`);
-    if (currentHomeowner) lines.push(`Current Homeowner: ${currentHomeowner}`);
-    if (timeline) lines.push(`Timeline: ${timeline}`);
-    if (creditRange) lines.push(`Credit Range: ${creditRange}`);
+    if (goalPayment) rows.push(["Goal Payment", goalPayment]);
+    if (currentHomeowner) rows.push(["Current Homeowner", currentHomeowner]);
+    if (timeline) rows.push(["Timeline", timeline]);
+    if (creditRange) rows.push(["Credit Range", creditRange]);
 
     // Include any extra fields
     for (const [key, value] of Object.entries(rest)) {
@@ -51,11 +61,25 @@ export async function POST(req: NextRequest) {
         const label =
           FIELD_LABELS[key] ??
           key.replace(/([A-Z])/g, " $1").replace(/^./, (s) => s.toUpperCase());
-        lines.push(`${label}: ${value}`);
+        rows.push([label, String(value)]);
       }
     }
 
-    const message = lines.join("\n");
+    const populated = rows.filter(([, value]) => value);
+    const message = [
+      "New Lead from Martin Mortgage Website",
+      "",
+      ...populated.map(([label, value]) => `${label}: ${value}`),
+    ].join("\n");
+
+    // CRM webhook + email copy to mmg@fairwaymc.com. Runs alongside the SMS
+    // below; a delivery failure is logged, never surfaced to the visitor.
+    const delivery = await deliverLead(
+      { ...data, receivedAt: new Date().toISOString() },
+      populated,
+      `New website lead — ${`${firstName ?? ""} ${lastName ?? ""}`.trim() || email || phone || "unknown"}`,
+    );
+    console.log("Lead delivery:", delivery);
 
     // Send SMS via Twilio
     const accountSid = process.env.TWILIO_ACCOUNT_SID;
