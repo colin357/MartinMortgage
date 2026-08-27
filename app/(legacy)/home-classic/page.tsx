@@ -1,9 +1,22 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import FAQ from "@/components/FAQ";
 import { HeroImage, HeadshotImage } from "@/components/HeroImage";
 import AnimateIn from "@/components/AnimateIn";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import { testimonials } from "@/lib/testimonials";
+
+
+/**
+ * The pre-redesign homepage, archived at /home-classic when the Martin
+ * Mortgage Group redesign took over "/". Kept so sections can be lifted
+ * back if Michael wants them; not linked from anywhere and not indexed.
+ */
+export const metadata: Metadata = {
+  title: "Archived Homepage",
+  robots: { index: false, follow: false },
+  alternates: { canonical: "/" },
+};
 
 const services = [
   {

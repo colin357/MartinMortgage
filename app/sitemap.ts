@@ -1,74 +1,30 @@
 import { MetadataRoute } from "next";
+import { mmgRoutes } from "@/lib/mmg-nav";
+import { SITE_URL } from "@/lib/site";
+
+const baseUrl = SITE_URL;
+
+/** Campaign landing pages on the original design system. */
+const legacyRoutes: { path: string; priority: number }[] = [
+  { path: "/purchase", priority: 0.7 },
+  { path: "/refinance", priority: 0.7 },
+  { path: "/down-payment-assistance", priority: 0.7 },
+  { path: "/investors", priority: 0.6 },
+  { path: "/new-construction", priority: 0.6 },
+  { path: "/bridge", priority: 0.6 },
+  { path: "/retire-in-peace", priority: 0.6 },
+  { path: "/ai-agent-lab", priority: 0.6 },
+  { path: "/rrar-panel", priority: 0.5 },
+  { path: "/local-favorites", priority: 0.5 },
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://martinmortgagegroup.com";
+  const lastModified = new Date();
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/purchase`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/refinance`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/down-payment-assistance`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/investors`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/new-construction`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/bridge`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/retire-in-peace`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/ai-agent-lab`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/rrar-panel`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/local-favorites`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-  ];
+  return [...mmgRoutes, ...legacyRoutes].map(({ path, priority }) => ({
+    url: path === "/" ? baseUrl : `${baseUrl}${path}`,
+    lastModified,
+    changeFrequency: priority >= 0.8 ? "weekly" : "monthly",
+    priority,
+  }));
 }

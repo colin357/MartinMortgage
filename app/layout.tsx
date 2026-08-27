@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://martinmortgagegroup.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Martin Mortgage Group | Raleigh NC Home Loans & Mortgage Lender",
+    default:
+      "Michael Martin — Raleigh Mortgage Advisor | Martin Mortgage Group",
     template: "%s | Martin Mortgage Group",
   },
   description:
-    "Martin Mortgage Group is Raleigh, NC's trusted mortgage lender. We offer personalized expert guidance on home purchases, refinancing, FHA, VA, jumbo loans, and down payment assistance programs. Get pre-qualified today.",
+    "Martin Mortgage Group helps homebuyers and homeowners understand their options, build the right mortgage strategy, and move forward with confidence. Licensed in NC, SC, VA & GA. Rooted in Raleigh.",
   keywords: [
     "mortgage lender Raleigh NC",
     "home loans Raleigh",
@@ -29,13 +28,19 @@ export const metadata: Metadata = {
     siteName: "Martin Mortgage Group",
     title: "Martin Mortgage Group | Raleigh NC Home Loans",
     description:
-      "Your trusted mortgage partner in Raleigh, NC. Personalized service and expert guidance for every step of your home financing journey.",
+      "Confidence to move forward. Understand your options, build the right mortgage strategy, and know exactly where you stand.",
+    images: ["/images/mmg/michael-home-hero.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Martin Mortgage Group | Raleigh NC Home Loans",
     description:
-      "Your trusted mortgage partner in Raleigh, NC. Personalized service and expert guidance every step of the way.",
+      "Confidence to move forward. Understand your options, build the right mortgage strategy, and know exactly where you stand.",
+    images: ["/images/mmg/michael-home-hero.jpg"],
+  },
+  icons: {
+    apple: "/apple-touch-icon.png",
+    other: [{ rel: "icon", url: "/icon-512.png", sizes: "512x512" }],
   },
   robots: {
     index: true,
@@ -50,6 +55,12 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Root shell only. Each route group brings its own stylesheet, header
+ * and footer:
+ *   app/(mmg)     — the Martin Mortgage Group site (Fraunces/Archivo)
+ *   app/(legacy)  — the original Tailwind campaign landing pages
+ */
 export default function RootLayout({
   children,
 }: {
@@ -57,57 +68,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "@id": "https://martinmortgagegroup.com",
-              name: "Martin Mortgage Group",
-              description:
-                "Trusted mortgage lender in Raleigh, NC offering home purchase loans, refinancing, FHA, VA, jumbo loans, and down payment assistance.",
-              url: "https://martinmortgagegroup.com",
-              telephone: "(919) 238-4934",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Raleigh",
-                addressRegion: "NC",
-                addressCountry: "US",
-              },
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: 35.7796,
-                longitude: -78.6382,
-              },
-              areaServed: {
-                "@type": "State",
-                name: "North Carolina",
-              },
-              sameAs: [],
-              openingHoursSpecification: {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                ],
-                opens: "08:00",
-                closes: "18:00",
-              },
-            }),
-          }}
-        />
-      </head>
-      <body className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
