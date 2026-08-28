@@ -29,9 +29,7 @@ export default function Page() {
       <h1>Confidence to <em>Move Forward.</em></h1>
       <p className="lead">Buying a home comes with big questions. You deserve more than a rate and a pre-approval. You deserve a mortgage team that helps you understand your options, build the right strategy, and move forward with confidence.</p>
       <div className="hero-ctas">
-      <a className="btn btn-primary" href="#contact">Start a Conversation</a>
-      <a className="btn btn-outline" href="https://fairway.tidalwave.ai/login" target="_blank" rel="noopener">Get Pre-Approved</a>
-      <Link className="textlink" href="/meet-michael">Meet Michael →</Link>
+      <a className="btn btn-primary" href="https://fairway.tidalwave.ai/signup/d1lbzp" target="_blank" rel="noopener">Apply Now</a>
       </div>
       <div className="hero-meta">
       <strong>Martin Mortgage Group</strong><br />
