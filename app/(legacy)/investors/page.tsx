@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ChatForm from "@/components/ChatForm";
 import FAQ from "@/components/FAQ";
 import { investorSteps } from "@/lib/chat-steps";
@@ -68,6 +69,22 @@ const faqItems = [
 export default function InvestorsPage() {
   return (
     <>
+      {/* Promo bar for the next investor webinar — remove or update after Sep 10 */}
+      <div className="bg-accent-400">
+        <div className="container-max px-4 sm:px-6 lg:px-8 py-3 flex flex-col sm:flex-row items-center justify-center gap-x-3 gap-y-1 text-center">
+          <span className="text-primary-900 text-sm font-semibold">
+            Free investor webinar — Financing Your Next Rental · Thu Sep 10 ·
+            5:30 PM ET
+          </span>
+          <Link
+            href="/investor-webinar"
+            className="text-primary-900 text-sm font-bold underline underline-offset-4 hover:opacity-70"
+          >
+            Save your seat &rarr;
+          </Link>
+        </div>
+      </div>
+
       <section className="relative bg-navy-800 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-700" />
         <div className="absolute inset-0 opacity-10">
