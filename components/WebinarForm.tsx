@@ -2,10 +2,26 @@
 
 import { useState } from "react";
 
-const WEBINAR_NAME = "Retire In Peace Webinar";
-const WEBINAR_DATE = "Aug 25";
+interface WebinarFormProps {
+  /** Written to the lead record and the registration sheet. */
+  webinarName?: string;
+  /** Short date stamp stored alongside the registration, e.g. "Sep 10". */
+  registrationDate?: string;
+  headline?: string;
+  subheadline?: string;
+  /** Sentence under "You're registered!" — say when the session runs. */
+  confirmation?: string;
+  submitLabel?: string;
+}
 
-export default function WebinarForm() {
+export default function WebinarForm({
+  webinarName = "Retire In Peace Webinar",
+  registrationDate = "Aug 25",
+  headline = "Save Your Seat",
+  subheadline = "Free to attend. Takes about 20 seconds.",
+  confirmation = "We\u2019ll email you the webinar link and send a reminder before we go live. See you Tuesday, August 25 at 1:00 PM.",
+  submitLabel = "Reserve My Free Seat",
+}: WebinarFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -27,7 +43,7 @@ export default function WebinarForm() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             ...payload,
-            loanType: `${WEBINAR_NAME} — ${WEBINAR_DATE} Registration`,
+            loanType: `${webinarName} — ${registrationDate} Registration`,
           }),
         }),
         // Also record the registration in the Google Sheet. A failure here
@@ -37,8 +53,8 @@ export default function WebinarForm() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             ...payload,
-            loanType: WEBINAR_NAME,
-            registrationDate: WEBINAR_DATE,
+            loanType: webinarName,
+            registrationDate,
           }),
         }),
       ]);
@@ -63,11 +79,9 @@ export default function WebinarForm() {
     <div className="w-full max-w-lg mx-auto">
       <div className="text-center mb-6">
         <h2 className="text-2xl md:text-3xl font-black text-white mb-2">
-          Save Your Seat
+          {headline}
         </h2>
-        <p className="text-primary-100 text-sm">
-          Free to attend. Takes about 20 seconds.
-        </p>
+        <p className="text-primary-100 text-sm">{subheadline}</p>
       </div>
 
       <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
@@ -82,8 +96,7 @@ export default function WebinarForm() {
               You&apos;re registered!
             </h3>
             <p className="text-gray-600 text-sm leading-relaxed max-w-sm mx-auto">
-              We&apos;ll email you the webinar link and send a reminder before we
-              go live. See you Tuesday, August 25 at 1:00 PM.
+              {confirmation}
             </p>
           </div>
         ) : (
@@ -164,7 +177,7 @@ export default function WebinarForm() {
               disabled={isSubmitting}
               className="btn-primary w-full text-sm py-3 disabled:opacity-60"
             >
-              {isSubmitting ? "Registering..." : "Reserve My Free Seat"}
+              {isSubmitting ? "Registering..." : submitLabel}
             </button>
 
             <p className="text-center text-xs text-gray-400 leading-relaxed">
