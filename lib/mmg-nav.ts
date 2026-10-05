@@ -40,15 +40,12 @@ export const buyPages: MmgLink[] = [
   },
 ];
 
-/** Top-level nav — seven items, per the handoff spec. */
+/** Top-level nav. */
 export const primaryNav: (MmgLink & { children?: MmgLink[] })[] = [
-  { name: "The MMG Way", href: "/mmg-way" },
   { name: "Buy", href: "/first-time-buyers", children: buyPages },
   { name: "Homeowners", href: "/homeowners" },
   { name: "Calculators", href: "/calculators" },
-  { name: "Learn", href: "/financial-literacy" },
   { name: "About", href: "/meet-michael" },
-  { name: "Reviews", href: "/#reviews" },
 ];
 
 /** Every MMG route, for the sitemap. */

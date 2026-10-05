@@ -3,6 +3,20 @@ import VideoEmbed from "@/components/mmg/VideoEmbed";
 import Image from "next/image";
 import Link from "next/link";
 import ContactForm from "@/components/mmg/ContactForm";
+import ReviewSlider from "@/components/mmg/ReviewSlider";
+import { testimonials } from "@/lib/testimonials";
+
+/** The homepage welcome video is hidden until the studio edit is ready. */
+const SHOW_WELCOME_VIDEO = false;
+
+const values = [
+  { tag: "Fanatical Proactive Communication", title: "You shouldn’t have to ask us what’s happening.", body: "We communicate before uncertainty has a chance to grow." },
+  { tag: "Details Matter", title: "Small details can become big problems.", body: "We sweat them." },
+  { tag: "Authentic", title: "We’ll tell you what we actually think.", body: "Sometimes good advice means recommending something different from what you expected." },
+  { tag: "Committed & Determined", title: "Problems don’t get passed around.", body: "They get solved." },
+  { tag: "Positive Energy", title: "Buying a home is stressful enough.", body: "We don’t need to add to it." },
+  { tag: "Have Fun", title: "This is a big deal.", body: "That doesn’t mean it has to be miserable." },
+];
 
 export const metadata: Metadata = {
   title: {
@@ -25,7 +39,6 @@ export default function Page() {
       <header className="hero" id="top">
       <div className="wrap hero-grid">
       <div>
-      <div className="kicker">Raleigh Mortgage Advisor · NMLS #131445</div>
       <h1>Confidence to <em>Move Forward.</em></h1>
       <p className="lead">Buying a home comes with big questions. You deserve more than a rate and a pre-approval. You deserve a mortgage team that helps you understand your options, build the right strategy, and move forward with confidence.</p>
       <div className="hero-ctas">
@@ -35,7 +48,6 @@ export default function Page() {
       <strong>Martin Mortgage Group</strong><br />
               Licensed across NC, SC, VA &amp; GA. Rooted in Raleigh.
             </div>
-      <div className="fairway-badge"><span className="pb">Powered by</span><Image priority src="/images/mmg/fairway-logo.png" width={420} height={156} alt="Fairway Home Mortgage" /></div>
       </div>
       <div className="hero-photo">
       <div className="photo-frame">
@@ -61,8 +73,6 @@ export default function Page() {
       <div className="stat fade-up"><div className="num">Top 1%</div><div className="lbl">Mortgage Originator Since 2019</div></div>
       <div className="stat fade-up"><div className="num">20+ Yrs</div><div className="lbl">Mortgage Experience</div></div>
       </div>
-      <p className="trust-line">That&apos;s a lot of mortgages. More importantly, it&apos;s a lot of people who trusted us with a really big decision.</p>
-      <p className="trust-note">Production and review figures pending final compliance verification prior to publication.</p>
       </div>
       </section>
       {/* THE REAL PROBLEM */}
@@ -71,19 +81,10 @@ export default function Page() {
       <div className="wrap">
       <div className="eyebrow">The Real Problem</div>
       <h2>Most people don&apos;t need more mortgage information. <span className="accent">They need to know what to do with it.</span></h2>
-      <div className="problem-cols">
-      <div>
+      <div className="problem-body">
       <p>Rates matter. Payments matter. Loan programs matter.</p>
       <p>But none of those things mean much until we understand the person making the decision. What are you trying to accomplish? What are you worried about? What&apos;s keeping you from moving forward?</p>
       <p><strong>That&apos;s where the MMG Way starts.</strong></p>
-      <p style={{ marginTop: "30px" }}><a className="textlink" href="#contact">Tell Us What You&apos;re Trying to Do →</a></p>
-      </div>
-      <div className="q-stack">
-      <div className="q">&quot;Can I actually afford this?&quot;</div>
-      <div className="q">&quot;Should I buy now or wait?&quot;</div>
-      <div className="q">&quot;Can I buy before I sell?&quot;</div>
-      <div className="q">&quot;Am I making the right decision?&quot;</div>
-      </div>
       </div>
       </div>
       </section>
@@ -92,7 +93,6 @@ export default function Page() {
       <section className="chain" id="mmg-way">
       <div className="wrap">
       <div className="chain-head">
-      <div className="eyebrow" style={{ justifyContent: "center", display: "flex" }}>The Confidence Chain</div>
       <h2>From &quot;I Don&apos;t Know&quot; to &quot;We&apos;ve Got This.&quot;</h2>
       </div>
       <div className="chain-track" id="chainTrack">
@@ -123,17 +123,12 @@ export default function Page() {
       <p>Closing isn&apos;t goodbye. MMG remains your mortgage and homeownership resource long after the moving boxes are gone.</p>
       </div>
       </div>
-      <div className="chain-quote fade-up">
-      <p className="big">Nobody simply hands off a loan. <span className="green">We hand off confidence.</span></p>
-      <p className="sub">Every conversation. Every update. Every handoff. Every detail.</p>
-      </div>
       </div>
       </section>
       {/* CONFIDENCE STORY */}
 
       <section className="story">
       <div className="wrap">
-      <div className="eyebrow on-dark">A Confidence Story</div>
       <p className="story-quote">We thought we had to sell our house before we could buy the next one.</p>
       <p style={{ color: "rgba(255,255,255,.75)", maxWidth: "680px", margin: "-36px 0 48px", fontSize: "16px" }}>They found the house they wanted, but most of their cash was tied up in their current home. They were worried about carrying two homes, didn&apos;t want to write a contingent offer, and weren&apos;t sure moving forward was even possible. So we started with the numbers.</p>
       <div className="story-steps">
@@ -158,14 +153,12 @@ export default function Page() {
       <h2>I&apos;ve been doing this a long time. I still think it&apos;s about people.</h2>
       <p>For more than two decades, Michael Martin has helped people navigate changing markets, changing interest rates and changing seasons of life. He&apos;s seen mortgage markets boom, crash, refinance, recover and reinvent themselves.</p>
       <p>But the job hasn&apos;t really changed.</p>
-      <p className="creed">Listen first. Tell people the truth. Explain their options. Solve problems. Sweat the details. And help people make decisions they feel good about.</p>
       <div className="mini-stats">
       <div><strong>$750M+</strong><span>Career Production</span></div>
       <div><strong>2,500+</strong><span>Families Served</span></div>
       <div><strong>Top 1%</strong><span>Since 2019</span></div>
       </div>
       <p>Off the clock, you&apos;ll find him on a Raleigh golf course, in the kitchen, or at a Canes game. This is home. It has been for a long time.</p>
-      <p style={{ marginTop: "28px" }}><a className="textlink" href="#contact">Meet Michael →</a></p>
       </div>
       </div>
       </section>
@@ -187,57 +180,6 @@ export default function Page() {
       </div>
       </div>
       </section>
-      {/* EDUCATION */}
-
-      <section className="edu" id="learn">
-      <div className="wrap">
-      <div className="eyebrow">MMG Learning Center</div>
-      <h2>Straight answers. No mortgage BS.</h2>
-      <p className="sub">You shouldn&apos;t need a finance degree to understand your mortgage.</p>
-      <div className="edu-grid">
-      <a className="edu-card fade-up" href="#contact"><div className="edu-thumb"><div className="play">▶</div></div><div className="body"><h3>How Much Home Can I Really Afford?</h3><div className="len">2 min watch</div></div></a>
-      <a className="edu-card fade-up" href="#contact"><div className="edu-thumb"><div className="play">▶</div></div><div className="body"><h3>Should I Wait for Rates to Come Down?</h3><div className="len">3 min watch</div></div></a>
-      <a className="edu-card fade-up" href="#contact"><div className="edu-thumb"><div className="play">▶</div></div><div className="body"><h3>Should I Put 20% Down?</h3><div className="len">2 min watch</div></div></a>
-      <a className="edu-card fade-up" href="#contact"><div className="edu-thumb"><div className="play">▶</div></div><div className="body"><h3>Can I Buy Before I Sell?</h3><div className="len">3 min watch</div></div></a>
-      <a className="edu-card fade-up" href="#contact"><div className="edu-thumb"><div className="play">▶</div></div><div className="body"><h3>Builder Incentives: What&apos;s the Catch?</h3><div className="len">3 min watch</div></div></a>
-      <a className="edu-card fade-up" href="#contact"><div className="edu-thumb"><div className="play">▶</div></div><div className="body"><h3>What NOT to Do Before Closing</h3><div className="len">2 min watch</div></div></a>
-      </div>
-      <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}><a className="btn btn-primary" href="#contact">Explore the MMG Learning Center</a><Link className="btn btn-outline" href="/financial-literacy">Free Financial Literacy Resources</Link><Link className="btn btn-outline" href="/calculators">Mortgage Calculators</Link></div>
-      </div>
-      </section>
-      {/* CLIENT JOURNEY */}
-
-      <section className="journey">
-      <div className="wrap">
-      <div className="eyebrow on-dark">The Client Journey</div>
-      <h2>From &quot;Could we?&quot; to &quot;Welcome home.&quot;</h2>
-      <div className="journey-grid">
-      <div className="j-step fade-up"><div className="num">01 — TALK</div><h3>What are you trying to accomplish?</h3><p>Before we recommend anything, we listen.</p></div>
-      <div className="j-step fade-up"><div className="num">02 — PLAN</div><h3>Let&apos;s build the strategy.</h3><p>We&apos;ll review the numbers, options and tradeoffs.</p></div>
-      <div className="j-step fade-up"><div className="num">03 — PREPARE</div><h3>Get ready before opportunity knocks.</h3><p>Pre-approval, documentation and planning.</p></div>
-      <div className="j-step fade-up"><div className="num">04 — COMPETE</div><h3>Found the house? Let&apos;s go.</h3><p>MMG and your Realtor position the financing and keep the transaction moving.</p></div>
-      <div className="j-step fade-up"><div className="num">05 — CLOSE</div><h3>No mystery. No surprises.</h3><p>Our team manages the details and keeps everyone informed.</p></div>
-      <div className="j-step fade-up"><div className="num">06 — STAY CONNECTED</div><h3>Closing isn&apos;t goodbye.</h3><p>Welcome to the MMG family.</p></div>
-      </div>
-      </div>
-      </section>
-      {/* TEAM */}
-
-      <section className="team" id="team">
-      <div className="wrap">
-      <div className="eyebrow">The Team Behind the Experience</div>
-      <h2>You get Michael. And you get a team.</h2>
-      <p className="sub">Each person at MMG owns a specific part of your experience. You&apos;re not being passed around. You&apos;re moving through the Confidence Chain.</p>
-      <div className="team-banner"><Image src="/images/mmg/team-banner-home.jpg" width={1400} height={787} alt="The Martin Mortgage Group team in Raleigh" sizes="(max-width: 1180px) 100vw, 1180px" /></div>
-      <div className="team-grid">
-      <div className="tm-card fade-up"><div className="tm-photo"><Image src="/images/mmg/team-michael-martin.jpg" width={400} height={400} alt="Michael Martin" sizes="(max-width: 768px) 45vw, 220px" /></div><h3>Michael Martin</h3><div className="role">Advisor &amp; Strategist</div><p>Owns your strategy. The plan, the options, the honest advice.</p></div>
-      <div className="tm-card fade-up"><div className="tm-photo"><Image src="/images/mmg/team-nicole-blakeman.jpg" width={400} height={400} alt="Nicole Blakeman" sizes="(max-width: 768px) 45vw, 220px" /></div><h3>Nicole Blakeman</h3><div className="role">Partner</div><p>Owns momentum. Keeps your file, your Realtor and your timeline aligned.</p></div>
-      <div className="tm-card fade-up"><div className="tm-photo"><Image src="/images/mmg/team-jodie-stueve.jpg" width={400} height={400} alt="Jodie Stueve" sizes="(max-width: 768px) 45vw, 220px" /></div><h3>Jodie Stueve</h3><div className="role">Operations</div><p>Owns the details. Documentation, deadlines and the path to clear-to-close.</p></div>
-      <div className="tm-card fade-up"><div className="tm-photo"><Image src="/images/mmg/team-christy-evans.jpg" width={400} height={400} alt="Christy Evans" sizes="(max-width: 768px) 45vw, 220px" /></div><h3>Christy Evans</h3><div className="role">Executive Assistant</div><p>Owns access. Keeps Michael available, responsive and focused on your strategy.</p></div>
-      <div className="tm-card fade-up"><div className="tm-photo"><Image src="/images/mmg/team-alex-jamieson.jpg" width={400} height={400} alt="Alex Jamieson" sizes="(max-width: 768px) 45vw, 220px" /></div><h3>Alex Jamieson</h3><div className="role">Client Experience</div><p>Owns the experience. Events, touches and the relationship after closing.</p></div>
-      </div>
-      </div>
-      </section>
       {/* VALUES */}
 
       <section className="values">
@@ -245,12 +187,14 @@ export default function Page() {
       <div className="eyebrow">The MMG Way</div>
       <h2>Relationships First. <span className="accent">Excellence Always.</span></h2>
       <div className="val-grid">
-      <div className="val fade-up"><div className="vt">Fanatical Proactive Communication</div><h3>You shouldn&apos;t have to ask us what&apos;s happening.</h3><p>We communicate before uncertainty has a chance to grow.</p></div>
-      <div className="val fade-up"><div className="vt">Details Matter</div><h3>Small details can become big problems.</h3><p>We sweat them.</p></div>
-      <div className="val fade-up"><div className="vt">Authentic</div><h3>We&apos;ll tell you what we actually think.</h3><p>Sometimes good advice means recommending something different from what you expected.</p></div>
-      <div className="val fade-up"><div className="vt">Committed &amp; Determined</div><h3>Problems don&apos;t get passed around.</h3><p>They get solved.</p></div>
-      <div className="val fade-up"><div className="vt">Positive Energy</div><h3>Buying a home is stressful enough.</h3><p>We don&apos;t need to add to it.</p></div>
-      <div className="val fade-up"><div className="vt">Have Fun</div><h3>This is a big deal.</h3><p>That doesn&apos;t mean it has to be miserable.</p></div>
+      {values.map((v, i) => (
+        <div className="val fade-up" key={v.tag}>
+          <span className="val-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+          <div className="vt">{v.tag}</div>
+          <h3>{v.title}</h3>
+          <p>{v.body}</p>
+        </div>
+      ))}
       </div>
       </div>
       </section>
@@ -260,58 +204,26 @@ export default function Page() {
       <div className="wrap">
       <div className="eyebrow">Client Reviews</div>
       <h2>Don&apos;t take our word for it.</h2>
-      {/* ============================================================
-               COMPLIANCE NOTE FOR COLIN:
-               Per Fairway Marketing Compliance guide, Google reviews may NOT
-               be republished (copy/paste or screenshot) without a signed
-               Testimonial Consent & Release form per reviewer. Google reviews
-               MAY be displayed via an official Google embeddable widget, and
-               Experience.com reviews may be used without consent forms.
-               Replace this summary block with the Google review widget and/or
-               an Experience.com feed at build time.
-               ============================================================ */}
-
-      <div className="rev-summary fade-up">
-      <div className="rev-score"><span className="big-score">5.0</span><span className="stars" style={{ fontSize: "22px", letterSpacing: "4px" }}>★★★★★</span><span className="score-lbl">400+ Google Reviews</span></div>
-      <p>Martin Mortgage Group clients consistently describe the same experience in their reviews: proactive communication at every step, seamless handoffs between team members, expectations set clearly from the first meeting, and a process that felt calm instead of stressful. First-time buyers say they felt supported rather than overwhelmed. Repeat clients come back — some three and four times. Realtors say their clients actually enjoy the process.</p>
-      <p>Don&apos;t take our word for it. Read them yourself.</p>
-      <a className="btn btn-primary" href="https://www.google.com/search?q=martin+mortgage+group+raleigh+reviews" target="_blank" rel="noopener">Read Our Google Reviews</a>
+      {/* COMPLIANCE NOTE: Fairway's marketing guide says Google reviews may
+          only be republished with a signed Testimonial Consent & Release form
+          per reviewer (or shown through Google's official widget). Confirm
+          consent is on file for each review in lib/testimonials.ts. */}
+      <div className="rev-score fade-up">
+      <span className="big-score">5.0</span>
+      <span className="stars" style={{ fontSize: "22px", letterSpacing: "4px" }}>★★★★★</span>
+      <span className="score-lbl">400+ Google Reviews</span>
       </div>
-      <p className="rev-note">Review count pending final compliance verification. Reviews summary reflects themes from publicly posted Google reviews of Martin Mortgage Group.</p>
-      </div>
-      </section>
-      {/* AFTER CLOSING */}
-
-      <section className="after" id="after">
-      <div className="wrap after-grid">
-      <div>
-      <div className="eyebrow">For Homeowners</div>
-      <h2>Closing day isn&apos;t the finish line.</h2>
-      <p>Your mortgage should change as your life changes. MMG remains available after closing to help you evaluate opportunities and make better homeownership decisions.</p>
-      <Link className="btn btn-primary" href="/homeowners">Already an MMG Client? Start Here</Link>
-      </div>
-      <ul className="after-list">
-      {[
-        { label: "Annual Mortgage Review", href: "/homeowners#review" },
-        { label: "Home Equity Strategy", href: "/homeowners#equity" },
-        { label: "Refinance Analysis", href: "/homeowners#refinance" },
-        { label: "Move-Up Planning", href: "/move-up-buyers" },
-        { label: "Investment Property Financing", href: "/homeowners#investment" },
-      ].map((item) => (
-        <li key={item.href}>
-          <Link href={item.href as never}>
-            {item.label} <span aria-hidden="true">→</span>
-          </Link>
-        </li>
-      ))}
-      </ul>
+      <ReviewSlider reviews={testimonials} />
+      <a className="btn btn-primary rev-cta" href="https://www.google.com/search?q=martin+mortgage+group+raleigh+reviews" target="_blank" rel="noopener">Read Our Google Reviews</a>
       </div>
       </section>
       {/* FINAL CTA */}
 
-      {/* VIDEO — Script 1 — Homepage Welcome. Drop the YouTube ID (or a self-hosted src)
+      {/* VIDEO — Script 1 — Homepage Welcome. Hidden for now: set
+          SHOW_WELCOME_VIDEO to true to bring it back. Drop the YouTube ID (or a self-hosted src)
           on the VideoEmbed below once the studio edit is delivered:
           <VideoEmbed title="…" youtubeId="abc123" /> */}
+      {SHOW_WELCOME_VIDEO && (
       <section className="video-section">
       <div className="wrap">
       <div className="vs-head">
@@ -322,6 +234,7 @@ export default function Page() {
       <VideoEmbed title="Why confidence matters more than approval" />
       </div>
       </section>
+      )}
       <section className="final">
       <div className="wrap">
       <h2>What&apos;s keeping you from moving forward?</h2>
