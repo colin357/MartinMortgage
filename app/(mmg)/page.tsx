@@ -147,7 +147,6 @@ export default function Page() {
       <div className="story-step fade-up"><div className="stg">Confidence</div><p>Once they understood the numbers, the risks, and the plan, they made the decision with confidence.</p></div>
       <div className="story-step fade-up"><div className="stg">Execution</div><p>MMG worked alongside their Realtor, managed the financing, and kept everyone informed through closing. They bought the new home and sold their previous home afterward.</p></div>
       </div>
-      <p className="story-close">&quot;We went from thinking there was no way we could make this move to feeling completely comfortable with the plan. Michael didn&apos;t pressure us to buy. He showed us what was possible, explained the numbers, and gave us the confidence to make the decision ourselves.&quot;</p>
       <a className="btn btn-outline on-dark" href="#reviews">Read More Confidence Stories</a>
       </div>
       </section>

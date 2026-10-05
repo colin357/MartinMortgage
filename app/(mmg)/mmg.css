@@ -105,11 +105,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(239,237,232,
 @media(max-width:768px){.trust{padding:52px 0}.trust-grid{grid-template-columns:repeat(2,1fr);gap:32px 24px}}
 
 /* ---------- PROBLEM ---------- */
-.problem{background:var(--ivory);text-align:center}
-.problem h2{font-size:clamp(34px,4.6vw,58px);max-width:900px;margin:0 auto 36px}
+.problem{background:var(--ivory);text-align:center;padding:72px 0}
+.problem h2{font-size:clamp(34px,4.6vw,58px);max-width:900px;margin:0 auto 28px}
 .problem h2 .accent{color:var(--forest)}
 .problem-cols{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
 .problem-body{max-width:760px;margin:0 auto}
+.problem-body p:last-child{margin-bottom:0}
+@media(max-width:768px){.problem{padding:52px 0}}
 .problem p{font-size:18px;color:var(--slate);margin-bottom:18px}
 .q-stack{display:flex;flex-direction:column;gap:14px}
 .q-stack .q{font-family:var(--display);font-size:20px;font-weight:500;padding:18px 24px;background:#fff;border-radius:14px;border-left:3px solid var(--bright);opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
