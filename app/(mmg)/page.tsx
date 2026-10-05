@@ -9,6 +9,16 @@ import { testimonials } from "@/lib/testimonials";
 /** The homepage welcome video is hidden until the studio edit is ready. */
 const SHOW_WELCOME_VIDEO = false;
 
+const pathways = [
+  { title: "Buy My First Home", blurb: "I need someone to show me where to start.", href: "/first-time-buyers" },
+  { title: "Buy My Next Home", blurb: "I already own and need a strategy for what’s next.", href: "/move-up-buyers" },
+  { title: "Buy Before I Sell", blurb: "I found the next house but still own my current one.", href: "/move-up-buyers" },
+  { title: "Relocate", blurb: "I’m moving to NC, SC, VA or GA and need a mortgage team on the ground.", href: "/relocation" },
+  { title: "Build or Buy New", blurb: "New construction, building or renovating, and I want to understand the financing.", href: "/new-construction-renovation" },
+  { title: "Use My Home Equity", blurb: "I want to understand what my equity could help me accomplish.", href: "/homeowners#equity" },
+  { title: "Self-Employed or Investing", blurb: "My income doesn’t fit in a box, or I want the property to qualify on its rents.", href: "/flexible-financing" },
+];
+
 const values = [
   { tag: "Fanatical Proactive Communication", title: "You shouldn’t have to ask us what’s happening.", body: "We communicate before uncertainty has a chance to grow." },
   { tag: "Details Matter", title: "Small details can become big problems.", body: "We sweat them." },
@@ -165,19 +175,27 @@ export default function Page() {
       {/* PATHWAYS */}
 
       <section className="pathways" id="pathways">
-      <div className="wrap">
+      <div className="wrap pw-grid">
+      <div className="pw-head">
       <div className="eyebrow">Start Where You Are</div>
       <h2>What are you trying to do?</h2>
       <p className="sub">Not sure which loan you need? Good. That&apos;s our job, not yours.</p>
-      <div className="path-grid">
-      <Link className="path-card fade-up" href="/first-time-buyers"><div><h3>Buy My First Home</h3><p>I need someone to show me where to start.</p></div><div className="go">Start Here →</div></Link>
-      <Link className="path-card fade-up" href="/move-up-buyers"><div><h3>Buy My Next Home</h3><p>I already own and need a strategy for what&apos;s next.</p></div><div className="go">Explore My Options →</div></Link>
-      <Link className="path-card fade-up" href="/relocation"><div><h3>Relocate</h3><p>I&apos;m moving to NC, SC, VA or GA and need a mortgage team on the ground.</p></div><div className="go">Plan My Move →</div></Link>
-      <Link className="path-card fade-up" href="/move-up-buyers"><div><h3>Buy Before I Sell</h3><p>I found the next house but still own my current one.</p></div><div className="go">Show Me How This Works →</div></Link>
-      <Link className="path-card fade-up" href="/new-construction-renovation"><div><h3>Build or Buy New</h3><p>I&apos;m considering new construction, building, or renovating and want to understand the financing.</p></div><div className="go">Explore My Options →</div></Link>
-      <Link className="path-card fade-up" href="/homeowners#equity"><div><h3>Use My Home Equity</h3><p>I want to understand what my equity could help me accomplish.</p></div><div className="go">Explore My Equity →</div></Link>
-      <Link className="path-card fade-up" href="/flexible-financing"><div><h3>Self-Employed or Investing</h3><p>My income doesn&apos;t fit in a box, or I want the property to qualify on its rents.</p></div><div className="go">See My Options →</div></Link>
+      <a className="btn btn-primary" href="#contact">Not Sure? Start a Conversation</a>
       </div>
+      <ul className="pw-list">
+      {pathways.map((p, i) => (
+        <li key={p.title}>
+          <Link className="pw-row" href={p.href as never}>
+            <span className="pw-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+            <span className="pw-text">
+              <span className="pw-title">{p.title}</span>
+              <span className="pw-blurb">{p.blurb}</span>
+            </span>
+            <span className="pw-go" aria-hidden="true">→</span>
+          </Link>
+        </li>
+      ))}
+      </ul>
       </div>
       </section>
       {/* VALUES */}
