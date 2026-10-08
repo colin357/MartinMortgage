@@ -162,7 +162,6 @@ export default function MmgNav() {
       </nav>
 
       <div className={`mobile-menu${mobileOpen ? " open" : ""}`}>
-        <Link href="/mmg-way">The MMG Way</Link>
         <div className="m-group">Buy</div>
         {buyPages.map((page) => (
           <Link key={page.href} className="m-sub" href={page.href as never}>
@@ -171,9 +170,7 @@ export default function MmgNav() {
         ))}
         <Link href="/homeowners">Homeowners</Link>
         <Link href="/calculators">Calculators</Link>
-        <Link href="/financial-literacy">Learn</Link>
         <Link href="/meet-michael">About</Link>
-        <Link href="/#reviews">Reviews</Link>
         <a href={CONTACT.phoneHref}>Call {CONTACT.phone}</a>
         <Link href="/#contact" style={{ color: "var(--forest)" }}>
           Start a Conversation →
