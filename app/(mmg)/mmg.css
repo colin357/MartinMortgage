@@ -570,3 +570,115 @@ footer a:hover{color:var(--bright)}
 
 /* The Buy group makes the mobile menu taller than a phone screen */
 .mobile-menu{max-height:calc(100dvh - 88px);overflow-y:auto;overscroll-behavior:contain}
+
+/* ============================================================
+   PAGE COMPLETENESS PASS — shared sections used across the
+   inner pages (hero panel, reviews, FAQ, contact, related).
+   ============================================================ */
+
+/* ---------- HERO PANEL (inner pages without a photo) ---------- */
+.hero-panel{position:relative;background:#fff;border-radius:24px;padding:40px 38px 34px;box-shadow:0 24px 64px rgba(11,31,54,.1);border-top:4px solid var(--bright)}
+.hero-panel .hp-label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--forest);margin-bottom:10px}
+.hero-panel h2{font-size:clamp(24px,2.4vw,30px);margin-bottom:22px;line-height:1.15}
+.hero-panel ul{list-style:none;display:flex;flex-direction:column;gap:2px;border-radius:14px;overflow:hidden;background:rgba(22,33,28,.06)}
+.hero-panel li{display:flex;gap:14px;align-items:flex-start;background:var(--ivory);padding:15px 18px;font-size:15px;color:var(--ink);line-height:1.45}
+.hero-panel li::before{content:'✓';flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--forest);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.hero-panel .hp-foot{display:flex;align-items:center;gap:12px;margin-top:22px;font-size:13.5px;color:var(--slate)}
+.hero-panel .hp-foot strong{font-family:var(--display);font-size:22px;color:var(--forest);line-height:1}
+.hero-panel-wrap{position:relative}
+.hero-panel-wrap::before{content:'';position:absolute;inset:28px -18px -18px 28px;border-radius:26px;background:linear-gradient(160deg,var(--navy),var(--navy-deep));z-index:0}
+.hero-panel-wrap .hero-panel{z-index:1}
+@media(max-width:900px){.hero-panel-wrap{margin-top:12px}.hero-panel-wrap::before{inset:18px -8px -12px 18px}}
+@media(max-width:560px){.hero-panel{padding:32px 24px 28px}}
+
+/* ---------- SERVICE JUMP CARDS (Homeowners) ---------- */
+.jump-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.jump{background:var(--ivory);border-radius:18px;padding:30px 28px;text-decoration:none;display:flex;flex-direction:column;gap:10px;border:1.5px solid transparent;transition:all .25s ease;min-height:200px}
+.jump:hover{background:#fff;border-color:var(--forest);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,104,72,.1)}
+.jump .jn{font-family:var(--display);font-size:15px;font-weight:700;color:var(--bright);letter-spacing:.06em}
+.jump h3{font-size:22px}
+.jump p{font-size:14.5px;color:var(--slate);flex:1}
+.jump .go{font-weight:600;font-size:14px;color:var(--forest)}
+.jump.dark{background:var(--forest);color:#fff}
+.jump.dark p{color:rgba(255,255,255,.82)}
+.jump.dark .go{color:var(--bright)}
+.jump.dark:hover{background:var(--kelly);border-color:var(--kelly)}
+@media(max-width:900px){.jump-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.jump-grid{grid-template-columns:1fr}.jump{min-height:0}}
+
+/* Homeowners section variants: alternate the layout so five services don't read as one long list */
+.ho-section.white{background:#fff}
+.ho-section.dark{background:var(--navy);color:#fff;border-bottom:none}
+.ho-section.dark .eyebrow{color:var(--bright)}
+.ho-section.dark .ho-sub{color:var(--bright)}
+.ho-section.dark p{color:rgba(255,255,255,.8)}
+.ho-section.dark .ho-points{background:var(--navy-deep)}
+.ho-section.dark .ho-points li{color:rgba(255,255,255,.82)}
+.ho-section.dark .ho-points li::before{color:var(--bright)}
+.ho-section.dark .textlink{color:#fff}
+.ho-section.white .ho-points{background:var(--ivory)}
+@media(min-width:821px){.ho-grid.flip > :first-child{order:2}}
+.ho-callout{margin-top:20px;background:var(--ivory);border-left:3px solid var(--forest);border-radius:0 14px 14px 0;padding:20px 24px;font-size:14.5px;color:var(--ink);line-height:1.65}
+.ho-section.dark .ho-callout{background:rgba(255,255,255,.06);border-left-color:var(--bright);color:rgba(255,255,255,.85)}
+.ho-section.white .ho-callout{background:var(--ivory)}
+.ho-callout strong{display:block;font-family:var(--display);font-size:17px;margin-bottom:4px}
+
+/* ---------- STEP STRIP (navy "how it works") ---------- */
+.journey .sub{font-size:17px;color:rgba(255,255,255,.72);max-width:640px;margin:-44px 0 56px}
+.journey-grid.four{grid-template-columns:repeat(4,1fr)}
+.journey-grid.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:960px){.journey-grid.four{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.journey-grid.four,.journey-grid.three{grid-template-columns:1fr}}
+
+/* ---------- PAGE REVIEWS ---------- */
+.page-reviews{background:#fff}
+.page-reviews h2{font-size:clamp(30px,4.2vw,48px);margin-bottom:28px;max-width:820px}
+.page-reviews .rev-score{margin-bottom:40px}
+.page-reviews .rev-grid{margin-bottom:36px}
+.page-reviews .rev-grid.two{grid-template-columns:1fr 1fr}
+.page-reviews .rev-grid.one{grid-template-columns:1fr;max-width:820px}
+.page-reviews .rev-grid.one .rev-card p{font-family:var(--display);font-size:clamp(19px,2.2vw,24px);line-height:1.5}
+@media(max-width:820px){.page-reviews .rev-grid.two{grid-template-columns:1fr}}
+
+/* ---------- PAGE FAQ ---------- */
+.page-faq{background:var(--ivory)}
+.page-faq.white{background:#fff}
+.page-faq-grid{display:grid;grid-template-columns:4fr 7fr;gap:64px;align-items:start}
+.page-faq-head{position:sticky;top:120px}
+.page-faq-head h2{font-size:clamp(30px,4vw,46px);margin-bottom:16px}
+.page-faq-head p{font-size:16px;color:var(--slate);margin-bottom:26px}
+.page-faq .faq-list{max-width:none;border-top:1px solid rgba(22,33,28,.12)}
+@media(max-width:900px){.page-faq-grid{grid-template-columns:1fr;gap:28px}.page-faq-head{position:static}}
+
+/* ---------- RELATED PAGES ---------- */
+.related{background:#fff;padding:90px 0}
+.related h2{font-size:clamp(28px,3.6vw,40px);margin-bottom:36px}
+.related .path-card{min-height:190px}
+@media(max-width:768px){.related{padding:64px 0}}
+
+/* ---------- CHECKLIST CARDS ---------- */
+.check-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.check-card{background:#fff;border-radius:20px;padding:38px 36px}
+.check-card.dark{background:var(--navy);color:#fff}
+.check-card h3{font-size:22px;margin-bottom:6px}
+.check-card .cc-for{font-family:var(--display);font-style:italic;color:var(--forest);font-size:16px;margin-bottom:20px}
+.check-card.dark .cc-for{color:var(--bright)}
+.check-card ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.check-card li{padding-left:28px;position:relative;font-size:15px;color:var(--slate);line-height:1.55}
+.check-card.dark li{color:rgba(255,255,255,.8)}
+.check-card li::before{content:'✓';position:absolute;left:0;top:0;color:var(--forest);font-weight:700}
+.check-card.dark li::before{color:var(--bright)}
+.check-note{font-size:13px;color:var(--slate);margin-top:24px;max-width:760px}
+@media(max-width:820px){.check-grid{grid-template-columns:1fr}.check-card{padding:32px 26px}}
+
+/* ---------- STATE STRIP (Relocation) ---------- */
+.state-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,.08);border-radius:20px;overflow:hidden;margin-top:44px}
+.state{background:var(--navy-deep);padding:30px 28px}
+.state .st{font-family:var(--display);font-size:40px;font-weight:700;color:var(--bright);line-height:1}
+.state .sn{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#fff;margin:10px 0 8px}
+.state p{font-size:14px;color:rgba(255,255,255,.7)}
+@media(max-width:860px){.state-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.state-grid{grid-template-columns:1fr}}
+
+/* Meet Michael — team grid on a white section */
+.team .tm-card p{line-height:1.6}

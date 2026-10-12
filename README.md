@@ -45,6 +45,13 @@ app/
 | `/relocation` | Moving to Raleigh / the Triangle |
 | `/financial-literacy` | FirstHome IQ resources |
 
+Every inner page ends the same way: final CTA → on-page contact form →
+"Keep exploring" links. The shared sections live in `components/mmg/`:
+`HeroPanel` (hero checklist for pages without a photo), `PageReviews`
+(picks reviews from `lib/testimonials.ts` by name), `PageFaq` (accordion +
+FAQPage JSON-LD), `PageContact` (the lead form, with a preselected goal) and
+`RelatedPages`.
+
 Navigation is defined once in `lib/mmg-nav.ts` and consumed by the header, the
 mobile menu, the footer and `app/sitemap.ts`. Add a page there and it appears
 everywhere.

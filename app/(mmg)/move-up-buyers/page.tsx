@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import VideoEmbed from "@/components/mmg/VideoEmbed";
 import Image from "next/image";
 import Link from "next/link";
+import PageContact from "@/components/mmg/PageContact";
+import PageReviews from "@/components/mmg/PageReviews";
+import RelatedPages from "@/components/mmg/RelatedPages";
 
 export const metadata: Metadata = {
   title: "Move-Up Buyers — Buy Before You Sell & Move-Up Strategy",
@@ -24,7 +27,7 @@ export default function Page() {
       <h1 style={{ fontSize: "clamp(36px,4.8vw,58px)" }}>The next house is easy to fall in love with. <em>Getting there is the hard part.</em></h1>
       <p className="lead">You already own a home. Now the questions get more interesting: Sell first? Buy first? Where does the down payment come from? What happens to your current mortgage? This is strategy territory — and it&apos;s where we do our best work.</p>
       <div className="hero-ctas">
-      <Link className="btn btn-primary" href="/#contact">Build My Move-Up Strategy</Link>
+      <Link className="btn btn-primary" href="#contact">Build My Move-Up Strategy</Link>
       <a className="textlink" href="#story">Read a Real Move-Up Story ↓</a>
       </div>
       <div className="fairway-badge"><span className="pb">Powered by</span><Image priority src="/images/mmg/fairway-logo.png" width={420} height={156} alt="Fairway Home Mortgage" /></div>
@@ -130,10 +133,15 @@ export default function Page() {
       </div>
       </div>
       </section>
+      <PageReviews
+        eyebrow="Client Reviews"
+        title="Two transactions. One calm process."
+        names={["Jennifer Batten", "Tyler Hollett"]}
+      />
       {/* VIDEO — Script 4 — Move-Up Buyers. Drop the YouTube ID (or a self-hosted src)
           on the VideoEmbed below once the studio edit is delivered:
           <VideoEmbed title="…" youtubeId="abc123" /> */}
-      <section className="video-section">
+      <section className="video-section on-ivory">
       <div className="wrap">
       <div className="vs-head">
       <div className="eyebrow">Watch This First</div>
@@ -148,11 +156,17 @@ export default function Page() {
       <h2>Fall in love with the house. We&apos;ll handle the &quot;how.&quot;</h2>
       <p>One strategy conversation tells you what&apos;s actually possible with your equity, your timing, and your goals — before the pressure starts.</p>
       <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-      <Link className="btn btn-primary" href="/#contact">Build My Move-Up Strategy</Link>
+      <Link className="btn btn-primary" href="#contact">Build My Move-Up Strategy</Link>
       </div>
       <p className="small">No pressure. No obligation. Just a conversation about what you&apos;re trying to accomplish.</p>
       </div>
       </section>
+      <PageContact
+        title="Let's build your move-up strategy."
+        sub="Tell us about the house you're in and the one you want next. A real person from MMG will follow up — usually the same business day."
+        goal="Buy my next home"
+      />
+      <RelatedPages hrefs={["/homeowners", "/new-construction-renovation", "/relocation"]} />
     </>
   );
 }
