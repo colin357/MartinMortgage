@@ -5,6 +5,7 @@ import Link from "next/link";
 import ContactForm from "@/components/mmg/ContactForm";
 import ReviewSlider from "@/components/mmg/ReviewSlider";
 import { testimonials } from "@/lib/testimonials";
+import { CONTACT } from "@/lib/mmg-nav";
 
 /** The homepage welcome video is hidden until the studio edit is ready. */
 const SHOW_WELCOME_VIDEO = false;
@@ -275,7 +276,7 @@ export default function Page() {
       <div><div className="lbl">Call or Text</div><a href="tel:9196129978">919-612-9978</a></div>
       <div><div className="lbl">Email</div><a href="mailto:michael.martin@fairwaymc.com">michael.martin@fairwaymc.com</a></div>
       <div><div className="lbl">Web</div><a href="https://www.YourNCLender.com">YourNCLender.com</a></div>
-      <div><div className="lbl">Home Base</div>Raleigh, North Carolina<br />Licensed in NC, SC, VA &amp; GA</div>
+      <div><div className="lbl">Office</div><a href={CONTACT.mapHref} target="_blank" rel="noopener">{CONTACT.address.street}<br />{CONTACT.address.city}, {CONTACT.address.state} {CONTACT.address.zip}</a><br />Licensed in NC, SC, VA &amp; GA</div>
       </div>
       </div>
       <ContactForm />

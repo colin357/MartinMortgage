@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import VideoEmbed from "@/components/mmg/VideoEmbed";
 import Image from "next/image";
 import Link from "next/link";
+import PageContact from "@/components/mmg/PageContact";
+import PageReviews from "@/components/mmg/PageReviews";
+import RelatedPages from "@/components/mmg/RelatedPages";
 
 export const metadata: Metadata = {
   title: "Meet Michael Martin — Raleigh Mortgage Advisor",
@@ -24,7 +27,7 @@ export default function Page() {
       <h1 style={{ fontSize: "clamp(38px,5vw,62px)" }}>Mortgage guy is what I do. <em>It&apos;s not who I am.</em></h1>
       <p className="lead">I grew up around this business. My mom was a Realtor for over 30 years. My dad was a builder, architect and developer most of his life. And I hated finance class in college — which makes what happened next pretty funny.</p>
       <div className="hero-ctas">
-      <Link className="btn btn-primary" href="/#contact">Start a Conversation</Link>
+      <Link className="btn btn-primary" href="#contact">Start a Conversation</Link>
       <a className="textlink" href="#the-story">The $108,000 Story ↓</a>
       </div>
       <div className="fairway-badge"><span className="pb">Powered by</span><Image priority src="/images/mmg/fairway-logo.png" width={420} height={156} alt="Fairway Home Mortgage" /></div>
@@ -101,13 +104,19 @@ export default function Page() {
       <h2 style={{ fontSize: "clamp(30px,4.2vw,48px)", marginBottom: "16px" }}>Nobody does this alone.</h2>
       <p className="sub">Martin Mortgage Group is built so that every part of your experience has an owner. Meet the people who make the Confidence Chain real.</p>
       <div className="team-banner"><Image src="/images/mmg/team-banner-about.jpg" width={1300} height={731} alt="The Martin Mortgage Group team" sizes="(max-width: 1180px) 100vw, 1180px" /></div>
-      <Link className="btn btn-primary" href="/#team">Meet the MMG Team</Link>
+      <div className="team-grid" id="team">
+      <div className="tm-card fade-up"><div className="tm-photo"><Image src="/images/mmg/team-michael-martin.jpg" width={400} height={400} alt="Michael Martin" sizes="(max-width: 560px) 100vw, (max-width: 900px) 45vw, 220px" /></div><h3>Michael Martin</h3><div className="role">Advisor &amp; Strategist</div><p>Owns your strategy. The plan, the options, the honest advice.</p></div>
+      <div className="tm-card fade-up"><div className="tm-photo"><Image src="/images/mmg/team-nicole-blakeman.jpg" width={400} height={400} alt="Nicole Blakeman" sizes="(max-width: 560px) 100vw, (max-width: 900px) 45vw, 220px" /></div><h3>Nicole Blakeman</h3><div className="role">Partner</div><p>Owns momentum. Keeps your file, your Realtor and your timeline aligned.</p></div>
+      <div className="tm-card fade-up"><div className="tm-photo"><Image src="/images/mmg/team-jodie-stueve.jpg" width={400} height={400} alt="Jodie Stueve" sizes="(max-width: 560px) 100vw, (max-width: 900px) 45vw, 220px" /></div><h3>Jodie Stueve</h3><div className="role">Operations</div><p>Owns the details. Documentation, deadlines and the path to clear-to-close.</p></div>
+      <div className="tm-card fade-up"><div className="tm-photo"><Image src="/images/mmg/team-christy-evans.jpg" width={400} height={400} alt="Christy Evans" sizes="(max-width: 560px) 100vw, (max-width: 900px) 45vw, 220px" /></div><h3>Christy Evans</h3><div className="role">Executive Assistant</div><p>Owns access. Keeps Michael available, responsive and focused on your strategy.</p></div>
+      <div className="tm-card fade-up"><div className="tm-photo"><Image src="/images/mmg/team-alex-jamieson.jpg" width={400} height={400} alt="Alex Jamieson" sizes="(max-width: 560px) 100vw, (max-width: 900px) 45vw, 220px" /></div><h3>Alex Jamieson</h3><div className="role">Client Experience</div><p>Owns the experience. Events, touches and the relationship after closing.</p></div>
+      </div>
       </div>
       </section>
       {/* VIDEO — Script 7 — Meet Michael. Drop the YouTube ID (or a self-hosted src)
           on the VideoEmbed below once the studio edit is delivered:
           <VideoEmbed title="…" youtubeId="abc123" /> */}
-      <section className="video-section">
+      <section className="video-section on-ivory">
       <div className="wrap">
       <div className="vs-head">
       <div className="eyebrow">Michael&apos;s Story</div>
@@ -117,15 +126,24 @@ export default function Page() {
       <VideoEmbed title="The $108,000 house" />
       </div>
       </section>
+      <PageReviews
+        eyebrow="Client Reviews"
+        title="What it's like to work with Michael and the team."
+        names={["Tyler Hollett", "Anthony Tramondo", "Amanda Viele"]}
+      />
       <section className="final">
       <div className="wrap">
       <h2>Come tell me what you&apos;re trying to do.</h2>
       <p>Twenty-plus years in, the first conversation is still my favorite part of the job. No pressure, no pitch — just your situation and your options, in plain English.</p>
       <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-      <Link className="btn btn-primary" href="/#contact">Start a Conversation</Link>
+      <Link className="btn btn-primary" href="#contact">Start a Conversation</Link>
       </div>
       </div>
       </section>
+      <PageContact
+        sub="Send a note and a real person from MMG will follow up — usually the same business day. Prefer to talk now? Call or text anytime."
+      />
+      <RelatedPages hrefs={["/mmg-way", "/first-time-buyers", "/homeowners"]} />
     </>
   );
 }

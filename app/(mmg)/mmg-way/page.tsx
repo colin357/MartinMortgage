@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import VideoEmbed from "@/components/mmg/VideoEmbed";
 import Image from "next/image";
 import Link from "next/link";
+import PageContact from "@/components/mmg/PageContact";
+import PageReviews from "@/components/mmg/PageReviews";
+import RelatedPages from "@/components/mmg/RelatedPages";
 
 export const metadata: Metadata = {
   title: "The MMG Way — A Mortgage Process Built Around Confidence",
@@ -24,7 +27,7 @@ export default function Page() {
       <h1 style={{ fontSize: "clamp(40px,5.4vw,66px)" }}>A Mortgage Process Built Around <em>Confidence.</em></h1>
       <p className="lead">Most mortgage companies are built around processing loans. Martin Mortgage Group is built around something different: making sure you understand what&apos;s happening, why it&apos;s happening, and what happens next — at every single step.</p>
       <div className="hero-ctas">
-      <Link className="btn btn-primary" href="/#contact">Start a Conversation</Link>
+      <Link className="btn btn-primary" href="#contact">Start a Conversation</Link>
       <a className="textlink" href="#chain">See How It Works ↓</a>
       </div>
       <div className="fairway-badge"><span className="pb">Powered by</span><Image priority src="/images/mmg/fairway-logo.png" width={420} height={156} alt="Fairway Home Mortgage" /></div>
@@ -165,10 +168,15 @@ export default function Page() {
       </div>
       </div>
       </section>
+      <PageReviews
+        eyebrow="The Confidence Chain, In Their Words"
+        title="“They kept me updated every step of the way.”"
+        names={["Kayla Beckman", "Tyler Hollett", "Amanda Viele"]}
+      />
       {/* VIDEO — Script 2 — The MMG Way. Drop the YouTube ID (or a self-hosted src)
           on the VideoEmbed below once the studio edit is delivered:
           <VideoEmbed title="…" youtubeId="abc123" /> */}
-      <section className="video-section">
+      <section className="video-section on-ivory">
       <div className="wrap">
       <div className="vs-head">
       <div className="eyebrow">See It In Action</div>
@@ -183,11 +191,16 @@ export default function Page() {
       <h2>Experience it for yourself.</h2>
       <p>The Confidence Chain starts with one conversation about what you&apos;re trying to accomplish. No pressure. No obligation.</p>
       <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-      <Link className="btn btn-primary" href="/#contact">Start a Conversation</Link>
+      <Link className="btn btn-primary" href="#contact">Start a Conversation</Link>
       <a className="btn btn-outline on-dark" href="https://fairway.tidalwave.ai/login" target="_blank" rel="noopener">Get Pre-Approved</a>
       </div>
       </div>
       </section>
+      <PageContact
+        title="Experience the Confidence Chain."
+        sub="It starts with one conversation about what you're trying to accomplish. A real person from MMG will follow up — usually the same business day."
+      />
+      <RelatedPages hrefs={["/first-time-buyers", "/move-up-buyers", "/meet-michael"]} />
     </>
   );
 }

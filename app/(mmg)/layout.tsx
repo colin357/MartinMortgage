@@ -43,15 +43,13 @@ const structuredData = {
       logo: `${SITE_URL}/images/mmg/mmg-logo.png`,
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Raleigh",
-        addressRegion: "NC",
+        streetAddress: CONTACT.address.street,
+        addressLocality: CONTACT.address.city,
+        addressRegion: CONTACT.address.state,
+        postalCode: CONTACT.address.zip,
         addressCountry: "US",
       },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: 35.7796,
-        longitude: -78.6382,
-      },
+      hasMap: CONTACT.mapHref,
       areaServed: [
         { "@type": "State", name: "North Carolina" },
         { "@type": "State", name: "South Carolina" },

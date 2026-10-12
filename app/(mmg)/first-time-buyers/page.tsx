@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import VideoEmbed from "@/components/mmg/VideoEmbed";
 import Image from "next/image";
 import Link from "next/link";
+import PageContact from "@/components/mmg/PageContact";
+import PageReviews from "@/components/mmg/PageReviews";
+import RelatedPages from "@/components/mmg/RelatedPages";
 
 export const metadata: Metadata = {
   title: "First-Time Home Buyers in Raleigh, NC",
@@ -123,7 +126,7 @@ export default function Page() {
       <h1 style={{ fontSize: "clamp(38px,5vw,62px)" }}>Your first home comes with a lot of <em>questions.</em></h1>
       <p className="lead">That&apos;s normal. Our job is to help you answer them — in plain English, at your pace, with zero pressure to be further along than you are.</p>
       <div className="hero-ctas">
-      <Link className="btn btn-primary" href="/#contact">Build My Homebuying Plan</Link>
+      <Link className="btn btn-primary" href="#contact">Build My Homebuying Plan</Link>
       <a className="textlink" href="#faqs">Start With the Questions ↓</a>
       </div>
       <div className="hero-meta"><strong>You don&apos;t need to know the answers yet.</strong><br />That&apos;s what the conversation is for.</div>
@@ -173,10 +176,15 @@ export default function Page() {
       </div>
       </div>
       </section>
+      <PageReviews
+        eyebrow="First-Time Buyers"
+        title="They started with &quot;we're not sure we're ready&quot; too."
+        names={["Christian Holcomb", "Mollie Ward"]}
+      />
       {/* VIDEO — Script 3 — First-Time Buyers. Drop the YouTube ID (or a self-hosted src)
           on the VideoEmbed below once the studio edit is delivered:
           <VideoEmbed title="…" youtubeId="abc123" /> */}
-      <section className="video-section">
+      <section className="video-section on-ivory">
       <div className="wrap">
       <div className="vs-head">
       <div className="eyebrow">Watch First</div>
@@ -191,11 +199,17 @@ export default function Page() {
       <h2>You don&apos;t need to have it figured out to start.</h2>
       <p>Most first-time buyers we help started with &quot;we&apos;re not sure we&apos;re ready.&quot; One conversation tells you where you actually stand — and what your path looks like.</p>
       <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-      <Link className="btn btn-primary" href="/#contact">Build My Homebuying Plan</Link>
+      <Link className="btn btn-primary" href="#contact">Build My Homebuying Plan</Link>
       </div>
       <p className="small">No pressure. No obligation. Just a conversation.</p>
       </div>
       </section>
+      <PageContact
+        title="Let's build your homebuying plan."
+        sub="Tell us where you are — even if that's &quot;just starting to think about it.&quot; A real person from MMG will follow up, usually the same business day."
+        goal="Buy my first home"
+      />
+      <RelatedPages hrefs={["/calculators", "/va-buyers", "/financial-literacy"]} />
     </>
   );
 }

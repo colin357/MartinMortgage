@@ -10,9 +10,12 @@ const GOALS = [
   "Buy before selling",
   "Relocate",
   "Build / buy new construction",
+  "Use my VA benefit",
+  "Self-employed / non-traditional income",
   "Refinance",
   "Use home equity",
   "Buy investment property",
+  "Annual mortgage review",
   "I'm not sure yet",
 ];
 
@@ -31,7 +34,12 @@ function camel(key: string) {
   return key.replace(/_([a-z])/g, (_, letter: string) => letter.toUpperCase());
 }
 
-export default function ContactForm() {
+export default function ContactForm({
+  defaultGoal,
+}: {
+  /** Preselects the goal dropdown; must match one of GOALS. */
+  defaultGoal?: string;
+} = {}) {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
@@ -180,7 +188,13 @@ export default function ContactForm() {
     <div className="form-card">
       <form id="mmg-lead-form" onSubmit={onSubmit} onInput={onFirstInput} noValidate>
         <label htmlFor="goal">What are you trying to accomplish?</label>
-        <select id="goal" name="goal" defaultValue={GOALS[0]}>
+        <select
+          id="goal"
+          name="goal"
+          defaultValue={
+            defaultGoal && GOALS.includes(defaultGoal) ? defaultGoal : GOALS[0]
+          }
+        >
           {GOALS.map((goal) => (
             <option key={goal}>{goal}</option>
           ))}

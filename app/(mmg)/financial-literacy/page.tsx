@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import VideoEmbed from "@/components/mmg/VideoEmbed";
 import Image from "next/image";
 import Link from "next/link";
+import HeroPanel from "@/components/mmg/HeroPanel";
+import PageContact from "@/components/mmg/PageContact";
+import RelatedPages from "@/components/mmg/RelatedPages";
 
 export const metadata: Metadata = {
   title: "Financial Literacy — Free Homebuyer Education",
@@ -18,13 +21,27 @@ export default function Page() {
   return (
     <>
       <header className="hero page-hero" style={{ padding: "182px 0 90px" }}>
-      <div className="wrap">
-      <div style={{ maxWidth: "780px" }}>
+      <div className="wrap hero-grid">
+      <div>
       <div className="eyebrow">Financial Literacy</div>
-      <h1 style={{ fontSize: "clamp(38px,5vw,62px)" }}>Nobody taught us how to buy a home. <em>Let&apos;s fix that.</em></h1>
-      <p className="lead" style={{ maxWidth: "660px" }}>Most people learn about mortgages the expensive way — in the middle of the biggest purchase of their life. Michael is an Ambassador for FirstHome IQ, a 501(c)(3) nonprofit closing the homeownership education gap, because he believes this stuff should be taught before you need it. Every resource below is free.</p>
+      <h1 style={{ fontSize: "clamp(36px,4.6vw,58px)" }}>Nobody taught us how to buy a home. <em>Let&apos;s fix that.</em></h1>
+      <p className="lead" style={{ maxWidth: "560px" }}>Most people learn about mortgages the expensive way — in the middle of the biggest purchase of their life. Michael is an Ambassador for FirstHome IQ, a 501(c)(3) nonprofit closing the homeownership education gap, because he believes this stuff should be taught before you need it. Every resource below is free.</p>
+      <div className="hero-ctas"><a className="btn btn-primary" href="#resources">Explore the Free Resources</a></div>
       <div className="fairway-badge"><span className="pb">Powered by</span><Image priority src="/images/mmg/fairway-logo.png" width={420} height={156} alt="Fairway Home Mortgage" /></div>
       </div>
+      <HeroPanel
+        label="Free From FirstHome IQ"
+        title="Learn it before you need it."
+        items={[
+          "A 5-minute Homebuyer IQ quiz",
+          "Rent-vs-own and affordability calculators",
+          "Budget and home wishlist worksheets",
+          "Three full courses with videos",
+          "Ready-to-use materials for educators",
+        ]}
+        footStat="$0"
+        footText="Every resource is free. No sales pitch attached."
+      />
       </div>
       </header>
       <section className="values" style={{ paddingTop: "0" }}>
@@ -103,11 +120,16 @@ export default function Page() {
       <h2>Learned something? Have questions the tools can&apos;t answer?</h2>
       <p>Education first, always. And when you&apos;re ready to talk about your actual situation, that conversation is free too.</p>
       <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-      <Link className="btn btn-primary" href="/#contact">Start a Conversation</Link>
+      <a className="btn btn-primary" href="#contact">Start a Conversation</a>
       </div>
       <p className="small">No pressure. No obligation. Just a conversation.</p>
       </div>
       </section>
+      <PageContact
+        title="Have a question the tools can't answer?"
+        sub="Ask us anything — buying this year, buying someday, or just trying to understand how it all works. A real person from MMG will follow up, usually the same business day."
+      />
+      <RelatedPages hrefs={["/first-time-buyers", "/calculators", "/meet-michael"]} />
     </>
   );
 }
