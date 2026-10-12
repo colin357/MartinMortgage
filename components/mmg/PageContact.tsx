@@ -32,8 +32,13 @@ export default function PageContact({
               <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
             </div>
             <div>
-              <div className="lbl">Home Base</div>
-              Raleigh, North Carolina
+              <div className="lbl">Office</div>
+              <a href={CONTACT.mapHref} target="_blank" rel="noopener">
+                {CONTACT.address.street}
+                <br />
+                {CONTACT.address.city}, {CONTACT.address.state}{" "}
+                {CONTACT.address.zip}
+              </a>
               <br />
               Licensed in NC, SC, VA &amp; GA
             </div>

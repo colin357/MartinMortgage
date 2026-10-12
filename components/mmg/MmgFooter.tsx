@@ -80,6 +80,14 @@ export default function MmgFooter() {
                 <a href={CONTACT.webHref}>{CONTACT.web}</a>
               </li>
               <li>
+                <a href={CONTACT.mapHref} target="_blank" rel="noopener">
+                  {CONTACT.address.street}
+                  <br />
+                  {CONTACT.address.city}, {CONTACT.address.state}{" "}
+                  {CONTACT.address.zip}
+                </a>
+              </li>
+              <li>
                 <Link href="/#contact">Start a Conversation</Link>
               </li>
             </ul>

@@ -73,4 +73,12 @@ export const CONTACT = {
   webHref: "https://www.YourNCLender.com",
   preApproval: "https://fairway.tidalwave.ai/login",
   nmls: "NMLS #131445",
+  address: {
+    street: "7721 Six Forks Rd Ste 120",
+    city: "Raleigh",
+    state: "NC",
+    zip: "27615",
+  },
+  mapHref:
+    "https://www.google.com/maps/search/?api=1&query=7721+Six+Forks+Rd+Ste+120+Raleigh+NC+27615",
 } as const;
