@@ -12,6 +12,15 @@ interface WebinarFormProps {
   /** Sentence under "You're registered!" — say when the session runs. */
   confirmation?: string;
   submitLabel?: string;
+  /**
+   * Zoom registration page for the webinar. When set, the thank-you panel
+   * sends the attendee there to claim their Zoom seat and join link.
+   */
+  zoomRegistrationUrl?: string;
+  /** Ask for the attendee's brokerage — for agent-facing events. */
+  showBrokerage?: boolean;
+  /** Show the "we'll only use your info…" line under the button. */
+  showPrivacyNote?: boolean;
 }
 
 export default function WebinarForm({
@@ -21,6 +30,9 @@ export default function WebinarForm({
   subheadline = "Free to attend. Takes about 20 seconds.",
   confirmation = "We\u2019ll email you the webinar link and send a reminder before we go live. See you Tuesday, August 25 at 1:00 PM.",
   submitLabel = "Reserve My Free Seat",
+  zoomRegistrationUrl,
+  showBrokerage = false,
+  showPrivacyNote = true,
 }: WebinarFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
@@ -93,11 +105,27 @@ export default function WebinarForm({
               </svg>
             </div>
             <h3 className="text-xl font-black text-gray-900 mb-3">
-              You&apos;re registered!
+              {zoomRegistrationUrl ? "Almost done!" : "You’re registered!"}
             </h3>
             <p className="text-gray-600 text-sm leading-relaxed max-w-sm mx-auto">
               {confirmation}
             </p>
+
+            {zoomRegistrationUrl && (
+              <div className="mt-6 space-y-3">
+                <p className="text-gray-700 text-sm font-semibold">
+                  One last step: confirm your seat on Zoom.
+                </p>
+                <a
+                  href={zoomRegistrationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary inline-block text-sm px-6 py-2.5"
+                >
+                  Complete My Zoom Registration
+                </a>
+              </div>
+            )}
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="p-6 space-y-4">
@@ -166,6 +194,23 @@ export default function WebinarForm({
               />
             </div>
 
+            {showBrokerage && (
+              <div>
+                <label htmlFor="brokerage" className={labelClass}>
+                  Brokerage
+                </label>
+                <input
+                  id="brokerage"
+                  name="brokerage"
+                  type="text"
+                  autoComplete="organization"
+                  placeholder="Your brokerage"
+                  disabled={isSubmitting}
+                  className={inputClass}
+                />
+              </div>
+            )}
+
             {error && (
               <p className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-lg px-4 py-3">
                 {error}
@@ -180,10 +225,12 @@ export default function WebinarForm({
               {isSubmitting ? "Registering..." : submitLabel}
             </button>
 
-            <p className="text-center text-xs text-gray-400 leading-relaxed">
-              We&apos;ll only use your info to send the webinar link and a
-              reminder.
-            </p>
+            {showPrivacyNote && (
+              <p className="text-center text-xs text-gray-400 leading-relaxed">
+                We&apos;ll only use your info to send the webinar link and a
+                reminder.
+              </p>
+            )}
           </form>
         )}
       </div>

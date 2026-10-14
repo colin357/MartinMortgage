@@ -23,7 +23,7 @@ app/
     <route>/page.tsx  11 more pages
   (legacy)/           campaign landing pages on the original Tailwind design
     layout.tsx        imports globals.css + the old Header/Footer
-    purchase/, refinance/, ai-agent-lab/, rrar-panel/, ...
+    purchase/, refinance/, ai-agent-lab/, rrar-panel/, realtor-webinar/, ...
     home-classic/     the pre-redesign homepage, archived and noindexed
   api/lead/           lead intake (SMS + CRM webhook + email copy)
 ```
