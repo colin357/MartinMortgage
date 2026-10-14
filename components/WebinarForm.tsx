@@ -20,6 +20,8 @@ interface WebinarFormProps {
   zoomWebinar?: ZoomWebinarKey;
   /** Ask for the attendee's brokerage — for agent-facing events. */
   showBrokerage?: boolean;
+  /** Show the "we'll only use your info…" line under the button. */
+  showPrivacyNote?: boolean;
 }
 
 export default function WebinarForm({
@@ -31,6 +33,7 @@ export default function WebinarForm({
   submitLabel = "Reserve My Free Seat",
   zoomWebinar,
   showBrokerage = false,
+  showPrivacyNote = true,
 }: WebinarFormProps) {
   const zoom = zoomWebinar ? zoomWebinars[zoomWebinar] : undefined;
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -257,10 +260,12 @@ export default function WebinarForm({
               {isSubmitting ? "Registering..." : submitLabel}
             </button>
 
-            <p className="text-center text-xs text-gray-400 leading-relaxed">
-              We&apos;ll only use your info to send the webinar link and a
-              reminder.
-            </p>
+            {showPrivacyNote && (
+              <p className="text-center text-xs text-gray-400 leading-relaxed">
+                We&apos;ll only use your info to send the webinar link and a
+                reminder.
+              </p>
+            )}
           </form>
         )}
       </div>

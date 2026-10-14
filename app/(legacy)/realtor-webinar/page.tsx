@@ -173,6 +173,7 @@ export default function RealtorWebinarPage() {
                 webinarName={webinar.name}
                 registrationDate={webinar.registrationDate}
                 showBrokerage
+                showPrivacyNote={false}
                 subheadline="Free for agents. You'll be registered in Zoom automatically."
                 confirmation="See you Wednesday, October 21 at 11:00 AM ET."
               />
