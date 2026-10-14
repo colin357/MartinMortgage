@@ -23,7 +23,7 @@ app/
     <route>/page.tsx  11 more pages
   (legacy)/           campaign landing pages on the original Tailwind design
     layout.tsx        imports globals.css + the old Header/Footer
-    purchase/, refinance/, ai-agent-lab/, rrar-panel/, ...
+    purchase/, refinance/, ai-agent-lab/, rrar-panel/, realtor-webinar/, ...
     home-classic/     the pre-redesign homepage, archived and noindexed
   api/lead/           lead intake (SMS + CRM webhook + email copy)
 ```
@@ -111,6 +111,39 @@ in flight, and swaps to a "What happens next" thank-you panel on success. UTM
 parameters (`utm_*`, `gclid`) are captured on first page load and held in
 `sessionStorage`, so a lead submitted three pages later still carries its
 source. Each submission also sends `leadSource`, `pageUrl` and `referrer`.
+
+## Zoom webinar registration
+
+`/realtor-webinar` registers each signup in Zoom as well as sending the lead.
+`components/WebinarForm.tsx` (with `zoomWebinar` set) posts to
+`/api/lead`, `/api/webinar-registration` (Google Sheet) and
+`/api/zoom-registration` in parallel. The Zoom route looks the webinar up in
+`lib/webinars.ts` and calls Zoom's
+[Add a webinar registrant](https://developers.zoom.us/docs/api/meetings/#tag/webinars/POST/webinars/{webinarId}/registrants)
+API, so Zoom sends its usual confirmation email with the attendee's personal
+join link and calendar invite. The thank-you panel shows that join link.
+
+If Zoom isn't configured or the call fails, the lead still goes through and
+the thank-you panel shows a "Finish Zoom Registration" button linking to
+Zoom's own registration page, so nobody is lost.
+
+**Setup** (must be done by someone with admin rights on the Zoom account that
+hosts the webinar — for the Oct 21 webinar that's `fairwaymc.zoom.us`):
+
+1. Zoom App Marketplace → Develop → Build App → **Server-to-Server OAuth App**.
+2. Add the scope `zoom_webinar:write:registrant:admin` (shown as
+   `webinar:write:admin` on older accounts) and activate the app.
+3. Copy the Account ID, Client ID and Client Secret into Vercel:
+
+```bash
+ZOOM_ACCOUNT_ID=...
+ZOOM_CLIENT_ID=...
+ZOOM_CLIENT_SECRET=...
+```
+
+**Adding another Zoom webinar:** add an entry to `lib/webinars.ts` (webinar ID
+digits only, plus the registration link) and pass its key to
+`<WebinarForm zoomWebinar="..." />`.
 
 ## Analytics
 

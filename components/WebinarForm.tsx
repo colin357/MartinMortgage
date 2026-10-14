@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { zoomWebinars, type ZoomWebinarKey } from "@/lib/webinars";
 
 interface WebinarFormProps {
   /** Written to the lead record and the registration sheet. */
@@ -12,6 +13,13 @@ interface WebinarFormProps {
   /** Sentence under "You're registered!" — say when the session runs. */
   confirmation?: string;
   submitLabel?: string;
+  /**
+   * Also register the attendee in this Zoom webinar (see lib/webinars.ts).
+   * Zoom then sends its own confirmation email with their join link.
+   */
+  zoomWebinar?: ZoomWebinarKey;
+  /** Ask for the attendee's brokerage — for agent-facing events. */
+  showBrokerage?: boolean;
 }
 
 export default function WebinarForm({
@@ -21,9 +29,15 @@ export default function WebinarForm({
   subheadline = "Free to attend. Takes about 20 seconds.",
   confirmation = "We\u2019ll email you the webinar link and send a reminder before we go live. See you Tuesday, August 25 at 1:00 PM.",
   submitLabel = "Reserve My Free Seat",
+  zoomWebinar,
+  showBrokerage = false,
 }: WebinarFormProps) {
+  const zoom = zoomWebinar ? zoomWebinars[zoomWebinar] : undefined;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
+  // Only meaningful when `zoom` is set: the personal join link on success,
+  // or null when the attendee still has to finish on Zoom's own page.
+  const [zoomJoinUrl, setZoomJoinUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -37,7 +51,7 @@ export default function WebinarForm({
     const payload = Object.fromEntries(formData.entries());
 
     try {
-      const [leadResult] = await Promise.allSettled([
+      const [leadResult, , zoomResult] = await Promise.allSettled([
         fetch("/api/lead", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -57,11 +71,23 @@ export default function WebinarForm({
             registrationDate,
           }),
         }),
+        // Register them in Zoom too. If this fails, the thank-you panel
+        // links to Zoom's registration page so they can finish there.
+        zoom
+          ? fetch("/api/zoom-registration", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ ...payload, webinar: zoomWebinar }),
+            }).then((res) => res.json() as Promise<{ joinUrl?: string }>)
+          : Promise.resolve(null),
       ]);
 
       if (leadResult.status === "rejected" || !leadResult.value.ok) {
         throw new Error("Request failed");
       }
+      setZoomJoinUrl(
+        zoomResult.status === "fulfilled" ? zoomResult.value?.joinUrl ?? null : null,
+      );
       setIsComplete(true);
     } catch {
       setIsSubmitting(false);
@@ -93,11 +119,45 @@ export default function WebinarForm({
               </svg>
             </div>
             <h3 className="text-xl font-black text-gray-900 mb-3">
-              You&apos;re registered!
+              {zoom && !zoomJoinUrl ? "Almost done!" : "You’re registered!"}
             </h3>
             <p className="text-gray-600 text-sm leading-relaxed max-w-sm mx-auto">
               {confirmation}
             </p>
+
+            {zoom && zoomJoinUrl && (
+              <div className="mt-6 space-y-3">
+                <p className="text-gray-500 text-xs leading-relaxed max-w-sm mx-auto">
+                  You&apos;re also registered in Zoom — watch for a
+                  confirmation email from Zoom with your personal join link
+                  and calendar invite.
+                </p>
+                <a
+                  href={zoomJoinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary inline-block text-sm px-6 py-2.5"
+                >
+                  Save My Join Link
+                </a>
+              </div>
+            )}
+
+            {zoom && !zoomJoinUrl && (
+              <div className="mt-6 space-y-3">
+                <p className="text-gray-700 text-sm font-semibold">
+                  One last step: confirm your seat on Zoom.
+                </p>
+                <a
+                  href={zoom.registrationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary inline-block text-sm px-6 py-2.5"
+                >
+                  Finish Zoom Registration
+                </a>
+              </div>
+            )}
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="p-6 space-y-4">
@@ -165,6 +225,23 @@ export default function WebinarForm({
                 className={inputClass}
               />
             </div>
+
+            {showBrokerage && (
+              <div>
+                <label htmlFor="brokerage" className={labelClass}>
+                  Brokerage
+                </label>
+                <input
+                  id="brokerage"
+                  name="brokerage"
+                  type="text"
+                  autoComplete="organization"
+                  placeholder="Your brokerage"
+                  disabled={isSubmitting}
+                  className={inputClass}
+                />
+              </div>
+            )}
 
             {error && (
               <p className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-lg px-4 py-3">

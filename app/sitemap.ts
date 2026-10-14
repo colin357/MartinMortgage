@@ -14,6 +14,7 @@ const legacyRoutes: { path: string; priority: number }[] = [
   { path: "/bridge", priority: 0.6 },
   { path: "/retire-in-peace", priority: 0.6 },
   { path: "/investor-webinar", priority: 0.6 },
+  { path: "/realtor-webinar", priority: 0.6 },
   { path: "/ai-agent-lab", priority: 0.6 },
   { path: "/rrar-panel", priority: 0.5 },
   { path: "/local-favorites", priority: 0.5 },
