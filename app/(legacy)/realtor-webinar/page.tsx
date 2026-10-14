@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import WebinarForm from "@/components/WebinarForm";
 import FAQ from "@/components/FAQ";
-import { zoomWebinars } from "@/lib/webinars";
-
-const webinar = zoomWebinars["realtor-oct-21"];
 
 export const metadata: Metadata = {
   title:
@@ -95,12 +92,12 @@ const faqItems = [
   {
     question: "How do I join on October 21?",
     answer:
-      "When you register on this page, you're registered with Zoom automatically. Zoom emails you a confirmation with your personal join link and a calendar invite. At 11:00 AM ET on Wednesday, October 21, click that link to join.",
+      "After you sign up on this page, you'll be taken to finish a quick Zoom registration. Zoom then emails you a confirmation with your personal join link and a calendar invite. At 11:00 AM ET on Wednesday, October 21, click that link to join.",
   },
   {
     question: "I didn't get the Zoom confirmation email. What should I do?",
     answer:
-      "Check your spam or promotions folder for an email from Zoom first. If it isn't there, you can register directly on Zoom's registration page using the link on the confirmation screen, or call or text Michael at (919) 612-9978 and we'll get you sorted.",
+      "Check your spam or promotions folder for an email from Zoom first. If it isn't there, make sure you completed the Zoom registration step after signing up here, or call or text Michael at (919) 612-9978 and we'll get you sorted.",
   },
   {
     question: "Will this be a sales pitch?",
@@ -169,12 +166,12 @@ export default function RealtorWebinarPage() {
 
             <div id="register" className="scroll-mt-28">
               <WebinarForm
-                zoomWebinar="realtor-oct-21"
-                webinarName={webinar.name}
-                registrationDate={webinar.registrationDate}
+                webinarName="Realtor Webinar — Get More Business and Help Your Sellers Move Faster"
+                registrationDate="Oct 21"
+                zoomRegistrationUrl="https://fairwaymc.zoom.us/webinar/register/WN_jNiyDdTXTCuAEr96VIxqBA"
                 showBrokerage
                 showPrivacyNote={false}
-                subheadline="Free for agents. You'll be registered in Zoom automatically."
+                subheadline="Free for agents. Takes about 20 seconds."
                 confirmation="See you Wednesday, October 21 at 11:00 AM ET."
               />
             </div>
@@ -310,8 +307,8 @@ export default function RealtorWebinarPage() {
             Wednesday, October 21 · 11:00 AM ET
           </h2>
           <p className="text-primary-100 mb-8 max-w-xl mx-auto">
-            Register free and you&apos;re signed up in Zoom automatically —
-            your personal join link and calendar invite land in your inbox.
+            Register free, confirm your seat on Zoom, and your personal join
+            link and calendar invite land in your inbox.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#register" className="btn-accent text-sm px-8 py-3">

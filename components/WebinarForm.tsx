@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { zoomWebinars, type ZoomWebinarKey } from "@/lib/webinars";
 
 interface WebinarFormProps {
   /** Written to the lead record and the registration sheet. */
@@ -14,10 +13,10 @@ interface WebinarFormProps {
   confirmation?: string;
   submitLabel?: string;
   /**
-   * Also register the attendee in this Zoom webinar (see lib/webinars.ts).
-   * Zoom then sends its own confirmation email with their join link.
+   * Zoom registration page for the webinar. When set, the thank-you panel
+   * sends the attendee there to claim their Zoom seat and join link.
    */
-  zoomWebinar?: ZoomWebinarKey;
+  zoomRegistrationUrl?: string;
   /** Ask for the attendee's brokerage — for agent-facing events. */
   showBrokerage?: boolean;
   /** Show the "we'll only use your info…" line under the button. */
@@ -31,16 +30,12 @@ export default function WebinarForm({
   subheadline = "Free to attend. Takes about 20 seconds.",
   confirmation = "We\u2019ll email you the webinar link and send a reminder before we go live. See you Tuesday, August 25 at 1:00 PM.",
   submitLabel = "Reserve My Free Seat",
-  zoomWebinar,
+  zoomRegistrationUrl,
   showBrokerage = false,
   showPrivacyNote = true,
 }: WebinarFormProps) {
-  const zoom = zoomWebinar ? zoomWebinars[zoomWebinar] : undefined;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
-  // Only meaningful when `zoom` is set: the personal join link on success,
-  // or null when the attendee still has to finish on Zoom's own page.
-  const [zoomJoinUrl, setZoomJoinUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -54,7 +49,7 @@ export default function WebinarForm({
     const payload = Object.fromEntries(formData.entries());
 
     try {
-      const [leadResult, , zoomResult] = await Promise.allSettled([
+      const [leadResult] = await Promise.allSettled([
         fetch("/api/lead", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -74,23 +69,11 @@ export default function WebinarForm({
             registrationDate,
           }),
         }),
-        // Register them in Zoom too. If this fails, the thank-you panel
-        // links to Zoom's registration page so they can finish there.
-        zoom
-          ? fetch("/api/zoom-registration", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ ...payload, webinar: zoomWebinar }),
-            }).then((res) => res.json() as Promise<{ joinUrl?: string }>)
-          : Promise.resolve(null),
       ]);
 
       if (leadResult.status === "rejected" || !leadResult.value.ok) {
         throw new Error("Request failed");
       }
-      setZoomJoinUrl(
-        zoomResult.status === "fulfilled" ? zoomResult.value?.joinUrl ?? null : null,
-      );
       setIsComplete(true);
     } catch {
       setIsSubmitting(false);
@@ -122,42 +105,24 @@ export default function WebinarForm({
               </svg>
             </div>
             <h3 className="text-xl font-black text-gray-900 mb-3">
-              {zoom && !zoomJoinUrl ? "Almost done!" : "You’re registered!"}
+              {zoomRegistrationUrl ? "Almost done!" : "You’re registered!"}
             </h3>
             <p className="text-gray-600 text-sm leading-relaxed max-w-sm mx-auto">
               {confirmation}
             </p>
 
-            {zoom && zoomJoinUrl && (
-              <div className="mt-6 space-y-3">
-                <p className="text-gray-500 text-xs leading-relaxed max-w-sm mx-auto">
-                  You&apos;re also registered in Zoom — watch for a
-                  confirmation email from Zoom with your personal join link
-                  and calendar invite.
-                </p>
-                <a
-                  href={zoomJoinUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary inline-block text-sm px-6 py-2.5"
-                >
-                  Save My Join Link
-                </a>
-              </div>
-            )}
-
-            {zoom && !zoomJoinUrl && (
+            {zoomRegistrationUrl && (
               <div className="mt-6 space-y-3">
                 <p className="text-gray-700 text-sm font-semibold">
                   One last step: confirm your seat on Zoom.
                 </p>
                 <a
-                  href={zoom.registrationUrl}
+                  href={zoomRegistrationUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary inline-block text-sm px-6 py-2.5"
                 >
-                  Finish Zoom Registration
+                  Complete My Zoom Registration
                 </a>
               </div>
             )}
