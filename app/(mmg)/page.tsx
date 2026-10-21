@@ -14,7 +14,7 @@ const pathways = [
   { title: "Buy My First Home", blurb: "I need someone to show me where to start.", href: "/first-time-buyers" },
   { title: "Buy My Next Home", blurb: "I already own and need a strategy for what’s next.", href: "/move-up-buyers" },
   { title: "Buy Before I Sell", blurb: "I found the next house but still own my current one.", href: "/move-up-buyers" },
-  { title: "Relocate", blurb: "I’m moving to NC, SC, VA or GA and need a mortgage team on the ground.", href: "/relocation" },
+  { title: "Relocate", blurb: "I’m moving to NC, SC or VA and need a mortgage team on the ground.", href: "/relocation" },
   { title: "Build or Buy New", blurb: "New construction, building or renovating, and I want to understand the financing.", href: "/new-construction-renovation" },
   { title: "Use My Home Equity", blurb: "I want to understand what my equity could help me accomplish.", href: "/homeowners#equity" },
   { title: "Self-Employed or Investing", blurb: "My income doesn’t fit in a box, or I want the property to qualify on its rents.", href: "/flexible-financing" },
@@ -33,11 +33,11 @@ export const metadata: Metadata = {
   title: {
     absolute: "Michael Martin — Raleigh Mortgage Advisor | Martin Mortgage Group",
   },
-  description: "Martin Mortgage Group helps homebuyers and homeowners understand their options, build the right mortgage strategy, and move forward with confidence. Licensed in NC, SC, VA & GA. Rooted in Raleigh.",
+  description: "Martin Mortgage Group helps homebuyers and homeowners understand their options, build the right mortgage strategy, and move forward with confidence. Licensed in NC, SC & VA. Rooted in Raleigh.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Michael Martin — Raleigh Mortgage Advisor | Martin Mortgage Group",
-    description: "Martin Mortgage Group helps homebuyers and homeowners understand their options, build the right mortgage strategy, and move forward with confidence. Licensed in NC, SC, VA & GA. Rooted in Raleigh.",
+    description: "Martin Mortgage Group helps homebuyers and homeowners understand their options, build the right mortgage strategy, and move forward with confidence. Licensed in NC, SC & VA. Rooted in Raleigh.",
     url: "/",
   },
 };
@@ -57,7 +57,7 @@ export default function Page() {
       </div>
       <div className="hero-meta">
       <strong>Martin Mortgage Group</strong><br />
-              Licensed across NC, SC, VA &amp; GA. Rooted in Raleigh.
+              Licensed across NC, SC &amp; VA. Rooted in Raleigh.
             </div>
       </div>
       <div className="hero-photo">
@@ -276,7 +276,7 @@ export default function Page() {
       <div><div className="lbl">Call or Text</div><a href="tel:9196129978">919-612-9978</a></div>
       <div><div className="lbl">Email</div><a href="mailto:michael.martin@fairwaymc.com">michael.martin@fairwaymc.com</a></div>
       <div><div className="lbl">Web</div><a href="https://www.YourNCLender.com">YourNCLender.com</a></div>
-      <div><div className="lbl">Office</div><a href={CONTACT.mapHref} target="_blank" rel="noopener">{CONTACT.address.street}<br />{CONTACT.address.city}, {CONTACT.address.state} {CONTACT.address.zip}</a><br />Licensed in NC, SC, VA &amp; GA</div>
+      <div><div className="lbl">Office</div><a href={CONTACT.mapHref} target="_blank" rel="noopener">{CONTACT.address.street}<br />{CONTACT.address.city}, {CONTACT.address.state} {CONTACT.address.zip}</a><br />Licensed in NC, SC &amp; VA</div>
       </div>
       </div>
       <ContactForm />

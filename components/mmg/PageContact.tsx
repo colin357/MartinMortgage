@@ -40,7 +40,7 @@ export default function PageContact({
                 {CONTACT.address.zip}
               </a>
               <br />
-              Licensed in NC, SC, VA &amp; GA
+              Licensed in NC, SC &amp; VA
             </div>
           </div>
         </div>

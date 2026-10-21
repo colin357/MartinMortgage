@@ -27,7 +27,7 @@ export default function MmgFooter() {
             </div>
             <p>
               Michael Martin · {CONTACT.nmls}. Helping homebuyers and homeowners
-              across NC, SC, VA &amp; GA make confident, well-planned mortgage
+              across NC, SC &amp; VA make confident, well-planned mortgage
               decisions. Rooted in Raleigh.
             </p>
           </div>
