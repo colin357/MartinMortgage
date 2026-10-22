@@ -8,11 +8,11 @@ import RelatedPages from "@/components/mmg/RelatedPages";
 
 export const metadata: Metadata = {
   title: "Move-Up Buyers — Buy Before You Sell & Move-Up Strategy",
-  description: "Buy before you sell? Sell first? Use your equity? Martin Mortgage Group helps move-up buyers in NC, SC, VA & GA build the right strategy for getting from this house to the next one.",
+  description: "Buy before you sell? Sell first? Use your equity? Martin Mortgage Group helps move-up buyers in NC, SC & VA build the right strategy for getting from this house to the next one.",
   alternates: { canonical: "/move-up-buyers" },
   openGraph: {
     title: "Move-Up Buyers — Buy Before You Sell & Move-Up Strategy | Martin Mortgage Group",
-    description: "Buy before you sell? Sell first? Use your equity? Martin Mortgage Group helps move-up buyers in NC, SC, VA & GA build the right strategy for getting from this house to the next one.",
+    description: "Buy before you sell? Sell first? Use your equity? Martin Mortgage Group helps move-up buyers in NC, SC & VA build the right strategy for getting from this house to the next one.",
     url: "/move-up-buyers",
   },
 };

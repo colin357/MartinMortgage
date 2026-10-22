@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | Martin Mortgage Group",
   },
   description:
-    "Martin Mortgage Group helps homebuyers and homeowners understand their options, build the right mortgage strategy, and move forward with confidence. Licensed in NC, SC, VA & GA. Rooted in Raleigh.",
+    "Martin Mortgage Group helps homebuyers and homeowners understand their options, build the right mortgage strategy, and move forward with confidence. Licensed in NC, SC & VA. Rooted in Raleigh.",
   keywords: [
     "mortgage lender Raleigh NC",
     "home loans Raleigh",

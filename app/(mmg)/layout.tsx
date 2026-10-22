@@ -54,7 +54,6 @@ const structuredData = {
         { "@type": "State", name: "North Carolina" },
         { "@type": "State", name: "South Carolina" },
         { "@type": "State", name: "Virginia" },
-        { "@type": "State", name: "Georgia" },
       ],
       openingHoursSpecification: {
         "@type": "OpeningHoursSpecification",

@@ -8,11 +8,11 @@ import RelatedPages from "@/components/mmg/RelatedPages";
 
 export const metadata: Metadata = {
   title: "Self-Employed & Investor Mortgage Options",
-  description: "Self-employed? Business owner? Real estate investor? Your income doesn't fit in a box — and there are mortgage options built for exactly that. Bank statement, DSCR and asset-based loan options in NC, SC, VA & GA.",
+  description: "Self-employed? Business owner? Real estate investor? Your income doesn't fit in a box — and there are mortgage options built for exactly that. Bank statement, DSCR and asset-based loan options in NC, SC & VA.",
   alternates: { canonical: "/flexible-financing" },
   openGraph: {
     title: "Self-Employed & Investor Mortgage Options | Martin Mortgage Group",
-    description: "Self-employed? Business owner? Real estate investor? Your income doesn't fit in a box — and there are mortgage options built for exactly that. Bank statement, DSCR and asset-based loan options in NC, SC, VA & GA.",
+    description: "Self-employed? Business owner? Real estate investor? Your income doesn't fit in a box — and there are mortgage options built for exactly that. Bank statement, DSCR and asset-based loan options in NC, SC & VA.",
     url: "/flexible-financing",
   },
 };

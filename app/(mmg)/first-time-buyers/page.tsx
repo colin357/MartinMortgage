@@ -8,11 +8,11 @@ import RelatedPages from "@/components/mmg/RelatedPages";
 
 export const metadata: Metadata = {
   title: "First-Time Home Buyers in Raleigh, NC",
-  description: "Your first home comes with a lot of questions. That's normal. Martin Mortgage Group helps first-time buyers in NC, SC, VA & GA understand their options and buy with confidence.",
+  description: "Your first home comes with a lot of questions. That's normal. Martin Mortgage Group helps first-time buyers in NC, SC & VA understand their options and buy with confidence.",
   alternates: { canonical: "/first-time-buyers" },
   openGraph: {
     title: "First-Time Home Buyers in Raleigh, NC | Martin Mortgage Group",
-    description: "Your first home comes with a lot of questions. That's normal. Martin Mortgage Group helps first-time buyers in NC, SC, VA & GA understand their options and buy with confidence.",
+    description: "Your first home comes with a lot of questions. That's normal. Martin Mortgage Group helps first-time buyers in NC, SC & VA understand their options and buy with confidence.",
     url: "/first-time-buyers",
   },
 };

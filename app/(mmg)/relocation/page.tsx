@@ -63,7 +63,7 @@ export default function Page() {
           "Your current home's sale, sequenced",
         ]}
         footStat="4"
-        footText="States we're licensed in: NC, SC, VA & GA"
+        footText="States we're licensed in: NC, SC & VA"
       />
       </div>
       </header>
@@ -117,13 +117,12 @@ export default function Page() {
       <section className="story">
       <div className="wrap">
       <div className="eyebrow on-dark">Licensed Where You&apos;re Landing</div>
-      <h2 style={{ fontSize: "clamp(30px,4.2vw,48px)", color: "#fff", maxWidth: "840px", marginBottom: "16px" }}>Rooted in Raleigh. Licensed across NC, SC, VA &amp; GA.</h2>
-      <p style={{ color: "rgba(255,255,255,.78)", maxWidth: "660px", fontSize: "16.5px", lineHeight: "1.75" }}>Moving to Charlotte, Charleston, Richmond or Atlanta instead? We&apos;re licensed there too. And if your move takes you somewhere we&apos;re not, we&apos;ll tell you straight and point you to someone good. Relationships first — even when the relationship is a referral.</p>
+      <h2 style={{ fontSize: "clamp(30px,4.2vw,48px)", color: "#fff", maxWidth: "840px", marginBottom: "16px" }}>Rooted in Raleigh. Licensed across NC, SC &amp; VA.</h2>
+      <p style={{ color: "rgba(255,255,255,.78)", maxWidth: "660px", fontSize: "16.5px", lineHeight: "1.75" }}>Moving to Charlotte, Charleston or Richmond instead? We&apos;re licensed there too. And if your move takes you somewhere we&apos;re not, we&apos;ll tell you straight and point you to someone good. Relationships first — even when the relationship is a referral.</p>
       <div className="state-grid">
       <div className="state fade-up"><div className="st">NC</div><div className="sn">North Carolina</div><p>Home base. Raleigh, Durham, Chapel Hill, Charlotte, the coast and the mountains.</p></div>
       <div className="state fade-up"><div className="st">SC</div><div className="sn">South Carolina</div><p>Charleston, Greenville, Columbia, Myrtle Beach and everywhere between.</p></div>
       <div className="state fade-up"><div className="st">VA</div><div className="sn">Virginia</div><p>Richmond, Hampton Roads, Northern Virginia and beyond.</p></div>
-      <div className="state fade-up"><div className="st">GA</div><div className="sn">Georgia</div><p>Atlanta, Savannah, Augusta and the rest of the Peach State.</p></div>
       </div>
       </div>
       </section>

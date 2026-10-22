@@ -9,11 +9,11 @@ import RelatedPages from "@/components/mmg/RelatedPages";
 
 export const metadata: Metadata = {
   title: "VA Home Loans — For Veterans & Service Members",
-  description: "You've earned the VA home loan benefit. Martin Mortgage Group helps Veterans and service members in NC, SC, VA & GA understand and use it — with a team that genuinely shows up for the Veteran community.",
+  description: "You've earned the VA home loan benefit. Martin Mortgage Group helps Veterans and service members in NC, SC & VA understand and use it — with a team that genuinely shows up for the Veteran community.",
   alternates: { canonical: "/va-buyers" },
   openGraph: {
     title: "VA Home Loans — For Veterans & Service Members | Martin Mortgage Group",
-    description: "You've earned the VA home loan benefit. Martin Mortgage Group helps Veterans and service members in NC, SC, VA & GA understand and use it — with a team that genuinely shows up for the Veteran community.",
+    description: "You've earned the VA home loan benefit. Martin Mortgage Group helps Veterans and service members in NC, SC & VA understand and use it — with a team that genuinely shows up for the Veteran community.",
     url: "/va-buyers",
   },
 };
@@ -84,7 +84,7 @@ export default function Page() {
       <div className="q-stack">
       <a className="q" href="https://www.thejoelfund.org/about-us/" target="_blank" rel="noopener" style={{ display: "block", textDecoration: "none", color: "inherit" }}>Board member — The Joel Fund ↗</a>
       <a className="q" href="https://americanwarriorinitiative.com/" target="_blank" rel="noopener" style={{ display: "block", textDecoration: "none", color: "inherit" }}>Supporter — American Warrior Initiative ↗</a>
-      <div className="q">Serving Veterans across NC, SC, VA &amp; GA</div>
+      <div className="q">Serving Veterans across NC, SC &amp; VA</div>
       </div>
       </div>
       </div>
