@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import VideoEmbed from "@/components/mmg/VideoEmbed";
 import Image from "next/image";
 import Link from "next/link";
-import HeroPanel from "@/components/mmg/HeroPanel";
+import BreakEven from "@/components/mmg/BreakEven";
 import PageContact from "@/components/mmg/PageContact";
 import PageFaq from "@/components/mmg/PageFaq";
 import PageReviews from "@/components/mmg/PageReviews";
@@ -20,11 +20,26 @@ export const metadata: Metadata = {
 };
 
 const services = [
-  { n: "01", href: "#review", title: "Annual Mortgage Review", blurb: "Fifteen minutes, once a year. Where you stand and whether anything should change." },
-  { n: "02", href: "#equity", title: "Home Equity Strategy", blurb: "What your equity could help you accomplish — and when to leave it alone." },
-  { n: "03", href: "#refinance", title: "Refinance Analysis", blurb: "Break-even math, not marketing. Worth it, or not right now." },
-  { n: "04", href: "#investment", title: "Investment Property", blurb: "Pressure-test the numbers before you fall in love with a duplex." },
-  { n: "05", href: "#moveup", title: "Move-Up Planning", blurb: "Sell first, buy first, and how to avoid moving twice." },
+  { href: "#review", title: "Annual Mortgage Review", blurb: "Fifteen minutes, once a year. Where you stand and whether anything should change." },
+  { href: "#equity", title: "Home Equity Strategy", blurb: "What your equity could help you accomplish — and when to leave it alone." },
+  { href: "#refinance", title: "Refinance Analysis", blurb: "Break-even math, not marketing. Worth it, or not right now." },
+  { href: "#investment", title: "Investment Property", blurb: "Pressure-test the numbers before you fall in love with a duplex." },
+  { href: "#moveup", title: "Move-Up Planning", blurb: "Sell first, buy first, and how to avoid moving twice." },
+];
+
+const changes = [
+  { t: "Rates moved", p: "Up, down, sideways. Whether that matters depends on your rate, your balance and how long you're staying — not the headline." },
+  { t: "Your home's value moved", p: "Equity you didn't have at closing can open doors: PMI removal, a renovation, the next down payment." },
+  { t: "PMI may be done", p: "Plenty of homeowners keep paying mortgage insurance they could ask to remove. It's worth checking." },
+  { t: "Your plans changed", p: "A new baby, a new job, a parent moving in, a business to fund. The mortgage should keep up with the life." },
+];
+
+const reviewRows = [
+  { k: "Balance & amortization", v: "Tracking on schedule", s: "ok" },
+  { k: "Estimated equity", v: "Up since closing", s: "ok" },
+  { k: "Mortgage insurance", v: "May be eligible to remove", s: "flag" },
+  { k: "Refinance", v: "Not worth it right now", s: "ok" },
+  { k: "Coming up", v: "Kitchen remodel in 2 years", s: "plan" },
 ];
 
 const faqs = [
@@ -61,51 +76,77 @@ export default function Page() {
       <div className="wrap hero-grid">
       <div>
       <div className="eyebrow">For Homeowners</div>
-      <h1 style={{ fontSize: "clamp(38px,5vw,60px)" }}>Your mortgage shouldn&apos;t go on autopilot <em>for 30 years.</em></h1>
-      <p className="lead" style={{ maxWidth: "560px" }}>Life changes. Rates change. Equity grows. The mortgage that was right when you closed deserves a check-in now and then — and as an MMG client, that&apos;s part of the deal. Forever.</p>
+      <h1 style={{ fontSize: "clamp(38px,5vw,62px)" }}>Your mortgage shouldn&apos;t go on autopilot <em>for 30 years.</em></h1>
+      <p className="lead">Life changes. Rates change. Equity grows. The mortgage that was right when you closed deserves a check-in now and then — and as an MMG client, that&apos;s part of the deal. Forever.</p>
       <div className="hero-ctas">
       <a className="btn btn-primary" href="#contact">Schedule My Annual Review</a>
       <a className="textlink" href="#services">See What We Cover ↓</a>
       </div>
       <div className="fairway-badge"><span className="pb">Powered by</span><Image priority src="/images/mmg/fairway-logo.png" width={420} height={156} alt="Fairway Home Mortgage" /></div>
       </div>
-      <HeroPanel
-        label="Your Annual Review"
-        title="Fifteen minutes. Once a year. Straight answers."
-        items={[
-          "Payment, balance & amortization check",
-          "Estimated home value and equity position",
-          "PMI removal check, if you're paying it",
-          "Refinance math — only if it benefits you",
-          "A plan for what's coming next",
-        ]}
-        footStat="$0"
-        footText="Included for MMG clients. Open to everyone else."
-      />
+      <div className="hero-photo">
+      <div className="photo-frame"><Image priority src="/images/mmg/michael-mmgway-conversation.jpg" width={900} height={1347} alt="Michael Martin talking through a homeowner's annual mortgage review" sizes="(max-width: 900px) 100vw, 45vw" /></div>
+      <div className="hero-badge">
+      <div className="num">$0</div>
+      <div className="lbl">Annual review for MMG clients</div>
+      </div>
+      </div>
       </div>
       </header>
 
-      <section className="pathways" id="services" style={{ paddingTop: "40px" }}>
+      <section className="trust">
       <div className="wrap">
-      <div className="eyebrow">Closing Isn&apos;t Goodbye</div>
-      <h2 style={{ fontSize: "clamp(30px,4.2vw,48px)", maxWidth: "820px" }}>Five ways we stay in your corner after the keys.</h2>
-      <p className="sub">Most people never hear from their lender again. Our clients hear from us every year — with something useful to say.</p>
-      <div className="jump-grid">
-      {services.map((s) => (
-        <a className="jump fade-up" href={s.href} key={s.href}>
-          <span className="jn">{s.n}</span>
-          <h3>{s.title}</h3>
-          <p>{s.blurb}</p>
-          <span className="go">Learn more ↓</span>
-        </a>
-      ))}
-      <a className="jump dark fade-up" href="#contact">
-        <span className="jn">?</span>
-        <h3>Not sure what you need?</h3>
-        <p>Tell us what&apos;s on your mind. We&apos;ll figure out which conversation it is.</p>
-        <span className="go">Start a conversation →</span>
-      </a>
+      <div className="eyebrow on-dark">The Annual Review, In Short</div>
+      <div className="trust-grid four">
+      <div className="stat fade-up"><div className="num">15 min</div><div className="lbl">Phone or video, once a year</div></div>
+      <div className="stat fade-up"><div className="num">$0</div><div className="lbl">Included for every MMG client</div></div>
+      <div className="stat fade-up"><div className="num">No pull</div><div className="lbl">No credit check to see where you stand</div></div>
+      <div className="stat fade-up"><div className="num">30 yrs</div><div className="lbl">For the life of your loan, not just closing day</div></div>
       </div>
+      </div>
+      </section>
+
+      <section className="problem ho-changes">
+      <div className="wrap">
+      <div className="eyebrow">Since You Closed</div>
+      <h2>You closed on one version of your life. <span className="accent">You&apos;re living in another.</span></h2>
+      <div className="problem-body">
+      <p>Most people never hear from their lender again after closing. Meanwhile, almost everything that shaped the loan has moved.</p>
+      </div>
+      <div className="change-grid">
+      {changes.map((c, i) => (
+        <div className="change fade-up" key={c.t}>
+          <span className="cn">{String(i + 1).padStart(2, "0")}</span>
+          <h3>{c.t}</h3>
+          <p>{c.p}</p>
+        </div>
+      ))}
+      </div>
+      </div>
+      </section>
+
+      <section className="pathways" id="services">
+      <div className="wrap pw-grid">
+      <div className="pw-head">
+      <div className="eyebrow">Closing Isn&apos;t Goodbye</div>
+      <h2>Five ways we stay in your corner after the keys.</h2>
+      <p className="sub">Our clients hear from us every year — with something useful to say. Pick the one that&apos;s on your mind, or just ask.</p>
+      <a className="btn btn-primary" href="#contact">Not Sure? Start Here</a>
+      </div>
+      <ul className="pw-list">
+      {services.map((s, i) => (
+        <li key={s.href}>
+          <a className="pw-row" href={s.href}>
+            <span className="pw-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+            <span className="pw-text">
+              <span className="pw-title">{s.title}</span>
+              <span className="pw-blurb">{s.blurb}</span>
+            </span>
+            <span className="pw-go" aria-hidden="true">↓</span>
+          </a>
+        </li>
+      ))}
+      </ul>
       </div>
       </section>
 
@@ -117,18 +158,28 @@ export default function Page() {
       <div className="ho-sub">Fifteen minutes, once a year. That&apos;s it.</div>
       <p>You review your insurance. Your doctor reviews your health. Your mortgage — probably the largest debt of your life — shouldn&apos;t be the one thing nobody ever looks at again.</p>
       <p>Every year, we&apos;ll look at where you stand and tell you the truth: sometimes &quot;there&apos;s an opportunity here,&quot; and very often &quot;you&apos;re in great shape, don&apos;t touch a thing.&quot; Both answers are worth fifteen minutes.</p>
-      <p style={{ marginTop: "22px" }}><a className="btn btn-primary" href="#contact">Schedule My Annual Review</a></p>
+      <p style={{ marginTop: "26px" }}><a className="btn btn-primary" href="#contact">Schedule My Annual Review</a></p>
       </div>
+      <div className="review-card fade-up">
+      <div className="rc-head">
       <div>
-      <ul className="ho-points">
-      <li>Current balance, payment, and how your amortization is tracking</li>
-      <li>Estimated home value and equity position</li>
-      <li>Whether PMI can come off, if you&apos;re paying it</li>
-      <li>Refinance math — only if it actually benefits you</li>
-      <li>Equity opportunities for goals you have coming up</li>
-      <li>Early planning if a move is on the horizon</li>
+      <div className="rc-label">Your Annual Review</div>
+      <div className="rc-title">What you walk away with</div>
+      </div>
+      <span className="rc-tag">Example</span>
+      </div>
+      <ul className="rc-rows">
+      {reviewRows.map((r) => (
+        <li key={r.k}>
+          <span className="rc-k">{r.k}</span>
+          <span className={`rc-v ${r.s}`}>{r.v}</span>
+        </li>
+      ))}
       </ul>
-      <div className="ho-callout"><strong>&quot;You&apos;re in great shape.&quot;</strong>That&apos;s the most common outcome of an annual review — and it&apos;s a good one. Knowing you don&apos;t need to do anything is worth something too.</div>
+      <div className="rc-verdict">
+      <strong>The verdict: you&apos;re in great shape.</strong>
+      Ask your servicer about dropping PMI, and let&apos;s talk again before the remodel. See you next year.
+      </div>
       </div>
       </div>
       </section>
@@ -148,24 +199,47 @@ export default function Page() {
       </section>
 
       <section className="ho-section white" id="equity">
-      <div className="wrap ho-grid flip">
-      <div>
+      <div className="wrap">
+      <div className="ho-head">
       <div className="eyebrow">02 · Home Equity Strategy</div>
       <h2>Your equity is an asset. Treat it like one.</h2>
-      <div className="ho-sub">What could it help you accomplish?</div>
-      <p>Renovations. Education. Consolidating higher-interest debt. A down payment on the next property. Your equity can potentially help fund goals — but accessing it is a strategy decision, not a transaction.</p>
-      <p>We&apos;ll walk through the options for your situation, the tradeoffs of each, and — importantly — whether touching your equity is the right move at all. Sometimes the answer is &quot;leave it alone.&quot; We&apos;ll tell you that too.</p>
-      <p style={{ marginTop: "22px" }}><a className="textlink" href="#contact">Explore My Equity →</a></p>
+      <p>Renovations. Education. Consolidating higher-interest debt. A down payment on the next property. Your equity can potentially help fund goals — but accessing it is a strategy decision, not a transaction. Here are the three paths we walk through with you.</p>
       </div>
-      <div>
-      <ul className="ho-points">
-      <li>How much equity you actually have — and how much is accessible</li>
-      <li>The different ways to access it, explained in plain English</li>
-      <li>What each option costs, short-term and long-term</li>
-      <li>How each choice affects your monthly picture</li>
-      <li>When keeping your equity untouched is the smarter play</li>
+      <div className="opt-grid">
+      <div className="opt fade-up">
+      <div className="opt-tag">Option A</div>
+      <h3>Cash-out refinance</h3>
+      <div className="opt-sub">Replaces your current mortgage</div>
+      <ul>
+      <li>One loan, one payment</li>
+      <li>Can make sense if today&apos;s terms beat your current ones</li>
+      <li>Trades away your existing rate — matters a lot if you love it</li>
       </ul>
-      <div className="ho-callout"><strong>Cash-out refinance or equity line?</strong>One replaces your mortgage; the other sits alongside it. If you have a rate you love, that difference matters a lot. We&apos;ll show you both.</div>
+      </div>
+      <div className="opt fade-up">
+      <div className="opt-tag">Option B</div>
+      <h3>Home equity line</h3>
+      <div className="opt-sub">Sits alongside your mortgage</div>
+      <ul>
+      <li>Keeps your first mortgage untouched</li>
+      <li>Draw what you need, when you need it</li>
+      <li>Usually a variable rate — plan for it moving</li>
+      </ul>
+      </div>
+      <div className="opt dark fade-up">
+      <div className="opt-tag">Option C</div>
+      <h3>Leave it alone</h3>
+      <div className="opt-sub">Sometimes the smartest play</div>
+      <ul>
+      <li>Your equity keeps building quietly</li>
+      <li>No new costs, no new debt on the house</li>
+      <li>We&apos;ll tell you when this is the right answer</li>
+      </ul>
+      </div>
+      </div>
+      <div className="ho-foot">
+      <p>We&apos;ll show you how much equity you actually have, what each path costs short- and long-term, and how it changes your monthly picture.</p>
+      <a className="textlink" href="#contact">Explore My Equity →</a>
       </div>
       </div>
       </section>
@@ -177,59 +251,59 @@ export default function Page() {
       <h2>Refinancing is math, not marketing.</h2>
       <div className="ho-sub">We&apos;ll run the real numbers.</div>
       <p>You&apos;ve seen the ads. What they never show is the break-even math: what the refinance costs, what it saves, and how long you&apos;d need to keep the loan for it to pay off.</p>
-      <p>We run that math with you, honestly. If a refinance genuinely benefits you, we&apos;ll show you exactly why and how. If it doesn&apos;t, we&apos;ll show you that too — and you&apos;ll know to ignore the ads.</p>
-      <p style={{ marginTop: "22px" }}><a className="textlink" href="#contact">Request My Refinance Analysis →</a></p>
-      </div>
-      <div>
-      <ul className="ho-points">
-      <li>Total cost of the refinance, all-in — no surprises</li>
+      <p>Try it yourself. Then let us run it properly — with your actual loan, the term question (restart the clock or shorten it), and any cash-out considerations. If it doesn&apos;t pay off, you&apos;ll know to ignore the ads.</p>
+      <ul className="ho-ticks">
+      <li>Total cost, all-in — no surprises</li>
       <li>Monthly savings and break-even timeline</li>
-      <li>Term strategy: restarting the clock vs. shortening it</li>
-      <li>Cash-out considerations, if that&apos;s on your mind</li>
+      <li>Term strategy and total interest over the life of the loan</li>
       <li>A straight answer: worth it, or not right now</li>
       </ul>
-      <div className="ho-callout"><strong>The break-even question</strong>Total cost of the refinance ÷ monthly savings = months to break even. If you&apos;ll keep the loan well past that point, it may be worth a closer look. If not, it probably isn&apos;t.</div>
+      <p style={{ marginTop: "26px" }}><a className="btn btn-primary" href="#contact">Request My Refinance Analysis</a></p>
       </div>
+      <BreakEven />
       </div>
       </section>
 
-      <section className="ho-section" id="investment">
-      <div className="wrap ho-grid flip">
-      <div>
-      <div className="eyebrow">04 · Investment Property Financing</div>
-      <h2>Thinking about becoming a landlord?</h2>
-      <div className="ho-sub">Let&apos;s pressure-test the numbers first.</div>
-      <p>Rental property can be a powerful wealth builder — and an expensive lesson when the numbers were never real. Before you fall in love with a duplex, we&apos;ll walk through how investment financing actually works and what the full financial picture looks like.</p>
-      <p>Down payment requirements, reserves, how rental income factors in, and how this purchase fits alongside your current mortgage. Strategy first, property second.</p>
-      <p style={{ marginTop: "22px" }}><a className="textlink" href="#contact">Talk Investment Strategy →</a> <span style={{ margin: "0 10px", color: "var(--slate)" }}>·</span> <Link className="textlink" href="/flexible-financing">DSCR &amp; Investor Loans →</Link></p>
+      <section className="ho-section" style={{ borderBottom: "none" }}>
+      <div className="wrap">
+      <div className="ho-head">
+      <div className="eyebrow">04 &amp; 05 · What&apos;s Next</div>
+      <h2>Thinking about the next property?</h2>
+      <p>Whether it&apos;s a rental or the next family home, the strategy starts with the house you already own.</p>
       </div>
-      <div>
-      <ul className="ho-points">
+      <div className="duo-grid">
+      <div className="duo fade-up" id="investment">
+      <div className="duo-tag">04 · Investment Property</div>
+      <h3>Thinking about becoming a landlord?</h3>
+      <div className="duo-sub">Let&apos;s pressure-test the numbers first.</div>
+      <p>Rental property can be a powerful wealth builder — and an expensive lesson when the numbers were never real. Strategy first, property second.</p>
+      <ul>
       <li>How financing differs for investment properties</li>
-      <li>What lenders look for: reserves, down payment, income</li>
-      <li>Running honest numbers on a property you&apos;re considering</li>
+      <li>Reserves, down payment and how rental income counts</li>
       <li>Using existing equity toward the purchase — pros and cons</li>
       <li>Building toward property number two, three, and beyond</li>
       </ul>
+      <div className="duo-cta">
+      <a className="btn btn-primary" href="#contact">Talk Investment Strategy</a>
+      <Link className="textlink" href="/flexible-financing">DSCR &amp; Investor Loans →</Link>
       </div>
       </div>
-      </section>
-
-      <section className="ho-section white" id="moveup" style={{ borderBottom: "none" }}>
-      <div className="wrap ho-grid">
-      <div>
-      <div className="eyebrow">05 · Move-Up Planning</div>
-      <h2>Outgrowing this house?</h2>
-      <div className="ho-sub">There&apos;s a whole strategy for that.</div>
-      <p>Sell first or buy first? Where does the down payment come from? Can you avoid moving twice? Move-up strategy is its own discipline, and we built a full page for it — including the real story of a family who bought before selling when they didn&apos;t think it was possible.</p>
-      <p style={{ marginTop: "22px" }}><Link className="btn btn-primary" href="/move-up-buyers">Explore Move-Up Strategy</Link></p>
-      </div>
-      <ul className="ho-points">
+      <div className="duo dark fade-up" id="moveup">
+      <div className="duo-tag">05 · Move-Up Planning</div>
+      <h3>Outgrowing this house?</h3>
+      <div className="duo-sub">There&apos;s a whole strategy for that.</div>
+      <p>Sell first or buy first? Where does the down payment come from? Can you avoid moving twice? We built a full page for it — including a real family who bought before selling.</p>
+      <ul>
       <li>Buy-before-you-sell structures, explained</li>
       <li>Turning current equity into the next down payment</li>
       <li>Timing two transactions without losing your mind</li>
-      <li>What &quot;ready&quot; looks like before you start browsing listings</li>
+      <li>What &quot;ready&quot; looks like before you browse listings</li>
       </ul>
+      <div className="duo-cta">
+      <Link className="btn btn-primary" href="/move-up-buyers">Explore Move-Up Strategy</Link>
+      </div>
+      </div>
+      </div>
       </div>
       </section>
 

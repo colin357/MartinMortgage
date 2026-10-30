@@ -93,7 +93,7 @@ export default function MmgLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className={`${fraunces.variable} ${archivo.variable}`}>
+    <div className={`mmg-root ${fraunces.variable} ${archivo.variable}`}>
       {/* Reveal animations are progressive enhancement — without JS the
           content must still be readable, not stuck at opacity 0. */}
       <noscript>
