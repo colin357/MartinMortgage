@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 /**
@@ -10,6 +11,10 @@ import { useEffect } from "react";
  * prefers-reduced-motion is respected: everything is shown immediately.
  */
 export default function Reveal() {
+  // Re-run on client-side navigation: the layout (and this component) stays
+  // mounted, but each new page brings its own .fade-up elements.
+  const pathname = usePathname();
+
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)")
       .matches;
@@ -18,22 +23,32 @@ export default function Reveal() {
       ".fade-up, .q-stack .q",
     );
 
+    // Content ships visible. Only elements that start below the fold are
+    // hidden (.pending) and faded in as they arrive, so nothing is ever blank
+    // for crawlers, full-page screenshots, print, or a slow observer.
     let observer: IntersectionObserver | undefined;
-    if (reduced) {
-      targets.forEach((el) => el.classList.add("visible"));
-    } else {
+    const revealAll = () =>
+      targets.forEach((el) => el.classList.remove("pending"));
+    if (!reduced && "IntersectionObserver" in window) {
       observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
+              entry.target.classList.remove("pending");
               observer?.unobserve(entry.target);
             }
           });
         },
-        { threshold: 0.15 },
+        { rootMargin: "0px 0px -40px 0px" },
       );
-      targets.forEach((el) => observer?.observe(el));
+      const vh = window.innerHeight;
+      targets.forEach((el) => {
+        if (el.getBoundingClientRect().top > vh) {
+          el.classList.add("pending");
+          observer?.observe(el);
+        }
+      });
+      window.addEventListener("beforeprint", revealAll);
     }
 
     // Confidence Chain: fill the line and light up nodes as they scroll past
@@ -71,12 +86,13 @@ export default function Reveal() {
 
     return () => {
       observer?.disconnect();
+      window.removeEventListener("beforeprint", revealAll);
       if (onScroll) {
         window.removeEventListener("scroll", onScroll);
         window.removeEventListener("resize", onScroll);
       }
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }
