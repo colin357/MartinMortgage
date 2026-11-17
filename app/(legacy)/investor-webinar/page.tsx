@@ -5,9 +5,9 @@ import FAQ from "@/components/FAQ";
 
 export const metadata: Metadata = {
   title:
-    "Real Estate Investor Webinar | Financing Your Next Rental | Sep 10, 5:30 PM",
+    "Real Estate Investor Webinar | Financing Your Next Rental | Nov 18, 5:30 PM",
   description:
-    "Free investor webinar: how to finance your next rental property in the Triangle. DSCR loans, down payment and reserve requirements, cash-out refinances and portfolio strategy. Thursday, September 10 at 5:30 PM ET.",
+    "Free investor webinar: how to finance your next rental property in the Triangle. DSCR loans, down payment and reserve requirements, cash-out refinances and portfolio strategy. Wednesday, November 18 at 5:30 PM ET.",
   keywords: [
     "real estate investor webinar Raleigh",
     "DSCR loan webinar",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 };
 
 const details = [
-  { label: "Date", value: "Thursday, September 10" },
+  { label: "Date", value: "Wednesday, November 18" },
   { label: "Time", value: "5:30 PM ET" },
   { label: "Cost", value: "Free to attend" },
   { label: "Where", value: "Online — link sent after you register" },
@@ -110,7 +110,7 @@ const faqItems = [
       "It's an education session, including the cases where borrowing is the wrong move. If you want to talk through your own numbers afterward we're glad to, but nothing on the webinar asks you to commit to anything.",
   },
   {
-    question: "What if I can't make it on September 10?",
+    question: "What if I can't make it on November 18?",
     answer:
       "Register anyway. We'll send the recording to everyone who signs up, so you can watch when it works for you. You can also call or text Michael at (919) 612-9978 with questions any time.",
   },
@@ -130,7 +130,7 @@ export default function InvestorWebinarPage() {
             <div>
               <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-accent-400/20 rounded-full mb-6">
                 <span className="text-accent-200 text-sm font-medium uppercase tracking-widest">
-                  Free Webinar · Thu Sep 10 · 5:30 PM
+                  Free Webinar · Wed Nov 18 · 5:30 PM
                 </span>
               </span>
               <p className="text-accent-300 font-semibold uppercase tracking-widest text-sm mb-3">
@@ -168,9 +168,9 @@ export default function InvestorWebinarPage() {
             <div id="register" className="scroll-mt-28">
               <WebinarForm
                 webinarName="Investor Webinar — Financing Your Next Rental"
-                registrationDate="Sep 10"
+                registrationDate="Nov 18"
                 subheadline="Free to attend. Takes about 20 seconds."
-                confirmation="We’ll email you the webinar link and send a reminder before we go live. See you Thursday, September 10 at 5:30 PM."
+                confirmation="We’ll email you the webinar link and send a reminder before we go live. See you Wednesday, November 18 at 5:30 PM."
               />
             </div>
           </div>
@@ -193,7 +193,7 @@ export default function InvestorWebinarPage() {
             learned on the first three.
           </p>
           <p className="text-gray-600 text-lg leading-relaxed">
-            On Thursday, September 10 we&apos;ll go through the financing
+            On Wednesday, November 18 we&apos;ll go through the financing
             structures investors are actually using in the Triangle right now,
             what each one requires, and how to line up your next purchase before
             you&apos;re under contract with a clock running.
@@ -301,7 +301,7 @@ export default function InvestorWebinarPage() {
       <section className="bg-primary-800 py-16">
         <div className="container-max px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-sans text-2xl md:text-3xl font-black text-white mb-4">
-            Thursday, September 10 · 5:30 PM
+            Wednesday, November 18 · 5:30 PM
           </h2>
           <p className="text-primary-100 mb-8 max-w-xl mx-auto">
             Register free and we&apos;ll send you the webinar link, a reminder
@@ -325,7 +325,7 @@ export default function InvestorWebinarPage() {
       <FAQ
         items={faqItems}
         title="Webinar FAQ"
-        subtitle="Everything you need to know before Thursday, September 10"
+        subtitle="Everything you need to know before Wednesday, November 18"
       />
 
       {/* Disclosure */}
