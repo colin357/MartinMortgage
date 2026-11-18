@@ -132,6 +132,10 @@ export default function Footer() {
             <p className="text-navy-300 text-xs">
               &copy; {new Date().getFullYear()} Martin Mortgage Group. All rights reserved.
               NMLS# 131445 | Fairway Independent Mortgage Corporation NMLS# 2289. Equal Housing Lender.
+              {" "}Designed by{" "}
+              <a href="https://ownitsocial.com" target="_blank" rel="noopener" className="hover:text-white transition-colors">
+                Own It Social
+              </a>
             </p>
             <p className="text-navy-400 text-xs">Raleigh, North Carolina</p>
           </div>
