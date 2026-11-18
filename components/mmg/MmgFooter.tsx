@@ -124,7 +124,10 @@ export default function MmgFooter() {
           property approval. Equal Housing Opportunity.
           <br />
           <br />© {new Date().getFullYear()} Martin Mortgage Group. All rights
-          reserved.
+          reserved. · Designed by{" "}
+          <a href="https://ownitsocial.com" target="_blank" rel="noopener">
+            Own It Social
+          </a>
         </div>
       </div>
     </footer>
