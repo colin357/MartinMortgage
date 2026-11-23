@@ -81,7 +81,7 @@ export default function Page() {
       <div className="stat fade-up"><div className="num">2,500+</div><div className="lbl">Families Served</div></div>
       <div className="stat fade-up"><div className="num">400+</div><div className="lbl">5-Star Google Reviews</div></div>
       <div className="stat fade-up"><div className="num">1,000+</div><div className="lbl">5-Star Online Reviews</div></div>
-      <div className="stat fade-up"><div className="num">Top 1%</div><div className="lbl">Mortgage Originator Since 2019</div></div>
+      <div className="stat fade-up"><div className="num">Top 1%</div><div className="lbl">Scotsman Guide Top Originator Since 2019</div></div>
       <div className="stat fade-up"><div className="num">20+ Yrs</div><div className="lbl">Mortgage Experience</div></div>
       </div>
       </div>
@@ -277,6 +277,7 @@ export default function Page() {
       <div><div className="lbl">Email</div><a href="mailto:michael.martin@fairwaymc.com">michael.martin@fairwaymc.com</a></div>
       <div><div className="lbl">Web</div><a href="https://www.YourNCLender.com">YourNCLender.com</a></div>
       <div><div className="lbl">Office</div><a href={CONTACT.mapHref} target="_blank" rel="noopener">{CONTACT.address.street}<br />{CONTACT.address.city}, {CONTACT.address.state} {CONTACT.address.zip}</a><br />Licensed in NC, SC &amp; VA</div>
+      <div><div className="lbl">Office Hours</div>{CONTACT.hours.days}, {CONTACT.hours.time}<br />{CONTACT.hours.closed}</div>
       </div>
       </div>
       <ContactForm />
