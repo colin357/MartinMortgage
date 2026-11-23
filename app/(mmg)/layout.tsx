@@ -64,9 +64,12 @@ const structuredData = {
           "Thursday",
           "Friday",
         ],
-        opens: "08:00",
-        closes: "18:00",
+        opens: CONTACT.hours.opens,
+        closes: CONTACT.hours.closes,
       },
+      foundingDate: String(CONTACT.yearStarted),
+      award: [...CONTACT.awards],
+      sameAs: [CONTACT.facebook],
     },
     {
       "@type": "Person",
@@ -79,6 +82,8 @@ const structuredData = {
       url: `${SITE_URL}/meet-michael`,
       image: `${SITE_URL}/images/mmg/michael-home-hero.jpg`,
       worksFor: { "@id": `${SITE_URL}/#organization` },
+      award: [...CONTACT.awards],
+      sameAs: [CONTACT.facebook],
     },
   ],
 };

@@ -28,7 +28,11 @@ export default function MmgFooter() {
             <p>
               Michael Martin · {CONTACT.nmls}. Helping homebuyers and homeowners
               across NC, SC &amp; VA make confident, well-planned mortgage
-              decisions. Rooted in Raleigh.
+              decisions. Rooted in Raleigh, serving clients since{" "}
+              {CONTACT.yearStarted}.
+            </p>
+            <p className="foot-awards">
+              <strong>Recognition:</strong> {CONTACT.awards.join(" · ")}
             </p>
           </div>
 
@@ -85,6 +89,18 @@ export default function MmgFooter() {
                   <br />
                   {CONTACT.address.city}, {CONTACT.address.state}{" "}
                   {CONTACT.address.zip}
+                </a>
+              </li>
+              <li className="foot-hours">
+                {CONTACT.hours.days}
+                <br />
+                {CONTACT.hours.time}
+                <br />
+                {CONTACT.hours.closed}
+              </li>
+              <li>
+                <a href={CONTACT.facebook} target="_blank" rel="noopener">
+                  Facebook
                 </a>
               </li>
               <li>

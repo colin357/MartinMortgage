@@ -81,4 +81,17 @@ export const CONTACT = {
   },
   mapHref:
     "https://www.google.com/maps/search/?api=1&query=7721+Six+Forks+Rd+Ste+120+Raleigh+NC+27615",
+  facebook: "https://www.facebook.com/michaeltonyafin",
+  /** Year Michael started in the mortgage business. */
+  yearStarted: 2001,
+  /** Office hours — keep in sync with the Google Business Profile. */
+  hours: {
+    days: "Monday – Friday",
+    time: "8:30 AM – 5:00 PM",
+    closed: "Saturday & Sunday: Closed",
+    opens: "08:30",
+    closes: "17:00",
+  },
+  /** Awards shown on the site and in structured data. */
+  awards: ["Scotsman Guide Top Originator — Top 1% Since 2019"],
 } as const;

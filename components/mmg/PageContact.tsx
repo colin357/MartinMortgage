@@ -42,6 +42,12 @@ export default function PageContact({
               <br />
               Licensed in NC, SC &amp; VA
             </div>
+            <div>
+              <div className="lbl">Office Hours</div>
+              {CONTACT.hours.days}, {CONTACT.hours.time}
+              <br />
+              {CONTACT.hours.closed}
+            </div>
           </div>
         </div>
         <ContactForm defaultGoal={goal} />
